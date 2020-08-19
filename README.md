@@ -8,6 +8,7 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 
 ## Build status
 :stop_sign: Versión no estable.
+![kcibasicimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimage.png)
 
 
 ## Supported Kaspersky Lab Editions
