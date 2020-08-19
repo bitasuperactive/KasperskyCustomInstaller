@@ -1,13 +1,6 @@
 # Overview
 
 <h1><a name="L1"></a>Heading</h1>
-<a name="L2"></a>
-<p><a name="L3"></a>This is a paragraph on line 3.</p>
-<a name="L4"></a>
-<ul>
-  <li><a name="L5"></a>List item on line 5</li>
-  <li><a name="L6"></a>List item on line 6</li>
-</ul>
 
 
 ![kavimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kavimage.jpg)
