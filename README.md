@@ -1,5 +1,5 @@
 # Overview
-![kcibasicimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimage.png)
+![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimage.png)
 
 Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que facilita acceder a todas las funcionalidades de los principales productos domésticos de Kaspersky Lab sin perder un solo euro. Inspirado en mi pobreza, esta herramienta proporciona la forma más sencilla y segura de llevar a cabo esta azaña.
 
@@ -15,17 +15,17 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 * :dragon_face: Kaspersky Internet Security.
 * :dragon: Kasperksy Total Security.
 
-![kavimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kavimage.jpg)
+![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kavimage.jpg)
 
 
 ## Main KCI Utilities
 ### Desinstalación de Kaspersky
-![](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage1.png)
+![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png | width=100)
 
 Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación rápida*) se facilita la desintalación del producto Kaspersky Lab instalado en el sistema operativo del usuario, paso imprescindible para poder modificar los Registros de Windows referentes al Antivirus en cuestión sin perjudicar la seguridad de nuestro equipo.
 
 ### Limpieza del Registro de Windows
-![cleanimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg =250x250)
+![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg =250x250)
 
 De forma automática, purga de las siguientes claves del Registro de Windows permitiéndo renovar licencias de evaluación caducadas:
 > *HKEY_LOCAL_MACHINE\SOFTWARE\KasperskyLab*              
@@ -35,14 +35,14 @@ De forma automática, purga de las siguientes claves del Registro de Windows per
 :information_source: Estas claves de registro se encuentran directamente relaciones con los productos de Kaspersky, modificarlas no afectará de forma alguna al sistema operativo.
 
 ### Asistente de instalación "Online" o "Full-Package"
-![downloadimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png =250x250)
+![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png =250x250)
 
 Mediante el check *Offline setup* descarga automática (directamente de los servidores oficiales de Kaspersky) de la versión completa del asistente de instalación, para aquellos que la versión "común" u "online" no les funciona como debería (velocidad de descarga reducida).
 
 :warning: Se requiere la versión completa del asistente de instalación (*Offline Setup*) para poder realizar una *Instalación Rápida*.
 
 ### Licencias de evaluación funcionales
-![keyimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg =250x250)
+![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg =250x250)
 
 Actualización mensual de las últimas licencias de evaluación funcionales, para alargar esos 31 días siempre que sea posible.
 
@@ -69,6 +69,6 @@ Es imprescindible ejecutar la aplicación como administrador para poder llevar a
 * Código spaguetti.
 
 ### Falsos positivos
-![virustotalimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/virustotalimage.png)
+![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/virustotalimage.png)
 
 [Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca Kaspersky Custom Installer como un troyano "Gen.Variant.MSILPerseus" debido a las funciones automáticas que lleva a cabo el mismo sin informar al usuario, como, por ejemplo, la descarga y ejecución automática del asistente de instalación de Kaspersky Lab (mencionados en el apartado KCI Utilities). Esto es un "falso positivo", mediante el código fuente de la aplicación se puede comprobar el comportamiento de la misma y confirmar esta afirmación.
