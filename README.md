@@ -3,7 +3,7 @@
 
 Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que facilita acceder a todas las funcionalidades de los principales productos domésticos de Kaspersky Lab sin perder un solo euro. Inspirado en mi pobreza, esta herramienta proporciona la forma más sencilla y segura de llevar a cabo esta azaña.
 
-[Build status](9) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Running KCIBasic](https://github.com/bitasuperactive/KCIBasic/readme.md) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/readme.md)
+[Build status][9] | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Running KCIBasic](https://github.com/bitasuperactive/KCIBasic/readme.md) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/readme.md)
 
 
 ## Build status
