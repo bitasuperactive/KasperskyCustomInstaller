@@ -3,14 +3,14 @@
 
 Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que facilita acceder a todas las funcionalidades de los principales productos domésticos de Kaspersky Lab sin perder un solo euro. Inspirado en mi pobreza, esta herramienta proporciona la forma más sencilla y segura de llevar a cabo esta azaña.
 
-[Build status](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#build-status) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Ejecutar KCIBasic](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#ejecutar-kcibasic) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#problemas-sin-resolver)
+[Build status](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#build-status) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Ejecución](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#ejecucion) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#problemas-sin-resolver)
 
 
 ## Build status
 :stop_sign: Versión no estable.
 
 
-## Supported Kaspersky Lab Editions
+## Productos domésticos soportados
 * :turtle: Kaspersky Antivirus.
 * :dragon_face: Kaspersky Internet Security.
 * :dragon: Kasperksy Total Security.
@@ -18,7 +18,7 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 ![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kavimageX.jpg)
 
 
-## Main KCI Utilities
+## Principales utilidades
 <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg" width="150"/>
 
 ### Desinstalación de Kaspersky
@@ -41,7 +41,7 @@ Mediante el check *Offline setup* descarga automática (directamente de los serv
 Actualización mensual de las últimas licencias de evaluación funcionales, para alargar esos 31 días siempre que sea posible.
 
 
-## Other KCI Utilities
+## Otras utilidades
 ### Desinstalación automática de Kaspersky Secure connection
 Si no habilitas el check correspondiente, este producto se desinstalará automáticamente.
 
@@ -54,7 +54,7 @@ Sin necesidad de volver a realizar una instalación habitual o rápida, se inten
 Para no perder los ajustes modificados dentro de la aplicación, esta utilidad permite extraer un archivo *.cfg* el cual podremos reimportar una vez reinstalemos el producto, de esta forma evitamos molestias.
 
 
-## Ejecutar KCIBasic
+## Ejecución
 **Requisitos:**   
 :one: Permisos de Administrador.  
 :two: Conexión a internet.
