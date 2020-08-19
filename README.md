@@ -13,7 +13,7 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 
 ## Supported Kaspersky Lab Editions
 * :turtle: Kaspersky Antivirus.
-* :dragon_face: Kaspersky Internet Security (recomendado).
+* :dragon_face: Kaspersky Internet Security.
 * :dragon: Kasperksy Total Security.
 
 
