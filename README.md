@@ -23,9 +23,9 @@ Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación r�
 
 ### Limpieza del Registro de Windows
 De forma automática, purga de las siguientes claves del Registro de Windows permitiéndo renovar licencias de evaluación caducadas:
-*HKEY_LOCAL_MACHINE\SOFTWARE\KasperskyLab*              
-*HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG*
-*HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates*
+> *HKEY_LOCAL_MACHINE\SOFTWARE\KasperskyLab*              
+> *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG*
+> *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates*
 
 :warning: Este procedimiento altera únicamente registros referentes a la aplicación en cuestión. Registros que no deberían estar ahí pero Kaspersky los deja para evitar renovaciones fraudulentas de licencias.
 
