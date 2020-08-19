@@ -55,8 +55,8 @@ Para no perder los ajustes modificados dentro de la aplicación, esta utilidad p
 
 
 ## Ejecutar KCIBasic
-Requisitos:
-:one: Permisos de Administrador.
+Requisitos:   
+:one: Permisos de Administrador.  
 :two: Conexión a internet.
 
 ### Problemas sin resolver
