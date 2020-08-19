@@ -1,5 +1,5 @@
 # Overview
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/icon.ico" width="128"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimage.png" width="436"/>
+<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/icon.ico" width="256"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimage.png" width="436"/>
 
 ![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimageX.png)
 
