@@ -55,7 +55,7 @@ Para no perder los ajustes modificados dentro de la aplicación, esta utilidad p
 
 
 ## Ejecución
-**Requisitos:**   
+### Requisitos  
 :one: Permisos de Administrador.  
 :two: Conexión a internet.
 
