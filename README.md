@@ -15,8 +15,6 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 * :dragon_face: Kaspersky Internet Security.
 * :dragon: Kasperksy Total Security.
 
-![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kavimageX.jpg)
-
 
 ## Principales utilidades
 <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg" width="150"/>
