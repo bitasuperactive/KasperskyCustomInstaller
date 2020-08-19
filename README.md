@@ -12,9 +12,9 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 
 
 ## Supported Kaspersky Lab Editions
-1. :small_red_triangle_down: Kaspersky Antivirus.
-1. :small_orange_diamond: Kaspersky Internet Security (recomendado).
-1. :large_orange_diamond: Kasperksy Total Security.
+* :turtle: Kaspersky Antivirus.
+* :dragon_face: Kaspersky Internet Security (recomendado).
+* :dragon: Kasperksy Total Security.
 
 
 ## Main KCI Utilities
