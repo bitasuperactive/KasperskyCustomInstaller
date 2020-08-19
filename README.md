@@ -4,6 +4,9 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky la cual
 [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases)
 
 
+![kavimage](https://github.com/bitasuperactive/KCIBasic/blob/master/kaspersky_seguridad_2018_app.jpg)
+
+
 ## Build status
 :information_source: Versión estable próximamente.
 
