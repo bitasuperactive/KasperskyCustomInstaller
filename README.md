@@ -30,7 +30,7 @@ De forma automática, purga de las siguientes claves del Registro de Windows per
 > *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG*
 > *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates*
 
-:information_source: Estas claves de registro se encuentran directamente relaciones con los productos de Kaspersky, modificarlas no afectará de forma alguna al sistema operativo.
+:information_source: Estas claves de registro se encuentran directamente relacionadas con los productos de Kaspersky, modificarlas no afectará de forma alguna al sistema operativo.
 
 ### Asistente de instalación "Online" o "Full-Package"
 Mediante el check *Offline setup* descarga automática (directamente de los servidores oficiales de Kaspersky) de la versión completa del asistente de instalación, para aquellos que la versión "común" u "online" no les funciona como debería (velocidad de descarga reducida).
@@ -54,8 +54,9 @@ Sin necesidad de volver a realizar una instalación habitual o rápida, se inten
 Para no perder los ajustes modificados dentro de la aplicación, esta utilidad permite extraer un archivo *.cfg* el cual podremos reimportar una vez reinstalemos el producto, de esta forma evitamos molestias.
 
 
-## Running KCIBasic
-Es imprescindible ejecutar la aplicación como administrador para poder llevar a cabo las funciones anteriormente mencionadas.
+## Requisitos
+:one: Permisos de Administrador.
+:two: Conexión a internet.
 
 ### Problemas sin resolver
 * Las URLs para los asistentes de instalación completos (*Offline Setups*) no son estables.
