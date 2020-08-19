@@ -27,12 +27,12 @@ De forma automática, purga de las siguientes claves del Registro de Windows per
 > *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG*
 > *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates*
 
-:warning: Este procedimiento altera únicamente registros referentes a la aplicación en cuestión. Registros que no deberían estar ahí pero Kaspersky los deja para evitar renovaciones fraudulentas de licencias.
+:information_source: Estas claves de registro se encuentran directamente relaciones con los productos de Kaspersky, modificarlas no afectará de forma alguna al sistema operativo.
 
 ### Asistente de instalación "Online" o "Full-Package"
 Mediante el check *Offline setup* descarga automática (directamente de los servidores oficiales de Kaspersky) de la versión completa del asistente de instalación, para aquellos que la versión "común" u "online" no les funciona como debería (velocidad de descarga reducida).
 
-:warning: Es necesario descargar la versión completa del asistente de instalación, es decir marcar el check *Offline setup*, para poder realizar una *Instalación rápida*.
+:warning: Se requiere la versión completa del asistente de instalación (*Offline Setup*) para poder realizar una *Instalación Rápida*.
 
 ### Licencias de evaluación funcionales
 Actualización mensual de las últimas licencias de evaluación funcionales, para alargar esos 31 días siempre que sea posible.
@@ -55,11 +55,9 @@ Para no perder los ajustes modificados dentro de la aplicación, esta utilidad p
 Es imprescindible ejecutar la aplicación como administrador para poder llevar a cabo las funciones anteriormente mencionadas.
 
 ### Problemas sin resolver
-:one: Las URLs para los asistentes de instalación completos a veces fallan.
-
-:two: La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
-
-:three: Código spaguetti.
+* :one: Las URLs para los asistentes de instalación completos (*Offline Setups*) no son estables.
+* :two: La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
+* :three: Código spaguetti.
 
 
 ## Falsos positivos
