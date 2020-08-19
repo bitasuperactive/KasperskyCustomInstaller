@@ -8,7 +8,7 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 
 
 ## Build status
-:information_source: Versión estable próximamente.
+:stop_sign: Versión no estable.
 
 
 ## Supported Kaspersky Lab Editions
