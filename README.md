@@ -17,14 +17,14 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 
 ![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kavimage.jpg)
 
+<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="180"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg" width="150"/>
+
 
 ## Main KCI Utilities
 ### Desinstalación de Kaspersky
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/> Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación rápida*) se facilita la desintalación del producto Kaspersky Lab instalado en el sistema operativo del usuario, paso imprescindible para poder modificar los Registros de Windows referentes al Antivirus en cuestión sin perjudicar la seguridad de nuestro equipo.
+Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación rápida*) se facilita la desintalación del producto Kaspersky Lab instalado en el sistema operativo del usuario, paso imprescindible para poder modificar los Registros de Windows referentes al Antivirus en cuestión sin perjudicar la seguridad de nuestro equipo.
 
 ### Limpieza del Registro de Windows
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg" width="150"/>
-
 De forma automática, purga de las siguientes claves del Registro de Windows permitiéndo renovar licencias de evaluación caducadas:
 > *HKEY_LOCAL_MACHINE\SOFTWARE\KasperskyLab*              
 > *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG*
@@ -33,15 +33,11 @@ De forma automática, purga de las siguientes claves del Registro de Windows per
 :information_source: Estas claves de registro se encuentran directamente relaciones con los productos de Kaspersky, modificarlas no afectará de forma alguna al sistema operativo.
 
 ### Asistente de instalación "Online" o "Full-Package"
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="180"/>
-
 Mediante el check *Offline setup* descarga automática (directamente de los servidores oficiales de Kaspersky) de la versión completa del asistente de instalación, para aquellos que la versión "común" u "online" no les funciona como debería (velocidad de descarga reducida).
 
 :warning: Se requiere la versión completa del asistente de instalación (*Offline Setup*) para poder realizar una *Instalación Rápida*.
 
 ### Licencias de evaluación funcionales
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg" width="150"/>
-
 Actualización mensual de las últimas licencias de evaluación funcionales, para alargar esos 31 días siempre que sea posible.
 
 
