@@ -20,12 +20,12 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 
 ## Main KCI Utilities
 ### Desinstalación de Kaspersky
-![uninstallimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png =250x250)
+![](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png)
 
 Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación rápida*) se facilita la desintalación del producto Kaspersky Lab instalado en el sistema operativo del usuario, paso imprescindible para poder modificar los Registros de Windows referentes al Antivirus en cuestión sin perjudicar la seguridad de nuestro equipo.
 
 ### Limpieza del Registro de Windows
-![cleanimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage1.jpg =250x250)
+![cleanimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg =250x250)
 
 De forma automática, purga de las siguientes claves del Registro de Windows permitiéndo renovar licencias de evaluación caducadas:
 > *HKEY_LOCAL_MACHINE\SOFTWARE\KasperskyLab*              
