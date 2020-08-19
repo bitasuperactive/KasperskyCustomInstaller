@@ -26,10 +26,12 @@ De forma automática, purga de las siguientes claves del Registro de Windows per
 *HKEY_LOCAL_MACHINE\SOFTWARE\KasperskyLab*
 *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG*
 *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates*
+
 :warning: **Este procedimiento altera únicamente registros referentes a la aplicación en cuestión. Registros que no deberían estar ahí pero Kaspersky los deja para evitar renovaciones fraudulentas de licencias.**
 
 ### Asistente de instalación "Online" o "Full-Package"
 Mediante el check "*Offline setup*" descarga automática (directamente de los servidores oficiales de Kaspersky) de la versión completa del asistente de instalación, para aquellos que la versión "común" u "online" no les funciona como debería (velocidad de descarga reducida).
+
 :warning: **Es necesario descargar la versión completa del asistente de instalación, es decir marcar el check "*Offline setup*", para poder realizar una "*Instalación rápida*".**
 
 ### Licencias de evaluación funcionales
@@ -42,6 +44,7 @@ Si no habilitas el check correspondiente, este producto se desinstalará automá
 
 ### Activar Producto
 Sin necesidad de volver a realizar una instalación habitual o rápida, se intentará activar el producto con las licencias de evaluación activas en el momento.
+
 :warning: **Importante actualizar Kaspersky Custom Installer para obtener las últimas licencias.**
 
 #### Extraer Configuración
@@ -53,10 +56,13 @@ Es imprescindible ejecutar la aplicación como administrador para poder llevar a
 
 ### Problemas sin resolver
 :one: Las URLs para los asistentes de instalación completos a veces fallan.
+
 :two: La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
+
 :three: Código spaguetti.
 
 
 ## Falsos positivos
 ![virustotalimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/virustotalimage.png)
+
 [Virus total](www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca Kaspersky Custom Installer como un troyano "Gen.Variant.MSILPerseus", esto es debido a las funciones automáticas que lleva a cabo el mismo sin informar al usuario, como la limpieza del registro de Windows o la descarga y ejecución automática del asistente de instalación de Kaspersky Lab (mencionados en el apartado KCI Utilities). Esto es un "falso positivo", mediante el código fuente de la aplicación se puede comprobar el comportamiento de la misma y confirmar esta afirmación.
