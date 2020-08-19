@@ -59,5 +59,33 @@ namespace KCIBasic.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a YZWEN-98MCX-Z9FV1-9TUSW.
+        /// </summary>
+        internal static string KAV_Licencia {
+            get {
+                return ResourceManager.GetString("KAV_Licencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a YRCJ8-NCRTD-4XKCN-HXZ2K
+        ///.
+        /// </summary>
+        internal static string KIS_Licencia {
+            get {
+                return ResourceManager.GetString("KIS_Licencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a YQG37-CW4MK-HGJBZ-FG9CH.
+        /// </summary>
+        internal static string KTS_Licencia {
+            get {
+                return ResourceManager.GetString("KTS_Licencia", resourceCulture);
+            }
+        }
     }
 }

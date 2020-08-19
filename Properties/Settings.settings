@@ -17,7 +17,7 @@
     <Setting Name="KavSecureConnection" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="KavLicenseUrl" Type="System.String" Scope="User">
+    <Setting Name="KavLicense" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

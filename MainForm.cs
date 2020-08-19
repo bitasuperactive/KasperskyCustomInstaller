@@ -1,9 +1,11 @@
 ﻿using Microsoft.Win32;
+using Mono.Cecil;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -120,17 +122,17 @@ namespace KCIBasic
                 {
                     if (KavEditionInstalled == "Kaspersky Anti-Virus")
                     {
-                        Properties.Settings.Default.KavLicenseUrl = "https://www.tiny.cc/KCI-KAV-License";
+                        Properties.Settings.Default.KavLicense = Properties.Resources.KAV_Licencia;
                     }
 
                     else if (KavEditionInstalled == "Kaspersky Internet Security")
                     {
-                        Properties.Settings.Default.KavLicenseUrl = "https://www.tiny.cc/KCI-KIS-License";
+                        Properties.Settings.Default.KavLicense = Properties.Resources.KIS_Licencia;
                     }
 
                     else if (KavEditionInstalled == "Kaspersky Total Security")
                     {
-                        Properties.Settings.Default.KavLicenseUrl = "https://www.tiny.cc/KCI-KTS-License";
+                        Properties.Settings.Default.KavLicense = Properties.Resources.KTS_Licencia;
                     }
 
                     ActivateButton.Enabled = true;
@@ -235,17 +237,10 @@ namespace KCIBasic
             //await Task.Delay(2000);
             await outputForm.HiddenProcess($@"{AVProot}\avp.com", "UPDATE"); GIF.Visible = false;
 
-            await outputForm.License(StartingLabel);
-
             StartingLabel.Text = "Activando licencia de evaluación del producto";
             await Task.Delay(2000);
 
-            string LicenseKey1;
-            using (var reader = new StreamReader(Path.GetTempPath() + "kavlicense.txt"))
-            {
-                LicenseKey1 = reader.ReadLine();
-            }
-            await outputForm.HiddenProcess("cmd.exe", $"/C echo & \"{MainForm.AVProot}\\avp.com\" LICENSE /ADD {LicenseKey1}");
+            await outputForm.HiddenProcess("cmd.exe", $"/C echo & \"{MainForm.AVProot}\\avp.com\" LICENSE /ADD {Properties.Settings.Default.KavLicense}");
 
             if (MainForm.LocalMachine32View.OpenSubKey(@"SOFTWARE\KasperskyLab\WmiHlp").GetValueNames().Contains("IsReportedExpired"))
             {

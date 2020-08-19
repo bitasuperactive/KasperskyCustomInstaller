@@ -189,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\KAV Licencia.txt" />
+    <None Include="Resources\KTS Licencia.txt" />
+    <None Include="Resources\KIS Licencia.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
