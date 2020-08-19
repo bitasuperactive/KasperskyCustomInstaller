@@ -55,9 +55,9 @@ Para no perder los ajustes modificados dentro de la aplicación, esta utilidad p
 Es imprescindible ejecutar la aplicación como administrador para poder llevar a cabo las funciones anteriormente mencionadas.
 
 ### Problemas sin resolver
-* :one: Las URLs para los asistentes de instalación completos (*Offline Setups*) no son estables.
-* :two: La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
-* :three: Código spaguetti.
+* Las URLs para los asistentes de instalación completos (*Offline Setups*) no son estables.
+* La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
+* Código spaguetti.
 
 
 ## Falsos positivos
