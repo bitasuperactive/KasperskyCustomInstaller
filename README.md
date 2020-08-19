@@ -45,12 +45,12 @@ Actualización mensual de las últimas licencias de evaluación funcionales, par
 ### Desinstalación automática de Kaspersky Secure connection
 Si no habilitas el check correspondiente, este producto se desinstalará automáticamente.
 
-### Activar Producto
+### Activar producto
 Sin necesidad de volver a realizar una instalación habitual o rápida, se intentará activar el producto con las licencias de evaluación activas en el momento.
 
 :warning: Importante actualizar Kaspersky Custom Installer para obtener las últimas licencias.
 
-### Extraer Configuración
+### Extraer configuración
 Para no perder los ajustes modificados dentro de la aplicación, esta utilidad permite extraer un archivo *.cfg* el cual podremos reimportar una vez reinstalemos el producto, de esta forma evitamos molestias.
 
 
