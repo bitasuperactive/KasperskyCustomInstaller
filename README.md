@@ -17,7 +17,7 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 
 ![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kavimage.jpg)
 
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="180"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg" width="150"/>
+<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="150"/><img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg" width="150"/>
 
 
 ## Main KCI Utilities
