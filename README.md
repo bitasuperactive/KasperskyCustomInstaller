@@ -56,8 +56,8 @@ Para no perder los ajustes modificados dentro de la aplicación, esta utilidad p
 
 ## Ejecución
 ### Requisitos  
-:one: Permisos de Administrador.  
-:two: Conexión a internet.
+:one:  Permisos de Administrador.  
+:two:  Conexión a internet.
 
 ### Problemas sin resolver
 * Las URLs para los asistentes de instalación completos (*Offline Setups*) no son estables.
