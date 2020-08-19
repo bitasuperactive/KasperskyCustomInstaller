@@ -35,7 +35,7 @@ De forma automática, purga de las siguientes claves del Registro de Windows per
 :information_source: Estas claves de registro se encuentran directamente relaciones con los productos de Kaspersky, modificarlas no afectará de forma alguna al sistema operativo.
 
 ### Asistente de instalación "Online" o "Full-Package"
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="150"/>
+<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="180"/>
 
 Mediante el check *Offline setup* descarga automática (directamente de los servidores oficiales de Kaspersky) de la versión completa del asistente de instalación, para aquellos que la versión "común" u "online" no les funciona como debería (velocidad de descarga reducida).
 
