@@ -30,9 +30,9 @@ De forma automática, purga de las siguientes claves del Registro de Windows per
 :warning: Este procedimiento altera únicamente registros referentes a la aplicación en cuestión. Registros que no deberían estar ahí pero Kaspersky los deja para evitar renovaciones fraudulentas de licencias.
 
 ### Asistente de instalación "Online" o "Full-Package"
-Mediante el check "*Offline setup*" descarga automática (directamente de los servidores oficiales de Kaspersky) de la versión completa del asistente de instalación, para aquellos que la versión "común" u "online" no les funciona como debería (velocidad de descarga reducida).
+Mediante el check *Offline setup* descarga automática (directamente de los servidores oficiales de Kaspersky) de la versión completa del asistente de instalación, para aquellos que la versión "común" u "online" no les funciona como debería (velocidad de descarga reducida).
 
-:warning: Es necesario descargar la versión completa del asistente de instalación, es decir marcar el check "*Offline setup*", para poder realizar una "*Instalación rápida*".
+:warning: Es necesario descargar la versión completa del asistente de instalación, es decir marcar el check *Offline setup*, para poder realizar una *Instalación rápida*.
 
 ### Licencias de evaluación funcionales
 Actualización mensual de las últimas licencias de evaluación funcionales, para alargar esos 31 días siempre que sea posible.
