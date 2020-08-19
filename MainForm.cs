@@ -22,7 +22,6 @@ namespace KCIBasic
         public MainForm()
         {
             InitializeComponent(); //Properties.Settings.Default.Reset();
-            MessageBox.Show("Hi there!");
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
