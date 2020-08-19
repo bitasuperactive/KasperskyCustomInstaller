@@ -4,7 +4,7 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases)
 
 
-![kavimage](https://github.com/bitasuperactive/KCIBasic/blob/master/kaspersky_seguridad_2018_app.jpg)
+![kavimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kavimage.jpg)
 
 
 ## Build status
@@ -60,4 +60,4 @@ Es imprescindible ejecutar la aplicación como administrador para poder llevar a
 ## Falsos positivos
 [Virus total](www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca Kaspersky Custom Installer como un troyano "Gen.Variant.MSILPerseus", esto es debido a las funciones automáticas que lleva a cabo el mismo sin informar al usuario, como la limpieza del registro de Windows o la descarga y ejecución automática del asistente de instalación de Kaspersky Lab (mencionados en el apartado KCI Utilities). Esto es un "falso positivo", mediante el código fuente de la aplicación se puede comprobar el comportamiento de la misma y confirmar esta afirmación.
 
-![virustotalimage](https://github.com/bitasuperactive/KCIBasic/blob/master/virustotal.jpg)
+![virustotalimage](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/virustotalimage.png)
