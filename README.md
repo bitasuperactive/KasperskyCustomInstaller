@@ -1,9 +1,9 @@
 # Overview
 <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/icon.ico" width="192"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimage.png" width="436"/>
 
-Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que facilita acceder a todas las funcionalidades de los principales productos domésticos de Kaspersky Lab sin perder un solo euro. Inspirado en mi pobreza, esta herramienta proporciona la forma más sencilla y segura de llevar a cabo esta azaña.
+Kaspersky Custom Installer es una utilidad para los amantes de la ciberseguridad rusa que facilita acceder a todas las funcionalidades de los principales productos domésticos de Kaspersky Lab sin perder un solo euro. Inspirado en mi pobreza, esta herramienta proporciona la forma más sencilla y segura de llevar a cabo esta azaña.
 
-[Estado](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#estado) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Ejecución](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#ejecución) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#problemas-sin-resolver)
+[Utilidades](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#principales-utilidades) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Ejecución](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#ejecución) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#problemas-sin-resolver)
 
 
 ## Estado
@@ -20,7 +20,9 @@ Kaspersky Custom Installer es una utilidad para los amantes de Kaspersky que fac
 <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg" width="150"/>
 
 ### Desinstalación de Kaspersky
-Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación rápida*) se facilita la desintalación del producto Kaspersky Lab instalado en el sistema operativo del usuario, paso imprescindible para poder modificar los Registros de Windows referentes al Antivirus en cuestión sin perjudicar la seguridad de nuestro equipo.
+Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación rápida*) se facilita la desintalación del producto Kaspersky Lab instalado en el sistema operativo del usuario, función imprescindible para modificar los Registros de Windows referentes al Antivirus en cuestión sin perjudicar la seguridad del equipo.
+
+:information_source: En caso de disponer de otros productos Anti-Malware o en su defecto, Kaspersky Custom Installer saltará este paso y el propio asistente de instalación de Kaspersky Lab informará al usuario de cualquier incompatibilidad o pasos adicionales necesarios.
 
 ### Limpieza del Registro de Windows
 De forma automática, purga de las siguientes claves del Registro de Windows permitiéndo renovar licencias de evaluación caducadas:
@@ -31,25 +33,27 @@ De forma automática, purga de las siguientes claves del Registro de Windows per
 :information_source: Estas claves de registro se encuentran directamente relacionadas con los productos de Kaspersky, modificarlas no afectará de forma alguna al sistema operativo.
 
 ### Asistente de instalación "Online" o "Full-Package"
-Mediante el check *Offline setup* descarga automática (directamente de los servidores oficiales de Kaspersky) de la versión completa del asistente de instalación, para aquellos que la versión "común" u "online" no les funciona como debería (velocidad de descarga reducida).
+Mediante el check box *Offline setup* se descargará automáticamente, desde de los servidores oficiales de Kaspersky, la versión completa del asistente de instalación, de gran utilidad si la versión habitual les presenta problemas.
 
 :warning: Se requiere la versión completa del asistente de instalación (*Offline Setup*) para poder realizar una *Instalación Rápida*.
 
 ### Licencias de evaluación funcionales
-Actualización mensual de las últimas licencias de evaluación funcionales, para alargar esos 31 días siempre que sea posible.
+Actualización mensual de las licencias de evaluación para alargar esos 31 días siempre que sea posible.
 
 
 ## Otras utilidades
 ### Desinstalación automática de Kaspersky Secure connection
-Si no habilitas el check correspondiente, este producto se desinstalará automáticamente.
+Desinstalación automática del producto *Kaspersky Secure connection*.
+
+:information_source: El usuario puede habilitar el check box *Kaspersky Secure connection* para mantener este producto.
 
 ### Activar producto
-Sin necesidad de volver a realizar una instalación habitual o rápida, se intentará activar el producto con las licencias de evaluación activas en el momento.
+Sin necesidad de volver a realizar una instalación habitual o rápida, se intentará activar el producto Kaspersky Lab instalado con las licencias de evaluación activas en el momento.
 
-:warning: Importante actualizar Kaspersky Custom Installer para obtener las últimas licencias.
+:warning: Es necesario actualizar Kaspersky Custom Installer para obtener las últimas licencias disponibles.
 
 ### Extraer configuración
-Para no perder los ajustes modificados dentro de la aplicación, esta utilidad permite extraer un archivo *.cfg* el cual podremos reimportar una vez reinstalemos el producto, de esta forma evitamos molestias.
+Para no perder los ajustes modificados dentro de las aplicaciones Kaspersky Lab, esta utilidad permite extraer un archivo *.cfg* el cual podremos reimportar una vez reinstalemos el producto evitando molestias.
 
 
 ## Ejecución
