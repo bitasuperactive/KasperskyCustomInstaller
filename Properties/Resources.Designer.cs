@@ -70,8 +70,7 @@ namespace KCIBasic.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a YRCJ8-NCRTD-4XKCN-HXZ2K
-        ///.
+        ///   Busca una cadena traducida similar a YRCJ8-NCRTD-4XKCN-HXZ2K.
         /// </summary>
         internal static string KIS_Licencia {
             get {

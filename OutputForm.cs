@@ -28,47 +28,12 @@ namespace KCIBasic
         #region MainThread
         private async void MainThread()
         {
-            if (((MainForm)Owner).KAVRadioButton.Checked)
-            {
-                Properties.Settings.Default.KavEditionToInstall = "Kaspersky Anti-Virus";
-
-                if (((MainForm)Owner).OfflineSetupCheckBox.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://box.kaspersky.com/f/0203108bc5eb4806a22d/?dl=1"; // Kaspersky Lab may ban this URL
-                else
-                    Properties.Settings.Default.KavSetupURL = "https://products.s.kaspersky-labs.com/spanish/homeuser/kav2018/for_reg_es/startup.exe";
-
-                Properties.Settings.Default.KavLicense = Properties.Resources.KAV_Licencia;
-            }
-
-            else if (((MainForm)Owner).KISRadioButton.Checked)
-            {
-                Properties.Settings.Default.KavEditionToInstall = "Kaspersky Internet Security";
-
-                if (((MainForm)Owner).OfflineSetupCheckBox.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://box.kaspersky.com/f/a16a247db28a48039342/?dl=1"; // Kaspersky Lab may ban this URL. chk internet & change url
-                else
-                    Properties.Settings.Default.KavSetupURL = "https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup.exe";
-
-                Properties.Settings.Default.KavLicense = Properties.Resources.KIS_Licencia;
-            }
-
-            else if (((MainForm)Owner).KTSRadioButton.Checked)
-            {
-                Properties.Settings.Default.KavEditionToInstall = "Kaspersky Total Security";
-
-                if (((MainForm)Owner).OfflineSetupCheckBox.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://box.kaspersky.com/f/9046188e18eb401c8219/?dl=1"; // Kaspersky Lab may ban this URL
-                else
-                    Properties.Settings.Default.KavSetupURL = "https://products.s.kaspersky-labs.com/spanish/homeuser/kts2018/for_reg_es/startup.exe";
-
-                Properties.Settings.Default.KavLicense = Properties.Resources.KTS_Licencia;
-            }
-
             try
             {
                 await Uninstall();
                 await Registry();
                 await DownloadSetup();
+                await License(OutputLabel);
                 Properties.Settings.Default.MainThreadDone = true;
                 Properties.Settings.Default.Save();
             }
@@ -188,16 +153,86 @@ namespace KCIBasic
             }
         }
 
-        //public async Task License(Label labelObject)
-        //{
-        //    labelObject.Text = $"Verificando licencias de evaluación disponibles";
-        //    await Task.Delay(2000);
+        public async Task License(Label labelObject)
+        {
+            labelObject.Text = $"Descargando licencias de evaluación (0%)";
+            await Task.Delay(1000);
 
-        //    if (Properties.Resources.KIS_Licencia == string.Empty)
-        //    {
-        //        MessageBox.Show("No existen licencias disponibles.");
-        //    }
-        //}
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    ServicePointManager.Expect100Continue = true;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                    client.DownloadProgressChanged += delegate (object sender, DownloadProgressChangedEventArgs n)
+                    {
+                        labelObject.Text = $"Descargando licencias de evaluación ({n.ProgressPercentage}%)";
+                    };
+                    await client.DownloadFileTaskAsync(Properties.Settings.Default.KavLicenseURL, Path.GetTempPath() + "kavlicenses.txt");
+                    await Task.Delay(1000);
+                }
+
+                using (var reader = new StreamReader(Path.GetTempPath() + "kavlicenses.txt")) // Meh...
+                {
+                    if (Properties.Settings.Default.KavEditionToInstall == "Kaspersky Anti-Virus")
+                    {
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        Properties.Settings.Default.KavLicense = reader.ReadLine();
+                    }
+                    else if (Properties.Settings.Default.KavEditionToInstall == "Kaspersky Internet Security")
+                    {
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        Properties.Settings.Default.KavLicense = reader.ReadLine();
+                    }
+                    else if (Properties.Settings.Default.KavEditionToInstall == "Kaspersky Total Security")
+                    {
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        reader.ReadLine();
+                        Properties.Settings.Default.KavLicense = reader.ReadLine();
+                    }
+                }
+            }
+            catch (WebException)
+            {
+                //MessageBox.Show(this, "No ha sido posible descargar ninguna licencia de evaluación para esta edición de Kaspersky Lab. Puedes activar la versión de evaluación del producto manualmente.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                //if (MainForm.KavEditionInstalled.Equals("Kaspersky Anti-Virus") || Properties.Settings.Default.KavEditionToInstall.Equals("Kaspersky Anti-Virus"))
+                //{
+                //    using (StreamWriter text = File.CreateText(Path.GetTempPath() + "kavlicense.txt"))
+                //    {
+                //        text.WriteLine("YZWEN-98MCX-Z9FV1-9TUSW");
+                //    }
+                //}
+                //else if (MainForm.KavEditionInstalled.Equals("Kaspersky Internet Security") || Properties.Settings.Default.KavEditionToInstall.Equals("Kaspersky Internet Security"))
+                //{
+                //    using (StreamWriter text = File.CreateText(Path.GetTempPath() + "kavlicense.txt"))
+                //    {
+                //        text.WriteLine("YRCJ8-NCRTD-4XKCN-HXZ2K");
+                //    }
+                //}
+                //else if (MainForm.KavEditionInstalled.Equals("Kaspersky Total Security") || Properties.Settings.Default.KavEditionToInstall.Equals("Kaspersky Total Security"))
+                //{
+                //    using (StreamWriter text = File.CreateText(Path.GetTempPath() + "kavlicense.txt"))
+                //    {
+                //        text.WriteLine("YQG37-CW4MK-HGJBZ-FG9CH");
+                //    }
+                //}
+            }
+        }
         #endregion
 
 
@@ -325,7 +360,7 @@ namespace KCIBasic
                     GIF.Enabled = false;
                     MessageBox.Show(this, $"No ha sido posible realizar la desinstalación de Kaspersky Secure Connection. Deberás gestionarlo manualmente.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                    
+
             }
 
 
