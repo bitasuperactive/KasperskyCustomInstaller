@@ -75,12 +75,6 @@ Extrae la configuración  aplicativa del producto mediante un archivo *.cfg* el 
 :warning: Por el momento, es posible que sea necesario añadir KCI al listado de "exclusiones" en Windows Defender y/u otros aplicativos Anti-Malware.
 
 
-## Crédito
-[BITA SuperActive](https://www.youtube.com/channel/UCc-AA6VaZh81DYYCrSAMS5w?)
-
-
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 ## Disclaimer
 *No me hago responsable del uso que se le de a Kaspersky Custom Installer (KCI).  
 **Al usar esta aplicación asumes toda responsabilidad subyacente de la violación del EULA aceptada al instalar los productos Kaspersky Lab.**   
