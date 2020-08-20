@@ -68,7 +68,7 @@ Extrae la configuración  aplicativa del producto mediante un archivo *.cfg* el 
 * Código spaguetti.
 
 ### Falsos positivos
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/virustotalimage.png" width="150"/>
+<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/virustotalimage.png" width="300"/>
 
 [Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca a KCI como un troyano *Gen.Variant.MSILPerseus* debido a las funciones automáticas que lleva a cabo sin intervención del usuario, como, por ejemplo, la descarga y ejecución automática del asistente de instalación para el producto. Esto es un *falso positivo*. Revisando el código fuente podréis comprobar que KCI no lleva a cabo ninguna función maliciosa ni mucho menos propia de un troyano.
 
