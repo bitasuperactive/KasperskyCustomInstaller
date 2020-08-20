@@ -1,11 +1,3 @@
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-*No me hago responsable del uso que se le de a Kaspersky Custom Installer (KCI).  
-**Al usar esta aplicación asumes toda responsabilidad subyacente de la violación del EULA aceptada al instalar los productos Kaspersky Lab.**   
-KCI es simplemente mi primer proyecto personal experimentándo con el lenguaje C# en visual studio.*
-
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 # Overview
 <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/icon.ico" width="192"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimage.png" width="436"/>
 
@@ -81,3 +73,15 @@ Extrae la configuración  aplicativa del producto mediante un archivo *.cfg* el 
 [Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca a KCI como un troyano *Gen.Variant.MSILPerseus* debido a las funciones automáticas que lleva a cabo sin intervención del usuario, como, por ejemplo, la descarga y ejecución automática del asistente de instalación para el producto. Esto es un *falso positivo*. Revisando el código fuente podréis comprobar que KCI no lleva a cabo ninguna función maliciosa ni mucho menos propia de un troyano.
 
 :warning: Por el momento, es posible que sea necesario añadir KCI al listado de "exclusiones" en Windows Defender y/u otros aplicativos Anti-Malware.
+
+
+## Crédito
+[BITA SuperActive](https://www.youtube.com/channel/UCc-AA6VaZh81DYYCrSAMS5w?)
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Disclaimer
+*No me hago responsable del uso que se le de a Kaspersky Custom Installer (KCI).  
+**Al usar esta aplicación asumes toda responsabilidad subyacente de la violación del EULA aceptada al instalar los productos Kaspersky Lab.**   
+KCI es simplemente mi primer proyecto personal experimentándo con el lenguaje C# en visual studio.*
