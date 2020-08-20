@@ -1,4 +1,4 @@
-*No me hago responsable del uso que se le de a esta aplicación.
+*No me hago responsable del uso que se le de a Kaspersky Custom Installer (KCI).
 Al usar esta aplicación asumes toda responsabilidad subyacente de la violación del EULA aceptada al instalar los productos Kaspersky Lab.
 KCI es simplemente mi primer proyecto personal para experimentar con el lenguaje C# en visual studio.*
 
