@@ -33,7 +33,7 @@ De forma automática, purga las siguientes claves del Registro de Windows permit
 :information_source: Estas claves de registro se encuentran directamente relacionadas con el producto, modificarlas no afectará de forma alguna al sistema operativo del usuario.
 
 ### Asistente de instalación "Online" o "Full-Package"
-Mediante el check box *Offline setup* descargará de forma automática, directamente desde de los servidores oficiales del producto, la versión completa del asistente de instalación, función de gran utilidad si la versión habitual presenta problemas de descarga.
+Mediante el check box *Offline setup* descarga de forma automática, directamente desde de los servidores oficiales del producto, la versión completa del asistente de instalación, función de gran utilidad si la versión habitual presenta problemas de descarga.
 
 :warning: Se requiere la versión completa del asistente de instalación del producto (*Offline Setup*) para poder realizar una *Instalación Rápida*.
 
