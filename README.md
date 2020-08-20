@@ -50,7 +50,7 @@ Desinstala automáticamente el producto *Kaspersky Secure connection*.
 ### Activación directa
 Mediante el botón *Activar Producto*, sin necesidad de volver a realizar una instalación habitual o rápida, intentará activar el producto instalado con las licencias de evaluación activas en el momento.
 
-:warning: Es necesario actualizar Kaspersky Custom Installer para obtener las últimas licencias disponibles.
+:warning: Es necesario actualizar KCI para obtener las últimas licencias disponibles.
 
 ### Extraer configuración
 Extrae la configuración  aplicativa del producto mediante un archivo *.cfg* el cual podrá ser reimportado manualmente evitando molestias reconfigurando nuevamente la aplicación.
@@ -70,6 +70,6 @@ Extrae la configuración  aplicativa del producto mediante un archivo *.cfg* el 
 ### Falsos positivos
 ![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/virustotalimage.png)
 
-[Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca a Kaspersky Custom Installer como un troyano *Gen.Variant.MSILPerseus* debido a las funciones automáticas que lleva a cabo sin informar al usuario, como, por ejemplo, la descarga y ejecución automática del asistente de instalación de Kaspersky Lab. Esto es un *falso positivo*. Revisando el código fuente podréis comprobar que esta aplicación no lleva a cabo ninguna función maliciosa ni mucho menos propia de un troyano.
+[Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca a KCI como un troyano *Gen.Variant.MSILPerseus* debido a las funciones automáticas que lleva a cabo sin intervención del usuario, como, por ejemplo, la descarga y ejecución automática del asistente de instalación para el producto. Esto es un *falso positivo*. Revisando el código fuente podréis comprobar que KCI no lleva a cabo ninguna función maliciosa ni mucho menos propia de un troyano.
 
-:warning: Por el momento, es posible que sea necesario añadir Kaspersky Custom Installer a "exclusiones" en Windows Defender u otros aplicativos Anti-Malware.
+:warning: Por el momento, es posible que sea necesario añadir KCI al listado de "exclusiones" en Windows Defender y/u otros aplicativos Anti-Malware.
