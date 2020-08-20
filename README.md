@@ -1,7 +1,7 @@
 # Overview
 <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/icon.ico" width="192"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimage.png" width="436"/>
 
-Kaspersky Custom Installer es una utilidad para los amantes de la ciberseguridad rusa que facilita acceder a todas las funcionalidades de los principales productos domésticos de Kaspersky Lab sin perder un solo euro. Inspirado en mi pobreza, esta herramienta proporciona la forma más sencilla y segura de llevar a cabo esta azaña.
+Kaspersky Custom Installer ("KCI" en adelante) es una utilidad para los amantes de la ciberseguridad rusa que facilita acceder a todas las funcionalidades de los principales productos domésticos de Kaspersky Lab sin perder un solo euro. Inspirado en mi pobreza, esta herramienta proporciona la forma más sencilla y segura de llevar a cabo esta azaña.
 
 [Utilidades](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#principales-utilidades) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Ejecución](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#ejecución) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#problemas-sin-resolver)
 
