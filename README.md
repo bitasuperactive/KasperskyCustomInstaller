@@ -62,11 +62,14 @@ Para no perder los ajustes modificados dentro de las aplicaciones Kaspersky Lab,
 :two: Conexión a internet.
 
 ### Problemas sin resolver
-* Las URLs para los asistentes de instalación completos (*Offline Setups*) no son estables.
+* Detectado como virus troyano *Gen.Variant.MSILPerseus* (falso positivo).
+* Las enlaces de descarga directos para los asistentes de instalación completos (*Offline Setups*) no son estables.
 * La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
 * Código spaguetti.
 
 ### Falsos positivos
 ![image](https://github.com/bitasuperactive/KCIBasic/blob/master/doc/virustotalimage.png)
 
-[Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca Kaspersky Custom Installer como un troyano "Gen.Variant.MSILPerseus" debido a las funciones automáticas que lleva a cabo el mismo sin informar al usuario, como, por ejemplo, la descarga y ejecución automática del asistente de instalación de Kaspersky Lab (mencionados en el apartado KCI Utilities). Esto es un "falso positivo", mediante el código fuente de la aplicación se puede comprobar el comportamiento de la misma y confirmar esta afirmación.
+[Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca a Kaspersky Custom Installer como un troyano *Gen.Variant.MSILPerseus* debido a las funciones automáticas que lleva a cabo sin informar al usuario, como, por ejemplo, la descarga y ejecución automática del asistente de instalación de Kaspersky Lab. Esto es un *falso positivo*. Revisando el código fuente podréis comprobar que esta aplicación no lleva a cabo ninguna función maliciosa ni mucho menos propia de un troyano.
+
+:warning: Es posible que sea necesario añadir Kaspersky Custom Installer a "exclusiones" en Windows Defender u otros aplicativos Anti-Malware.
