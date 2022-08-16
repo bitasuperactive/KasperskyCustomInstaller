@@ -13,7 +13,7 @@ Kaspersky Custom Installer ("KCI" en adelante) es una utilidad para los amantes 
 ## Productos domésticos soportados
 * :turtle: Kaspersky Antivirus.
 * :dragon_face: Kaspersky Internet Security.
-* :dragon: Kasperksy Total Security.
+* :dragon: Kaspersky Total Security.
 
 
 ## Principales utilidades
