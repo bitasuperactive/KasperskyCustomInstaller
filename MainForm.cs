@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using Squirrel;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -16,7 +15,7 @@ namespace KCIBasic
         public static RegistryKey LocalMachine32View { get; set; } = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
         public static RegistryKey LocalMachine64View { get; set; } = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
         public static string AVPversion { get; set; }
-        public static string KavEditionInstalled { get; set; } = "Kaspersky Lab";
+        public static string KavEditionInstalled { get; set; } = "Kaspersky";
         public static string AVProot { get; set; }
         public static string KavGuid { get; set; }
 
@@ -24,13 +23,6 @@ namespace KCIBasic
         {
             InitializeComponent(); //Properties.Settings.Default.Reset();
         }
-        //private async Task CheckForUpdates()
-        //{
-        //    using (var manager = new UpdateManager(PATH_FOR_UPDATE))
-        //    {
-        //        await manager.UpdateApp();
-        //    }
-        //}
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
@@ -68,6 +60,7 @@ namespace KCIBasic
 
         public void OutputForm_FormClosed(object sender, FormClosedEventArgs close)
         {
+            //outputForm = null;
             Application.Exit();
         }
         #endregion
@@ -120,26 +113,22 @@ namespace KCIBasic
                     }
                 }
 
-                //StartingLabel.Text = "Actualizando bases de datos de Kaspersky Lab";
-                //await outputForm.HiddenProcess($@"{AVProot}\avp.com", "UPDATE");
-                //StartingLabel.Text = "Iniciando Kaspersky Custom Installer";
-
                 if (LocalMachine32View.OpenSubKey(@"SOFTWARE\KasperskyLab\WmiHlp").GetValueNames().Contains("IsReportedExpired"))
                 {
-                    //if (KavEditionInstalled == "Kaspersky Anti-Virus")
-                    //{
-                    //    Properties.Settings.Default.KavLicenseUrl = "https://www.tiny.cc/KCI-KAV-License";
-                    //}
+                    if (KavEditionInstalled == "Kaspersky Anti-Virus")
+                    {
+                        Properties.Settings.Default.KavLicenseUrl = "https://www.tiny.cc/KCI-KAV-License";
+                    }
 
-                    //else if (KavEditionInstalled == "Kaspersky Internet Security")
-                    //{
-                    //    Properties.Settings.Default.KavLicenseUrl = "https://www.tiny.cc/KCI-KIS-License";
-                    //}
+                    else if (KavEditionInstalled == "Kaspersky Internet Security")
+                    {
+                        Properties.Settings.Default.KavLicenseUrl = "https://www.tiny.cc/KCI-KIS-License";
+                    }
 
-                    //else if (KavEditionInstalled == "Kaspersky Total Security")
-                    //{
-                    //    Properties.Settings.Default.KavLicenseUrl = "https://www.tiny.cc/KCI-KTS-License";
-                    //}
+                    else if (KavEditionInstalled == "Kaspersky Total Security")
+                    {
+                        Properties.Settings.Default.KavLicenseUrl = "https://www.tiny.cc/KCI-KTS-License";
+                    }
 
                     ActivateButton.Enabled = true;
                 }
@@ -147,6 +136,12 @@ namespace KCIBasic
                 {
                     ActivateButton.Text = "Producto Activado";
                 }
+
+                //if (LocalMachine32View.OpenSubKey($@"SOFTWARE\KasperskyLab\{AVProot}\Data\PatchRollbackDetector") == null)
+                //{
+                //    StartingLabel.Text = "Actualizando bases de datos de Kaspersky Lab";
+                //    await outputForm.HiddenProcess($@"{AVProot}\avp.com", "UPDATE");
+                //}
             }
             else
             {
@@ -172,39 +167,18 @@ namespace KCIBasic
         {
             if (KAVRadioButton.Checked)
             {
-                Properties.Settings.Default.KavEditionToInstall = "Kaspersky Anti-Virus";
-
-                if (OfflineSetupCheckBox.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://box.kaspersky.com/f/0203108bc5eb4806a22d/?dl=1"; // Kaspersky Lab may ban this URL
-                else
-                    Properties.Settings.Default.KavSetupURL = "https://products.s.kaspersky-labs.com/spanish/homeuser/kav2018/for_reg_es/startup.exe";
-
                 KISRadioButton.Font = new Font(KISRadioButton.Font, FontStyle.Regular);
                 KTSRadioButton.Font = new Font(KTSRadioButton.Font, FontStyle.Regular);
                 KAVRadioButton.Font = new Font(KAVRadioButton.Font, FontStyle.Bold);
             }
             else if (KISRadioButton.Checked)
             {
-                Properties.Settings.Default.KavEditionToInstall = "Kaspersky Internet Security";
-
-                if (OfflineSetupCheckBox.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://box.kaspersky.com/f/a16a247db28a48039342/?dl=1"; // Kaspersky Lab may ban this URL. chk internet & change url
-                else
-                    Properties.Settings.Default.KavSetupURL = "https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup.exe";
-
                 KAVRadioButton.Font = new Font(KAVRadioButton.Font, FontStyle.Regular);
                 KTSRadioButton.Font = new Font(KTSRadioButton.Font, FontStyle.Regular);
                 KISRadioButton.Font = new Font(KISRadioButton.Font, FontStyle.Bold);
             }
             else if (KTSRadioButton.Checked)
             {
-                Properties.Settings.Default.KavEditionToInstall = "Kaspersky Total Security";
-
-                if (OfflineSetupCheckBox.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://box.kaspersky.com/f/9046188e18eb401c8219/?dl=1"; // Kaspersky Lab may ban this URL
-                else
-                    Properties.Settings.Default.KavSetupURL = "https://products.s.kaspersky-labs.com/spanish/homeuser/kts2018/for_reg_es/startup.exe";
-
                 KAVRadioButton.Font = new Font(KAVRadioButton.Font, FontStyle.Regular);
                 KISRadioButton.Font = new Font(KISRadioButton.Font, FontStyle.Regular);
                 KTSRadioButton.Font = new Font(KTSRadioButton.Font, FontStyle.Bold);
@@ -243,28 +217,9 @@ namespace KCIBasic
 
         private void OfflineSetupCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (OfflineSetupCheckBox.Checked)
-            {
-                if (KAVRadioButton.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://box.kaspersky.com/f/a16a247db28a48039342/?dl=1"; // Kaspersky Lab may ban this URL. chk internet & change url
-                else if (KISRadioButton.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://box.kaspersky.com/f/a16a247db28a48039342/?dl=1";
-                else if (KTSRadioButton.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://box.kaspersky.com/f/9046188e18eb401c8219/?dl=1";
+            //if (OfflineSetupCheckBox.Checked) StartAutoButton.Enabled = true;
 
-                StartAutoButton.Enabled = true;
-            }
-            else
-            {
-                if (KAVRadioButton.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://products.s.kaspersky-labs.com/spanish/homeuser/kav2018/for_reg_es/startup.exe";
-                else if (KISRadioButton.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup.exe";
-                else if (KTSRadioButton.Checked)
-                    Properties.Settings.Default.KavSetupURL = "https://products.s.kaspersky-labs.com/spanish/homeuser/kts2018/for_reg_es/startup.exe";
-
-                StartAutoButton.Enabled = false;
-            }
+            //else StartAutoButton.Enabled = false;
         }
 
         private void SecureConnectionCheckBoxMethod()
@@ -279,16 +234,21 @@ namespace KCIBasic
         {
             MainPanel.Visible = false; TopMost = true;
 
-            StartingLabel.Text = "Actualizando bases de datos del producto"; GIF.Visible = true;
+            StartingLabel.Text = "Actualizando producto"; GIF.Visible = true;
             //await Task.Delay(2000);
-            await outputForm.HiddenProcess($@"{AVProot}\avp.com", "UPDATE"); GIF.Visible = false;
+            await outputForm.HiddenProcess($@"{AVProot}\avp.com", "UPDATE"); GIF.Visible = false; // Needed to update "IsReportedExpired" value.
 
             await outputForm.License(StartingLabel);
 
             StartingLabel.Text = "Activando licencia de evaluación del producto";
             await Task.Delay(2000);
 
-            await outputForm.HiddenProcess("cmd.exe", $"/C echo & \"{MainForm.AVProot}\\avp.com\" LICENSE /ADD {Properties.Settings.Default.KavLicense}");
+            string LicenseKey1;
+            using (var reader = new StreamReader(Path.GetTempPath() + "kavlicense.txt"))
+            {
+                LicenseKey1 = reader.ReadLine();
+            }
+            await outputForm.HiddenProcess("cmd.exe", $"/C echo & \"{MainForm.AVProot}\\avp.com\" LICENSE /ADD {LicenseKey1}");
 
             if (MainForm.LocalMachine32View.OpenSubKey(@"SOFTWARE\KasperskyLab\WmiHlp").GetValueNames().Contains("IsReportedExpired"))
             {
@@ -320,9 +280,9 @@ namespace KCIBasic
             await outputForm.HiddenProcess($@"{AVProot}\avp.com", $"EXPORT \"{Directory.GetCurrentDirectory()}\\{KavEditionInstalled} Configuration.cfg\""); GIF.Visible = false;
 
             if (File.Exists($@"{Directory.GetCurrentDirectory()}\{KavEditionInstalled} Configuration.cfg"))
-                MessageBox.Show(this, $"Configuración del producto exportada con éxito.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, $"Configuración de {KavEditionInstalled} exportada con éxito.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show(this, $"No ha sido posible exportar la configuración del producto. Puedes exportarla manualmente desde el apartado [Exportar Configuración] dentro de ajustes de la aplicación.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, $"No ha sido posible exportar la configuración de {KavEditionInstalled}. Debes exportarla manualmente desde el apartado [Exportar Configuración] dentro de ajustes de la aplicación.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             MainPanel.Visible = true; TopMost = false;
         }

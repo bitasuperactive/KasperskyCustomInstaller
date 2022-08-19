@@ -42,8 +42,6 @@
             this.OfflineSetupCheckBox = new System.Windows.Forms.CheckBox();
             this.StartingLabel = new System.Windows.Forms.Label();
             this.GIF = new System.Windows.Forms.PictureBox();
-            this.HelpButton2 = new System.Windows.Forms.Button();
-            this.HelpButton1 = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GIF)).BeginInit();
@@ -52,8 +50,6 @@
             // MainPanel
             // 
             this.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MainPanel.Controls.Add(this.HelpButton2);
-            this.MainPanel.Controls.Add(this.HelpButton1);
             this.MainPanel.Controls.Add(this.KTSRadioButton);
             this.MainPanel.Controls.Add(this.KISRadioButton);
             this.MainPanel.Controls.Add(this.KAVRadioButton);
@@ -228,30 +224,6 @@
             this.GIF.TabStop = false;
             this.GIF.Visible = false;
             // 
-            // HelpButton2
-            // 
-            this.HelpButton2.Cursor = System.Windows.Forms.Cursors.Help;
-            this.HelpButton2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.HelpButton2.Location = new System.Drawing.Point(226, 105);
-            this.HelpButton2.Name = "HelpButton2";
-            this.HelpButton2.Size = new System.Drawing.Size(12, 23);
-            this.HelpButton2.TabIndex = 15;
-            this.HelpButton2.Text = "?";
-            this.HelpButton2.UseVisualStyleBackColor = true;
-            this.HelpButton2.Visible = false;
-            // 
-            // HelpButton1
-            // 
-            this.HelpButton1.Cursor = System.Windows.Forms.Cursors.Help;
-            this.HelpButton1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.HelpButton1.Location = new System.Drawing.Point(128, 83);
-            this.HelpButton1.Name = "HelpButton1";
-            this.HelpButton1.Size = new System.Drawing.Size(12, 23);
-            this.HelpButton1.TabIndex = 8;
-            this.HelpButton1.Text = "?";
-            this.HelpButton1.UseVisualStyleBackColor = true;
-            this.HelpButton1.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,8 +264,6 @@
         public System.Windows.Forms.RadioButton KTSRadioButton;
         public System.Windows.Forms.RadioButton KISRadioButton;
         private System.Windows.Forms.PictureBox GIF;
-        private System.Windows.Forms.Button HelpButton2;
-        private System.Windows.Forms.Button HelpButton1;
     }
 }
 
