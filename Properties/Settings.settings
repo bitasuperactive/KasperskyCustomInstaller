@@ -14,8 +14,11 @@
     <Setting Name="KavEditionToInstall" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="kavLicenseUrl" Type="System.String" Scope="User">
+    <Setting Name="KavLicenseUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="KavSecureConnection" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

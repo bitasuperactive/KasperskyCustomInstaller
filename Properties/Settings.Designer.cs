@@ -74,12 +74,24 @@ namespace KCIBasic.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string kavLicenseUrl {
+        public string KavLicenseUrl {
             get {
-                return ((string)(this["kavLicenseUrl"]));
+                return ((string)(this["KavLicenseUrl"]));
             }
             set {
-                this["kavLicenseUrl"] = value;
+                this["KavLicenseUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool KavSecureConnection {
+            get {
+                return ((bool)(this["KavSecureConnection"]));
+            }
+            set {
+                this["KavSecureConnection"] = value;
             }
         }
     }

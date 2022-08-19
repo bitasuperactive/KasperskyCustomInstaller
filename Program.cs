@@ -16,7 +16,7 @@ namespace KCIBasic
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new KCI());
+            Application.Run(new MainForm());
         }
     }
 }
