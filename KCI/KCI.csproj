@@ -58,7 +58,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>icon3.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -154,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\RegistryButtonDisabled.png" />
+    <None Include="Resources\KTSLogo.png" />
+    <None Include="Resources\KISLogo.png" />
     <None Include="Resources\KasperskyLabLogo.png" />
     <None Include="Resources\KCILogo.png" />
     <None Include="Resources\StartButtonShield.png" />
@@ -163,6 +166,8 @@
     <None Include="Resources\HelpButtonActive.png" />
     <None Include="Resources\HelpButtonEnabled.png" />
     <None Include="Resources\DownloadButton.png" />
+    <Content Include="icon2.ico" />
+    <Content Include="icon3.ico" />
     <Content Include="Resources\HelpButtonDisabled.png" />
     <None Include="Resources\LicenseButtonDisabled.png" />
     <Content Include="Resources\DownloadButtonDisabled.png" />

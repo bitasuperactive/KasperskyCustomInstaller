@@ -163,4 +163,13 @@
   <data name="UninstallButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\uninstallbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="KISLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KISLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KTSLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KTSLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RegistryButtonDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RegistryButtonDisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

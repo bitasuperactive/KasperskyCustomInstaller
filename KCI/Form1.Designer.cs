@@ -195,7 +195,7 @@
             this.KTSButton.BackColor = System.Drawing.Color.Transparent;
             this.KTSButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KTSButton.ErrorImage = null;
-            this.KTSButton.Image = ((System.Drawing.Image)(resources.GetObject("KTSButton.Image")));
+            this.KTSButton.Image = global::KCI.Properties.Resources.KTSLogo;
             this.KTSButton.ImageActive = null;
             this.KTSButton.Location = new System.Drawing.Point(235, 11);
             this.KTSButton.Name = "KTSButton";
@@ -212,7 +212,7 @@
             this.KISButton.BackColor = System.Drawing.Color.Transparent;
             this.KISButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KISButton.ErrorImage = null;
-            this.KISButton.Image = ((System.Drawing.Image)(resources.GetObject("KISButton.Image")));
+            this.KISButton.Image = global::KCI.Properties.Resources.KISLogo;
             this.KISButton.ImageActive = null;
             this.KISButton.Location = new System.Drawing.Point(128, 11);
             this.KISButton.Name = "KISButton";
@@ -298,7 +298,7 @@
             this.OutputTextbox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.OutputTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OutputTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.OutputTextbox.ForeColor = System.Drawing.Color.Silver;
+            this.OutputTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.OutputTextbox.Location = new System.Drawing.Point(292, 189);
             this.OutputTextbox.Name = "OutputTextbox";
             this.OutputTextbox.ReadOnly = true;

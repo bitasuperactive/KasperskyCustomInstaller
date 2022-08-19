@@ -163,6 +163,26 @@ namespace KCI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KISLogo {
+            get {
+                object obj = ResourceManager.GetObject("KISLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KTSLogo {
+            get {
+                object obj = ResourceManager.GetObject("KTSLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LicenseButton {
             get {
                 object obj = ResourceManager.GetObject("LicenseButton", resourceCulture);
@@ -186,6 +206,16 @@ namespace KCI.Properties {
         internal static System.Drawing.Bitmap RegistryButton {
             get {
                 object obj = ResourceManager.GetObject("RegistryButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RegistryButtonDisabled {
+            get {
+                object obj = ResourceManager.GetObject("RegistryButtonDisabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
