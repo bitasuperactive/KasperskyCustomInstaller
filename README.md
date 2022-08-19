@@ -3,7 +3,7 @@
 
 Kaspersky Custom Installer ("KCI" en adelante) es la alternativa más segura al software conocido como "KRT".
 
-[Utilidades](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#principales-utilidades) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Ejecución](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#ejecución) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#problemas-sin-resolver) | [YouTube](https://www.youtube.com/channel/UCc-AA6VaZh81DYYCrSAMS5w?)
+[Utilidades](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#principales-utilidades) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Ejecución](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#ejecución) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#problemas-sin-resolver)
 
 
 ## Estado
@@ -17,7 +17,7 @@ Kaspersky Custom Installer ("KCI" en adelante) es la alternativa más segura al 
 
 
 ## Principales utilidades
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/cleanimage.jpg" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/keyimage.jpg" width="150"/>
+<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/cleanimage.jpg" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/keyimage.jpg" width="150"/>
 
 ### Desinstalación de Kaspersky
 Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación rápida*), facilita la desintalación del producto si estuviera previamente instalado en el sistema operativo del usuario, función imprescindible para modificar los Registros de Windows referentes al Antivirus en cuestión sin perjudicar la seguridad del equipo.
@@ -68,7 +68,7 @@ Extrae la configuración  aplicativa del producto mediante un archivo *.cfg* el 
 * Código spaguetti.
 
 ### Falsos positivos
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/virustotalimage.png" width="300"/>
+<img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/virustotalimage.png" width="300"/>
 
 [Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca a KCI como un troyano *Gen.Variant.MSILPerseus* debido a las funciones automáticas que lleva a cabo sin intervención del usuario, como, por ejemplo, la descarga y ejecución automática del asistente de instalación para el producto. Esto es un *falso positivo*. Revisando el código fuente podréis comprobar que KCI no lleva a cabo ninguna función maliciosa ni mucho menos propia de un troyano.
 
