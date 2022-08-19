@@ -3,7 +3,6 @@ using System.IO;
 using System.Net;
 using System.Drawing;
 using Microsoft.Win32;
-using System.Threading;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Threading.Tasks;
@@ -15,13 +14,12 @@ namespace KCIConsola
 {
     class Program
     {
+        #region Main
         static void Main(string[] args)
         {
             Console.Title = "KCI";
             Console.SetWindowSize(80, 28);
             Console.SetBufferSize(80, 28);
-            Console.BackgroundColor = Color.Black;
-            Console.ForegroundColor = Color.White;
 
             Program This = new Program();
             Directory.SetCurrentDirectory(This.TempDir);
@@ -29,143 +27,131 @@ namespace KCIConsola
             This.Menu();
         }
 
+        private void CheckRequirements()
+        {
+            if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator)) executionLevelException = true;
+            try { using (var client = new WebClient()) client.OpenRead("https://www.google.com/"); } catch (WebException) { connectionException = true; }
+        }
+
         private void ConsoleReset()
         {
-            KasperskyEdition = KasperskyLicenseName = KasperskyLicenseUrl = KasperskySetupName = KasperskySetupUrl = KasperskyWebsite = string.Empty;
-            Console.BackgroundColor = Color.Black;
-            Console.ForegroundColor = Color.White;
             Console.Clear();
-        }
-
-        private int CheckRequirements()
-        {
-            if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator)) return MainException += 2;
-            try { using (var client = new WebClient()) client.OpenRead("https://www.google.com/"); } catch (Exception) { return MainException += 1; }
-            return MainException = 0;
-        }
-
-        private void MainExceptionOutput()
-        {
-            switch (MainException)
+            if (executionLevelException)
             {
-                case 2:
-                    Console.BackgroundColor = Color.Crimson;
-                    Console.Write("Permisos de administrador requeridos.                                           ", Color.Black);
-                    Console.BackgroundColor = Color.Black;
-                    break;
-                case 1:
-                    Console.BackgroundColor = Color.Crimson;
-                    Console.Write("Conexión a internet requerida.                                                  ", Color.Black);
-                    Console.BackgroundColor = Color.Black;
-                    break;
-                case 3:
-                    Console.BackgroundColor = Color.Crimson;
-                    Console.Write("Permisos de administrador requeridos.                                           ", Color.Black);
-                    Console.Write("Conexión a internet requerida.                                                  ", Color.Black);
-                    Console.BackgroundColor = Color.Black;
-                    break;
+                Console.BackgroundColor = Color.Crimson;
+                Console.Write("Permisos de administrador requeridos.                                           ", Color.Black);
             }
+            if (connectionException)
+            {
+                Console.BackgroundColor = Color.Crimson;
+                Console.Write("Conexión a internet requerida.                                                  ", Color.Black);
+            }
+            Console.ResetColor();
         }
 
-        private void Menu(int Option = 0)
+        private void Menu(int input = 0)
         {
             ConsoleReset();
-            MainExceptionOutput();
             Newline();
             ColorMenu("             ------------------------------------------------------");
-            ColorMenu("             - MENU :: Kaspersky Custom Installer                 -");
+            ColorMenu("             - MENU :: KCI                                        -");
             ColorMenu("             -                                                    -");
-            ColorMenu("             - (0) Iniciar Instalación                            -");
-            ColorMenu("             - (1) [Paso 1] Desinstalar Antivirus                 -");
-            ColorMenu("             - (2) [Paso 2] Corregir registros de Windows         -");
-            ColorMenu("             - (3) [Paso 3] Descargar Kaspersy                    -");
-            ColorMenu("             - (4) [Paso 4] Generar Licencia de Registro          -");
-            ColorMenu("             - (9) Actualizar Kaspersky Custom Installer          -");
+            ColorMenu("             - {0} Iniciar Instalación                            -");
+            ColorMenu("             - {1} [Paso 1] Desinstalar Antivirus                 -");
+            ColorMenu("             - {2} [Paso 2] Corregir registros de Windows         -");
+            ColorMenu("             - {3} [Paso 3] Descargar Kaspersky                   -");
+            ColorMenu("             - {4} [Paso 4] Generar Licencia de Registro          -");
+            ColorMenu("             - {9} Actualizar Kaspersky Custom Installer          -");
             ColorMenu("             ------------------------------------------------------");
             Newline();
             Console.Write("Selecciona la opción deasada: ", Color.White);
 
-            try { Option = int.Parse(Console.ReadLine()); } catch (Exception) { Menu(); }
-            switch (Option)
+            try { input = int.Parse(Console.ReadLine()); } catch (Exception) { Menu(); }
+            switch (input)
             {
                 case 0: MainProcess(); break;
                 case 1: Uninstall(1); break;
-                case 2: Registry(2); break;
-                case 3: Setup(3); break;
-                case 4: License(4); break;
+                case 2: Registry(2); if (!genericException) Console.ReadKey(); break;
+                case 3: Setup(3); if (!DownloadException) Console.ReadKey(); break;
+                case 4: License(4); if (!DownloadException) Console.ReadKey(); break;
                 case 9: Update(); break;
             }
             Menu();
         }
+        #endregion
 
+        #region MainProcess
         private void MainProcess()
         {
-            Intro();
-            Uninstall(0); if (Exception) { Exception = false; return; }
-            Registry(0); if (Exception) { Exception = false; return; }
-            Newline(); Newline(); SecondMenu();
+            Console.Clear();
+            Console.Write("Kaspersky Custom Installer (C)2020", Color.White); Newline(); Newline();
+
+            Uninstall(0); if (genericException) return;
+            Registry(0); if (genericException) return;
+            Newline(); Newline();
+            SecondMenu();
             Setup(0);
             License(0);
             Closure();
         }
+        #endregion
 
-        private void Intro()
-        {
-            ConsoleReset();
-            Console.Write("Kaspersky Custom Installer (C)2020", Color.White); Newline(); Newline();
-        }
-
+        #region Uninstall
         private void Uninstall(int ProcessID)
         {
             Newline(); Newline();
             Console.Write("[Paso 1] ", Color.Gold); Console.WriteLine("Desinstalar antivirus manualmente.", Color.PaleGoldenrod);
-            if (RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey("SOFTWARE\\KasperskyLab") != null)
+            var key = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey("SOFTWARE\\KasperskyLab");
+            if (key != null)
             {
-                if (MessageBox.Show("Antivirus KasperskyLab detectado." + Environment.NewLine + "¿Deseas utilizar KavRemover para realizar la desinstalación?" + Environment.NewLine + Environment.NewLine + "Más Información:" + Environment.NewLine + "Kavremover es una herramienta opcional desarrollada oficialmente por la firma KasperskyLab, siendo la forma más eficaz de desinstalar tu antivirus Kaspersky.", "Información", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                var msgbox = MessageBox.Show("Antivirus KasperskyLab detectado." + Environment.NewLine + "¿Deseas utilizar KavRemover para realizar la desinstalación?" + Environment.NewLine + Environment.NewLine + "Más Información:" + Environment.NewLine + "Kavremover es una herramienta opcional desarrollada oficialmente por la firma KasperskyLab, siendo la forma más eficaz de desinstalar tu antivirus Kaspersky.", "Información", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (msgbox == DialogResult.OK)
                 {
                     Download("http://media.kaspersky.com/utilities/ConsumerUtilities/kavremvr.exe", TempDir, "kavremover.exe").Wait();
                     try { Process.Start(TempDir + "kavremover.exe"); } catch (Exception) { MessageBox.Show("No ha sido posible iniciar Kavremover.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
             else { Process.Start(Environment.SystemDirectory + @"\appwiz.cpl"); }
-            Console.Write("Pulsa cualquier tecla cuando finalices la desinstalación.", Color.LightGray);
+            Console.Write("Pulsa cualquier tecla cuando finalices la desinstalación manual.", Color.LightGray);
             Console.ReadKey();
-            if (RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey("SOFTWARE\\KasperskyLab") != null)
+            if (key != null)
             {
                 Newline(); Newline();
                 ExceptionOutput("Desinstalación no completada.");
-                MessageBox.Show("[Informe]" + Environment.NewLine + "1. Desinstalación anti-malware no completada." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Verifica haber desinstalado correctamente tu antivirus utilizando Kavremover o Panel de Control, y reinicia tu sistema operativo.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.ReadKey();
-                Exception = true;
+                MessageBox.Show("[Informe]" + Environment.NewLine + "Desinstalación de KasperskyLab no completada." + Environment.NewLine + Environment.NewLine + "Verifica haber desinstalado correctamente tu antivirus utilizando Kavremover o Panel de Control, y reinicia tu sistema operativo.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                genericException = true;
                 return;
             }
+            else { genericException = false; }
         }
+        #endregion
 
+        #region Registry
         private void Registry(int ProcessID)
         {
             Newline(); Newline();
             Console.Write("[Paso 2] ", Color.Gold); Console.WriteLine("Corregir registros de Windows.", Color.PaleGoldenrod);
             try
             {
-                if (MainException == 2 || MainException == 3) { throw new UnauthorizedAccessException(); }
+                if (executionLevelException) { throw new UnauthorizedAccessException(); }
                 RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).DeleteSubKeyTree("SOFTWARE\\KasperskyLab");
                 RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).DeleteSubKeyTree("SOFTWARE\\Microsoft\\Cryptography\\RNG");
                 RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).DeleteSubKeyTree("SOFTWARE\\Microsoft\\SystemCertificates\\SPC\\Certificates");
+                genericException = false;
             }
             catch (UnauthorizedAccessException)
             {
+                genericException = true;
                 Newline();
                 ExceptionOutput("Acceso denegado.");
-                MessageBox.Show("[Informe]" + Environment.NewLine + "1. Acceso al registro de windows denegado." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Verifica tus privilegios como administrador, y reinicia tu sistema operativo para completar la desinstalación de tu antivirus.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.ReadKey();
-                Exception = true;
+                MessageBox.Show("[Informe]" + Environment.NewLine + "Acceso al registro de windows denegado." + Environment.NewLine + Environment.NewLine + "Verifica tus privilegios como administrador, y reinicia tu sistema operativo para completar la desinstalación de tu antivirus.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            catch (Exception) { }
             Console.Write("OK!", Color.SpringGreen);
-            if (ProcessID != 0) Console.ReadKey();
         }
+        #endregion
 
+        #region Setup
         private void Setup(int ProcessID)
         {
             Newline(); Newline();
@@ -175,17 +161,18 @@ namespace KCIConsola
             if (DownloadException)
             {
                 //try { File.Delete(KCIDir + KasperskySetupName); } catch { }
-                ExceptionOutput("Acceso denegado.");
-                MessageBox.Show("[Informe]" + Environment.NewLine + "1. Descarga fallida." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Descarga Kaspersky Antivirus manualmente desde su web oficial." + Environment.NewLine + "Serás dirigido a ella al cerrar este dialogo.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ExceptionOutput("Acceso web denegado.");
+                MessageBox.Show("[Informe]" + Environment.NewLine + "Descarga fallida." + Environment.NewLine + Environment.NewLine + "Descarga Kaspersky Antivirus manualmente desde su web oficial." + Environment.NewLine + "Serás dirigido a ella al cerrar este dialogo.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 try { Process.Start(KasperskyWebsite); } catch (Exception) { MessageBox.Show("No ha sido posible acceder a la web.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                Newline(); Console.Write("Pulsa cualquier tecla cuando finalices la descarga manual.", Color.LightGray);
                 Console.ReadKey();
                 return;
             }
-            if (ProcessID == 0) { try { RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce").SetValue("KasperskyLabInstaller", KCIDir + KasperskySetupName, RegistryValueKind.String); } catch (Exception) { } }
-            Console.Write("OK!               ", Color.SpringGreen);
-            if (ProcessID != 0) { Newline(); Console.ReadKey(); }
+            Console.WriteLine("OK!               ", Color.SpringGreen);
         }
+        #endregion
 
+        #region License
         private void License(int ProcessID)
         {
             Newline(); Newline();
@@ -199,37 +186,42 @@ namespace KCIConsola
                 {
                     //try { File.Delete(KCIDir + KasperskySetupName); } catch { }
                     ExceptionOutput("No existen licencias disponibles por el momento.");
-                    //MessageBox.Show("[Informe]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles por el momento.", "Proceso interrumpido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Console.ReadKey();
                     return;
                 }
             }
             Console.WriteLine("OK!               ", Color.SpringGreen);
-            if (ProcessID != 0) { Newline(); Console.ReadKey(); }
         }
+        #endregion
 
+        #region Closure
         private void Closure()
         {
-            if (MessageBox.Show("Kaspersky reset finalizado con éxito." + Environment.NewLine + Environment.NewLine + "Pulsa OK para reiniciar tu sistema operativo y continuar con la instalación.", "Información", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            try { RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce").SetValue("KasperskyLabInstaller", KCIDir + KasperskySetupName, RegistryValueKind.String); } catch (Exception) { }
+            var msgbox = MessageBox.Show("Kaspersky reset finalizado con éxito." + Environment.NewLine + Environment.NewLine + "Pulsa OK para reiniciar tu sistema operativo y continuar con la instalación.", "Información", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (msgbox == DialogResult.OK)
             {
                 try { Process.Start("shutdown.exe", "-r -t 00"); } catch (Exception) { MessageBox.Show("No ha sido posible reiniciar tu sistema operativo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
             }
             Environment.Exit(0);
         }
+        #endregion
 
+        #region Update
         private void Update()
         {
 
         }
+        #endregion
 
-
+        #region SecondMenu
         private void SecondMenu(int Option = 0)
         {
             Newline();
-            Console.WriteLine("KasperskyLab Ediciones Disponibles", Color.Cyan);
-            Console.Write("(1) ", Color.Cyan); Console.Write("Kaspersky Antivirus              ", Color.White); Console.WriteLine("-   {Protección Básica}", Color.LightGray);
-            Console.Write("(2) ", Color.Cyan); Console.Write("Kaspersky Internet Security      ", Color.White); Console.WriteLine("-   {Protección Premium}", Color.LightGray);
-            Console.Write("(3) ", Color.Cyan); Console.Write("Kaspersky Total Security         ", Color.White); Console.WriteLine("-   {Protección Platino}", Color.LightGray);
+            ColorMenu("KasperskyLab Ediciones Disponibles");
+            ColorMenu("{1} Kaspersky Antivirus              -   {Protección Básica}");
+            ColorMenu("{2} Kaspersky Internet Security      -   {Protección Premium}");
+            ColorMenu("{3} Kaspersky Total Security         -   {Protección Platinum}");
             Newline();
             Console.Write("Selecciona la edición deasada: ", Color.White);
         loop:
@@ -263,25 +255,30 @@ namespace KCIConsola
             }
             goto loop;
         }
+        #endregion
 
-        
+        #region Methods
         private void ColorMenu(string Text)
         {
             StyleSheet styleSheet = new StyleSheet(Color.White);
-            styleSheet.AddStyle("MENU :: Kaspersky Custom Installer[a-z]*", Color.Cyan);
+            styleSheet.AddStyle("MENU :: KCI[a-z]*", Color.Cyan);
             styleSheet.AddStyle("0[a-z]*", Color.Cyan);
             styleSheet.AddStyle("1[a-z]*", Color.Cyan);
             styleSheet.AddStyle("2[a-z]*", Color.Cyan);
             styleSheet.AddStyle("3[a-z]*", Color.Cyan);
             styleSheet.AddStyle("4[a-z]*", Color.Cyan);
             styleSheet.AddStyle("9[a-z]*", Color.Cyan);
+            styleSheet.AddStyle("-   {Protección Básica}[a-z]*", Color.LightGray);
+            styleSheet.AddStyle("-   {Protección Premium}[a-z]*", Color.LightGray);
+            styleSheet.AddStyle("-   {Protección Platinum}[a-z]*", Color.LightGray);
+            styleSheet.AddStyle("KasperskyLab Ediciones Disponibles[a-z]*", Color.Cyan);
             Console.WriteLineStyled(Text, styleSheet);
         }
         private void ExceptionOutput(string Text)
         {
             Console.BackgroundColor = Color.Crimson;
             Console.Write(Text, Color.Black);
-            Console.BackgroundColor = Color.Black;
+            Console.ResetColor();
         }
         private async Task Download(string URL, string Dir, string FileName)
         {
@@ -291,26 +288,32 @@ namespace KCIConsola
                 {
                     client.DownloadProgressChanged += delegate (object sender, DownloadProgressChangedEventArgs p) { int DownloadValue = p.ProgressPercentage; Console.Write($"\rDescargando...{DownloadValue}%", Color.LightGray); };
                     await client.DownloadFileTaskAsync(URL, Dir + FileName);
-                    ClearCurrentLine();
                 }
                 DownloadException = false;
             }
-            catch (Exception) { DownloadException = true; }
+            catch (WebException) { DownloadException = true; }
+            finally
+            {
+                Console.Write("\r", Console.WindowWidth);
+            }
         }
+        #endregion
 
-
+        #region Variables
         public void ClearCurrentLine() => Console.Write("\r", Console.WindowWidth);
         private void Newline() => Console.Write(Environment.NewLine);
-        private int MainException { get; set; }
-        private bool Exception { get; set; }
-        private bool DownloadException { get; set; }
         private string KCIDir { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
         private string TempDir { get; set; } = Path.GetTempPath();
+        private bool executionLevelException { get; set; }
+        private bool connectionException { get; set; }
+        private bool genericException { get; set; }
+        private bool DownloadException { get; set; }
         private string KasperskyEdition { get; set; }
         private string KasperskySetupName { get; set; }
         private string KasperskyLicenseName { get; set; }
         private string KasperskySetupUrl { get; set; }
         private string KasperskyLicenseUrl { get; set; }
         private string KasperskyWebsite { get; set; }
+        #endregion
     }
 }
