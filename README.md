@@ -1,16 +1,11 @@
 # Overview
 <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/icon.ico" width="192"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/kcibasicimage.png" width="436"/>
 
-Kaspersky Custom Installer (KCI en adelante) es una alternativa de código abierto al software conocido como Kaspersky Reset Trial o KRT.
+**Kaspersky Custom Installer** (**KCI** en adelante) es una alternativa de código abierto al software conocido como Kaspersky Reset Trial o KRT.
+
+KCI soporta los siguientes productos domésticos de Kaspersky Lab: Kaspersky Antivirus / Kaspersky Internet Security / Kaspersky Total Security.
 
 [Utilidades](https://github.com/bitasuperactive/KCIBasic/blob/basicUI/README.md#principales-utilidades) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Ejecución](https://github.com/bitasuperactive/KCIBasic/blob/basicUI/README.md#ejecución) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/blob/basicUI/README.md#problemas-sin-resolver)
-
-## Productos domésticos soportados
-  ~ Kaspersky Antivirus.
-  
-  ~ Kaspersky Internet Security.
-  
-  ~ Kaspersky Total Security.
 
 ## Funciones principales
 <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/uninstallimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/cleanimage.jpg" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/downloadimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/keyimage.jpg" width="150"/>
@@ -61,13 +56,13 @@ Kaspersky Custom Installer (KCI en adelante) es una alternativa de código abier
 
 
 ## Problemas sin resolver
-  ~ Falso positivo: *Gen.Variant.MSILPerseus*
+1. Falso positivo: *Gen.Variant.MSILPerseus*
   
-  ~ Los enlaces de descarga directos para los asistentes de instalación completos (*Offline Setups*) no son estables.
+2. Los enlaces de descarga directos para los asistentes de instalación completos (*Offline Setups*) no son estables.
   
-  ~ La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
-  
-  ~ Código spaguetti.
+3. La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
+ 
+4. Código spaguetti.
 
 
 ## Falsos positivos
