@@ -34,30 +34,28 @@ namespace KCI
         public KCI()
         {
             InitializeComponent(); Directory.SetCurrentDirectory(TempDir);
-
-            DownloadButton.Visible = false;
-            LicenseButton.Visible = false;
-
+            //Privilegios de administrador check
             if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
             {
-                DisableMainButtons();
+                InitializeError = 2;
+                DisableMainButtons(); HelpButton.Enabled = true; HelpButton.Image = Properties.Resources.HelpButtonEnabled; HelpButton.ImageActive = Properties.Resources.HelpButtonActive;
                 OutputTextbox.SelectionColor = Color.Red;
                 OutputTextbox.AppendText("*** Permisos de administrador requeridos.");
-                InitializeError = 2;
                 return;
             }
+            //Conexión a internet check
             try { using (var client = new WebClient()) client.OpenRead("https://www.google.com/"); }
             catch
             {
-                StartButton.Visible = false;
-                DownloadButton.Visible = false;
-                LicenseButton.Visible = false;
+                InitializeError = 1;
+                StartButton.Enabled = false; StartButton.BackColor = Color.Gray; StartButton.Cursor = Cursors.Default;
+                DownloadButton.Enabled = false; DownloadButton.Image = Properties.Resources.DownloadButtonDisabled;
+                LicenseButton.Enabled = false; LicenseButton.Image = Properties.Resources.LicenseButtonDisabled;
                 OutputTextbox.SelectionColor = Color.Red;
                 OutputTextbox.AppendText("*** Conexión a internet requerida.");
-                OutputTextbox.AppendText(Environment.NewLine);
-                InitializeError = 1;
                 return;
             }
+            //Output
             OutputTextbox.SelectionColor = Color.Silver;
             OutputTextbox.AppendText("Aquí se refleja el progreso de la instalación.");
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
@@ -68,26 +66,40 @@ namespace KCI
         #region Timer
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            //Move StartPanel Up
             if (StartPanelMove == 1) { StartPanel.Top += 9; if (StartPanel.Location.Y == 3) { Timer1.Enabled = false; StartPanelMove = 2; return; } }
+            //Move StartPanel Down
             if (StartPanelMove == 2) { StartPanel.Top -= 18; if (StartPanel.Location.Y == -159) { Timer1.Enabled = false; StartPanelMove = 0; return; } }
+            //Move CustomizePanel Up
             if (CustomizePanelMove == 1) { CustomizePanel.Top += 9; if (CustomizePanel.Location.Y == 3) { Timer1.Enabled = false; CustomizePanelMove = 2; return; } }
+            //Move CustomizePanel Down
             if (CustomizePanelMove == 2) { CustomizePanel.Top -= 18; if (CustomizePanel.Location.Y == -285) { Timer1.Enabled = false; CustomizePanelMove = 0; return; } }
-            return;
         }
         #endregion
 
         #region MainButtons
         private async void StartButton_Click(object sender, EventArgs e)
         {
-            DisableMainButtons(); DisableSecondaryButtons();
-            StartPanelMove = 1; Timer1.Enabled = true;
+            if (StartButton.Enabled == false) { return; }
+            DisableMainButtons();
+            StartPanelMove = 1;
+            Timer1.Enabled = true;
             return;
         }
 
         private async void CustomizeButton_Click(object sender, EventArgs e)
         {
-            DisableMainButtons(); DisableSecondaryButtons();
-            CustomizePanelMove = 1; Timer1.Enabled = true;
+            DisableMainButtons();
+            CustomizePanelMove = 1;
+            Timer1.Enabled = true;
+            return;
+        }
+
+        private async void HelpButton_Click(object sender, EventArgs e)
+        {
+            DisableMainButtons();
+            HelpPanel_Reset();
+            HelpPanel.Left = 277;
             return;
         }
         #endregion
@@ -101,7 +113,7 @@ namespace KCI
             OutputTextbox.Text = null;
             await UNINSTALL();
             OutputTextbox.Text = null;
-            EnableMainButtons(); EnableSecondaryButtons();
+            EnableMainButtons();
             return;
         }
 
@@ -114,7 +126,7 @@ namespace KCI
             OutputTextbox.Text = null;
             await REGISTRY();
             OutputTextbox.Text = null;
-            EnableMainButtons(); EnableSecondaryButtons();
+            EnableMainButtons();
             return;
         }
 
@@ -139,16 +151,6 @@ namespace KCI
         }
         #endregion
 
-        #region SecondaryButtons
-
-        private async void HelpButton_Click(object sender, EventArgs e)
-        {
-            DisableMainButtons(); DisableSecondaryButtons();
-            HelpPanel_Reset(); HelpPanel.Left = 277;
-            return;
-        }
-        #endregion
-
         #region HelpPanel
         private async void HelpPanel_Reset()
         {
@@ -158,21 +160,18 @@ namespace KCI
             FAQ4Description.Visible = false;
             FAQ5Description.Visible = false;
             FAQ6Description.Visible = false; FAQ6Link.Visible = false;
-            FAQ7Description.Visible = false;
             FAQ1Button.Top = 4;
             FAQ2Button.Top = 28;
             FAQ3Button.Top = 52;
             FAQ4Button.Top = 76;
             FAQ5Button.Top = 100;
             FAQ6Button.Top = 124;
-            FAQ7Button.Top = 148;
             FAQ1Button.Visible = true;
             FAQ2Button.Visible = true;
             FAQ3Button.Visible = true;
             FAQ4Button.Visible = true;
             FAQ5Button.Visible = true;
             FAQ6Button.Visible = true;
-            FAQ7Button.Visible = true;
             FAQBackButton.Visible = false;
             return;
         }
@@ -185,7 +184,6 @@ namespace KCI
             FAQ4Button.Visible = false;
             FAQ5Button.Visible = false;
             FAQ6Button.Visible = false;
-            FAQ7Button.Visible = false;
             FAQ1Button.Top = 4;
             FAQ1Description.Visible = true;
             FAQBackButton.Visible = true;
@@ -200,7 +198,6 @@ namespace KCI
             FAQ4Button.Visible = false;
             FAQ5Button.Visible = false;
             FAQ6Button.Visible = false;
-            FAQ7Button.Visible = false;
             FAQ2Button.Top = 4;
             FAQ2Description.Visible = true;
             FAQBackButton.Visible = true;
@@ -215,7 +212,6 @@ namespace KCI
             FAQ4Button.Visible = false;
             FAQ5Button.Visible = false;
             FAQ6Button.Visible = false;
-            FAQ7Button.Visible = false;
             FAQ3Button.Top = 4;
             FAQ3Description.Visible = true; FAQ3Link.Visible = true;
             FAQBackButton.Visible = true;
@@ -230,7 +226,6 @@ namespace KCI
             FAQ3Button.Visible = false;
             FAQ5Button.Visible = false;
             FAQ6Button.Visible = false;
-            FAQ7Button.Visible = false;
             FAQ4Button.Top = 4;
             FAQ4Description.Visible = true;
             FAQBackButton.Visible = true;
@@ -245,7 +240,6 @@ namespace KCI
             FAQ3Button.Visible = false;
             FAQ4Button.Visible = false;
             FAQ6Button.Visible = false;
-            FAQ7Button.Visible = false;
             FAQ5Button.Top = 4;
             FAQ5Description.Visible = true;
             FAQBackButton.Visible = true;
@@ -260,24 +254,8 @@ namespace KCI
             FAQ3Button.Visible = false;
             FAQ4Button.Visible = false;
             FAQ5Button.Visible = false;
-            FAQ7Button.Visible = false;
             FAQ6Button.Top = 4;
             FAQ6Description.Visible = true; FAQ6Link.Visible = true;
-            FAQBackButton.Visible = true;
-            return;
-        }
-
-        private void FAQ7Button_Click(object sender, EventArgs e)
-        {
-            if (FAQ7Description.Visible == true) { HelpPanel_Reset(); return; }
-            FAQ1Button.Visible = false;
-            FAQ2Button.Visible = false;
-            FAQ3Button.Visible = false;
-            FAQ4Button.Visible = false;
-            FAQ5Button.Visible = false;
-            FAQ6Button.Visible = false;
-            FAQ7Button.Top = 4;
-            FAQ7Description.Visible = true;
             FAQBackButton.Visible = true;
             return;
         }
@@ -304,6 +282,7 @@ namespace KCI
         private async Task INITIATION()
         {
             OutputTextbox.Text = null;
+            OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             OutputTextbox.AppendText("Kaspersky Custom Installer (C)2019");
             await Task.Delay(4000);
             OutputTextbox.Text = null;
@@ -315,19 +294,22 @@ namespace KCI
         #region UNINSTALL
         private async Task UNINSTALL()
         {
+            OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             OutputTextbox.AppendText("{Paso 1} Desinstalar Antivirus Manualmente");
             await Task.Delay(3000);
+            //Blur label
             BlurLabel.Image = Properties.Resources.BlurLabel1;
             BlurLabel.Text = "Pulsa ENTER cuando finalices la desinstalación de tu antivirus";
             BlurLabel.BringToFront();
             BlurLabel.Visible = true;
             await Task.Delay(100);
+            //Kaspersky Remover
             if (Registry.LocalMachine.OpenSubKey("SOFTWARE\\KasperskyLab") != null)
             {
-                if (MessageBoxEx.Show(this, "Antivirus KasperskyLab detectado." + Environment.NewLine +  "¿Deseas utilizar KavRemover para realizar la desinstalación?" + Environment.NewLine + Environment.NewLine + "Más Información:" + Environment.NewLine + "Kavremover, software desarrollado oficialmente por la firma KasperskyLab, es la forma más rápida, limpia y segura de eliminar todo registro de Kaspersky almacenado en el sistema.", "Información", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                if (MessageBoxEx.Show(this, $"Antivirus KasperskyLab detectado.{Environment.NewLine}¿Deseas utilizar KavRemover para realizar la desinstalación?{Environment.NewLine}{Environment.NewLine}Más Información:{Environment.NewLine}Kavremover, software desarrollado oficialmente por la firma KasperskyLab, es la forma más rápida, limpia y segura de eliminar todo registro de Kaspersky almacenado en el sistema.", "Información", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    if (!File.Exists(TempDir + "\\kavremover.exe")) { try { using (var client = new WebClient()) { client.DownloadFile("http://media.kaspersky.com/utilities/ConsumerUtilities/kavremvr.exe", TempDir + "\\kavremover.exe"); } } catch { } }
-                    try { Process.Start(TempDir + "\\kavremover.exe"); } catch { MessageBoxEx.Show(this, "No ha sido posible iniciar Kavremover.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    if (!File.Exists($"{TempDir}\\kavremover.exe")) { try { using (var client = new WebClient()) { client.DownloadFile("http://media.kaspersky.com/utilities/ConsumerUtilities/kavremvr.exe", $"{TempDir}\\kavremover.exe"); } } catch { } }
+                    try { Process.Start($"{TempDir}\\kavremover.exe"); } catch { MessageBoxEx.Show(this, "No ha sido posible iniciar Kavremover.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
             WaitEnterTextbox.Focus();
@@ -335,7 +317,7 @@ namespace KCI
             this.Focus();
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Green;
-            OutputTextbox.AppendText(" √" + Console.Out.NewLine);
+            OutputTextbox.AppendText($" √{Console.Out.NewLine}");
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             await Task.Delay(2000);
             Step = 0;
@@ -346,9 +328,10 @@ namespace KCI
         #region REGISTRY
         private async Task REGISTRY()
         {
+            OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             OutputTextbox.AppendText("{Paso 2} Editar Registro de Windows");
-            if (Registry.LocalMachine.OpenSubKey(@"SOFTWARE\KasperskyLab") != null) { goto START; }
-            if (Registry.LocalMachine.OpenSubKey(@"SOFTWARE\\Microsoft\SystemCertificates\SPC\Certificates") == null) { goto DONE; }
+            if (Registry.LocalMachine.OpenSubKey("SOFTWARE\\KasperskyLab") != null) { goto START; }
+            if (Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\SystemCertificates\\SPC\\Certificates") == null) { goto DONE; }
 
         START:
             await Task.Delay(3000);
@@ -366,16 +349,16 @@ namespace KCI
             OutputTextbox.AppendText(Console.Out.NewLine + "*** Acceso Denegado.");
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             await Task.Delay(500);
-            MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. El acceso al registro de windows ha sido denegado." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Desinstala manualmente tu antivirus y reinicia el sistema.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBoxEx.Show(this, $"[Informe]{Environment.NewLine}1. El acceso al registro de windows ha sido denegado.{Environment.NewLine}{Environment.NewLine}Posibles soluciones: Desinstala manualmente tu antivirus y reinicia el sistema.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             await Task.Delay(100);
             OutputTextbox.Text = null;
-            EnableMainButtons(); EnableSecondaryButtons();
+            EnableMainButtons();
             Error = 1;
             return;
         DONE:
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Green;
-            OutputTextbox.AppendText(" √" + Environment.NewLine);
+            OutputTextbox.AppendText($" √{Environment.NewLine}");
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             await Task.Delay(2000);
             return;
@@ -396,6 +379,7 @@ namespace KCI
             await REGISTRY(); if (Error == 1) { Error = 0; return; }
 
         DOWNLOAD:
+            OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             OutputTextbox.AppendText("{Paso 3} Descargar Kaspersky Antivirus");
             if (File.Exists(KCIDir + "\\{KAV}{ES}.exe")) { goto DONE; }
             await Task.Delay(3000);
@@ -415,7 +399,7 @@ namespace KCI
             await Task.Delay(100);
             if (Step == 3)
             {
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 OutputTextbox.Text = null;
                 Step = 0;
                 return;
@@ -440,16 +424,17 @@ namespace KCI
             if (Step == 3)
             {
                 OutputTextbox.Text = null;
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 Step = 0;
                 return;
             }
 
         LICENSE:
+            OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             OutputTextbox.AppendText("{Paso 4} Generar Licencia de Registro");
             if (File.Exists(KCIDir + "\\{KAV} {Licencia}.txt")) { goto D0NE; }
             await Task.Delay(3000);
-            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/kcidatabasekavlicense", KCIDir + "\\{KAV} {Licencia}.txt"); } } catch { goto ERR0R; }
+            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/KCI-KAV-License", KCIDir + "\\{KAV} {Licencia}.txt"); } } catch { goto ERR0R; }
             goto D0NE;
         ERR0R:
             await Task.Delay(500);
@@ -463,7 +448,7 @@ namespace KCI
                 await Task.Delay(500);
                 MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles por el momento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 await Task.Delay(100);
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 OutputTextbox.Text = null;
                 Step = 0;
                 return;
@@ -480,7 +465,7 @@ namespace KCI
             if (Step == 4)
             {
                 OutputTextbox.Text = null;
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 Step = 0;
                 return;
             }
@@ -503,6 +488,7 @@ namespace KCI
             await REGISTRY(); if (Error == 1) { Error = 0; return; }
 
         DOWNLOAD:
+            OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             OutputTextbox.AppendText("{Paso 3} Descargar Kaspersky Internet Security");
             if (File.Exists(KCIDir + "\\{KIS}{ES}.exe")) { goto DONE; }
             await Task.Delay(3000);
@@ -522,7 +508,7 @@ namespace KCI
             await Task.Delay(100);
             if (Step == 3)
             {
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 OutputTextbox.Text = null;
                 Step = 0;
                 return;
@@ -547,16 +533,17 @@ namespace KCI
             if (Step == 3)
             {
                 OutputTextbox.Text = null;
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 Step = 0;
                 return;
             }
 
         LICENSE:
+            OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             OutputTextbox.AppendText("{Paso 4} Generar Licencia de Registro");
             if (File.Exists(KCIDir + "\\{KIS} {Licencia}.txt")) { goto D0NE; }
             await Task.Delay(3000);
-            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/kcidatabasekislicense", KCIDir + "\\{KIS} {Licencia}.txt"); } } catch { goto ERR0R; }
+            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/KCI-KIS-License", KCIDir + "\\{KIS} {Licencia}.txt"); } } catch { goto ERR0R; }
             goto D0NE;
         ERR0R:
             await Task.Delay(500);
@@ -570,7 +557,7 @@ namespace KCI
                 await Task.Delay(500);
                 MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles por el momento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 await Task.Delay(100);
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 OutputTextbox.Text = null;
                 Step = 0;
                 return;
@@ -587,7 +574,7 @@ namespace KCI
             if (Step == 4)
             {
                 OutputTextbox.Text = null;
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 Step = 0;
                 return;
             }
@@ -610,6 +597,7 @@ namespace KCI
             await REGISTRY(); if (Error == 1) { Error = 0; return; }
 
         DOWNLOAD:
+            OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             OutputTextbox.AppendText("{Paso 3} Descargar Kaspersky Total Security");
             if (File.Exists(KCIDir + "\\{KTS}{ES}.exe")) { goto DONE; }
             await Task.Delay(3000);
@@ -629,7 +617,7 @@ namespace KCI
             await Task.Delay(100);
             if (Step == 3)
             {
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 OutputTextbox.Text = null;
                 Step = 0;
                 return;
@@ -654,16 +642,17 @@ namespace KCI
             if (Step == 3)
             {
                 OutputTextbox.Text = null;
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 Step = 0;
                 return;
             }
 
         LICENSE:
+            OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             OutputTextbox.AppendText("{Paso 4} Generar Licencia de Registro");
             if (File.Exists(KCIDir + "\\{KTS} {Licencia}.txt")) { goto D0NE; }
             await Task.Delay(3000);
-            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/kcidatabasektslicense", KCIDir + "\\{KTS} {Licencia}.txt"); } } catch { goto ERR0R; }
+            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/KCI-KTS-License", KCIDir + "\\{KTS} {Licencia}.txt"); } } catch { goto ERR0R; }
             goto D0NE;
         ERR0R:
             await Task.Delay(500);
@@ -677,7 +666,7 @@ namespace KCI
                 await Task.Delay(500);
                 MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles por el momento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 await Task.Delay(100);
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 OutputTextbox.Text = null;
                 Step = 0;
                 return;
@@ -694,7 +683,7 @@ namespace KCI
             if (Step == 4)
             {
                 OutputTextbox.Text = null;
-                EnableMainButtons(); EnableSecondaryButtons();
+                EnableMainButtons();
                 Step = 0;
                 return;
             }
@@ -728,93 +717,69 @@ namespace KCI
         #region EnableButtons
         private void EnableMainButtons()
         {
-            if (InitializeError == 2) { return; }
-            if (InitializeError == 1) { CustomizeButton.Visible = true; return; }
-            StartButton.Visible = true;
-            CustomizeButton.Visible = true;
-            return;
-        }
-
-        private void EnableSecondaryButtons()
-        {
-            HelpButton.Visible = true;
+            if (InitializeError == 0) { StartButton.Enabled = true; StartButton.BackColor = Color.Gold; StartButton.Cursor = Cursors.Hand; }
+            if (InitializeError != 2) { CustomizeButton.Enabled = true; CustomizeButton.ForeColor = Color.FromArgb(0, 168, 142); CustomizeButton.IdleForecolor = Color.FromArgb(0, 168, 142); }
+            HelpButton.Enabled = true; HelpButton.Image = Properties.Resources.HelpButtonEnabled; HelpButton.ImageActive = Properties.Resources.HelpButtonActive;
             return;
         }
         #endregion
 
-        #region DisableButtons
+        #region DisableMainButtons
         private void DisableMainButtons()
         {
-            StartButton.Visible = false;
-            CustomizeButton.Visible = false;
-            return;
-        }
-
-        private void DisableSecondaryButtons()
-        {
-            HelpButton.Visible = false;
+            StartButton.Enabled = false; StartButton.BackColor = Color.Gray; StartButton.Cursor = Cursors.Default;
+            CustomizeButton.Enabled = false; CustomizeButton.ForeColor = Color.DimGray; CustomizeButton.IdleForecolor = Color.DimGray;
+            HelpButton.Enabled = false; HelpButton.ImageActive = null; HelpButton.Image = Properties.Resources.HelpButtonDisabled;
             return;
         }
         #endregion
 
         #region Events
+        private void MainEvent()
+        {
+            if (StartPanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); return; }
+            if (CustomizePanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); return; }
+            if (HelpPanel.Location.X == 277) { HelpPanel.Left = -653; Step = 0; EnableMainButtons(); return; }
+            return;
+        }
         private void KCI_Click(object sender, EventArgs e)
         {
-            if (StartPanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (CustomizePanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (HelpPanel.Location.X == 277) { HelpPanel.Left = -653; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
+            MainEvent(); return;
         }
 
         private void LeftPanel_MouseClick(object sender, MouseEventArgs e)
         {
-            if (StartPanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (CustomizePanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (HelpPanel.Location.X == 277) { HelpPanel.Left = -653; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            return;
+            MainEvent(); return;
         }
 
         private void TitleLabel_Click(object sender, EventArgs e)
         {
-            if (StartPanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (CustomizePanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (HelpPanel.Location.X == 277) { HelpPanel.Left = -653; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            return;
+            MainEvent(); return;
         }
 
         private void DescriptionLabel_Click(object sender, EventArgs e)
         {
-            if (StartPanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (CustomizePanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (HelpPanel.Location.X == 277) { HelpPanel.Left = -653; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            return;
+            MainEvent(); return;
         }
 
         private void StartButtonDisabled_Click(object sender, EventArgs e)
         {
-            if (StartPanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (CustomizePanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (HelpPanel.Location.X == 277) { HelpPanel.Left = -653; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            return;
+            MainEvent(); return;
         }
 
         private void OutputTextbox_Click(object sender, EventArgs e)
         {
-            if (StartPanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (CustomizePanel.Location.Y == 3) { Timer1.Enabled = true; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            if (HelpPanel.Location.X == 277) { HelpPanel.Left = -653; Step = 0; EnableMainButtons(); EnableSecondaryButtons(); return; }
-            return;
+            MainEvent(); return;
         }
 
         private void OutputTextbox_Enter(object sender, EventArgs e)
         {
-            ActiveControl = BlurLabel;
-            return;
+            ActiveControl = BlurLabel; return;
         }
 
         private void WaitEnterTextbox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) { BlurLabel.Visible = false; return; }
-            return;
+            if (e.KeyCode == Keys.Enter) { BlurLabel.Visible = false; return; } return;
         }
     }
     #endregion

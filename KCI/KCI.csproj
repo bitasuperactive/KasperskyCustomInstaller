@@ -154,13 +154,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\KasperskyLabLogo.png" />
+    <None Include="Resources\KCILogo.png" />
+    <None Include="Resources\StartButtonShield.png" />
+    <None Include="Resources\UninstallButton.png" />
+    <None Include="Resources\RegistryButton.png" />
+    <None Include="Resources\LicenseButton.png" />
+    <None Include="Resources\HelpButtonActive.png" />
+    <None Include="Resources\HelpButtonEnabled.png" />
+    <None Include="Resources\DownloadButton.png" />
+    <Content Include="Resources\HelpButtonDisabled.png" />
+    <None Include="Resources\LicenseButtonDisabled.png" />
+    <Content Include="Resources\DownloadButtonDisabled.png" />
     <None Include="Resources\BlurLabel3.png" />
     <None Include="Resources\BlurLabel2.png" />
     <None Include="Resources\BlurLabel1.png" />
-    <None Include="Resources\ESTE.png" />
-    <None Include="Resources\Difuminado.png" />
-    <None Include="Resources\BlurLabel2_2.png" />
-    <None Include="Resources\BlurLabel1_2.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

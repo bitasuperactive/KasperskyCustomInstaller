@@ -127,4 +127,40 @@
   <data name="BlurLabel3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlurLabel3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DownloadButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\downloadbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DownloadButtonDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\downloadbuttondisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HelpButtonActive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\helpbuttonactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HelpButtonDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\helpbuttondisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HelpButtonEnabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\helpbuttonenabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KasperskyLabLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KasperskyLabLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KCILogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\kcilogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LicenseButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\licensebutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LicenseButtonDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\licensebuttondisabled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RegistryButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\registrybutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartButtonShield" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\startbuttonshield.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UninstallButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\uninstallbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
