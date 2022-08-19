@@ -56,11 +56,13 @@
             this.UninstallButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.RegistryButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.DownloadButton = new Bunifu.Framework.UI.BunifuImageButton();
-            this.LicenseButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuSeparator8 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator7 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.LicenseButton = new Bunifu.Framework.UI.BunifuImageButton();
+            this.LicenseButtonDisabled = new Bunifu.Framework.UI.BunifuImageButton();
+            this.DownloadButtonDisabled = new Bunifu.Framework.UI.BunifuImageButton();
             this.HelpPanel = new System.Windows.Forms.Panel();
             this.FAQBackButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.label5 = new System.Windows.Forms.Label();
@@ -107,6 +109,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.RegistryButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DownloadButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LicenseButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LicenseButtonDisabled)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DownloadButtonDisabled)).BeginInit();
             this.HelpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).BeginInit();
             this.HelpScrollPanel.SuspendLayout();
@@ -304,7 +308,7 @@
             this.OutputTextbox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.OutputTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OutputTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.OutputTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.OutputTextbox.ForeColor = System.Drawing.Color.Silver;
             this.OutputTextbox.Location = new System.Drawing.Point(292, 189);
             this.OutputTextbox.Name = "OutputTextbox";
             this.OutputTextbox.ReadOnly = true;
@@ -402,6 +406,8 @@
             this.CustomizePanel.Controls.Add(this.RegistryButton);
             this.CustomizePanel.Controls.Add(this.DownloadButton);
             this.CustomizePanel.Controls.Add(this.LicenseButton);
+            this.CustomizePanel.Controls.Add(this.LicenseButtonDisabled);
+            this.CustomizePanel.Controls.Add(this.DownloadButtonDisabled);
             this.CustomizePanel.Controls.Add(this.bunifuSeparator8);
             this.CustomizePanel.Controls.Add(this.bunifuSeparator1);
             this.CustomizePanel.Controls.Add(this.bunifuSeparator6);
@@ -467,21 +473,6 @@
             this.DownloadButton.Zoom = 10;
             this.DownloadButton.Click += new System.EventHandler(this.DownloadButton_Click);
             // 
-            // LicenseButton
-            // 
-            this.LicenseButton.BackColor = System.Drawing.Color.Transparent;
-            this.LicenseButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LicenseButton.Image = ((System.Drawing.Image)(resources.GetObject("LicenseButton.Image")));
-            this.LicenseButton.ImageActive = null;
-            this.LicenseButton.Location = new System.Drawing.Point(3, 178);
-            this.LicenseButton.Name = "LicenseButton";
-            this.LicenseButton.Size = new System.Drawing.Size(336, 49);
-            this.LicenseButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LicenseButton.TabIndex = 21;
-            this.LicenseButton.TabStop = false;
-            this.LicenseButton.Zoom = 10;
-            this.LicenseButton.Click += new System.EventHandler(this.LicenseButton_Click);
-            // 
             // bunifuSeparator8
             // 
             this.bunifuSeparator8.BackColor = System.Drawing.Color.Transparent;
@@ -534,6 +525,51 @@
             this.bunifuSeparator7.Transparency = 255;
             this.bunifuSeparator7.Vertical = false;
             // 
+            // LicenseButton
+            // 
+            this.LicenseButton.BackColor = System.Drawing.Color.Transparent;
+            this.LicenseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LicenseButton.Image = ((System.Drawing.Image)(resources.GetObject("LicenseButton.Image")));
+            this.LicenseButton.ImageActive = null;
+            this.LicenseButton.Location = new System.Drawing.Point(3, 178);
+            this.LicenseButton.Name = "LicenseButton";
+            this.LicenseButton.Size = new System.Drawing.Size(336, 49);
+            this.LicenseButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LicenseButton.TabIndex = 21;
+            this.LicenseButton.TabStop = false;
+            this.LicenseButton.Zoom = 10;
+            this.LicenseButton.Click += new System.EventHandler(this.LicenseButton_Click);
+            // 
+            // LicenseButtonDisabled
+            // 
+            this.LicenseButtonDisabled.BackColor = System.Drawing.Color.Transparent;
+            this.LicenseButtonDisabled.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LicenseButtonDisabled.Enabled = false;
+            this.LicenseButtonDisabled.Image = ((System.Drawing.Image)(resources.GetObject("LicenseButtonDisabled.Image")));
+            this.LicenseButtonDisabled.ImageActive = null;
+            this.LicenseButtonDisabled.Location = new System.Drawing.Point(3, 178);
+            this.LicenseButtonDisabled.Name = "LicenseButtonDisabled";
+            this.LicenseButtonDisabled.Size = new System.Drawing.Size(336, 49);
+            this.LicenseButtonDisabled.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LicenseButtonDisabled.TabIndex = 23;
+            this.LicenseButtonDisabled.TabStop = false;
+            this.LicenseButtonDisabled.Zoom = 0;
+            // 
+            // DownloadButtonDisabled
+            // 
+            this.DownloadButtonDisabled.BackColor = System.Drawing.Color.Transparent;
+            this.DownloadButtonDisabled.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DownloadButtonDisabled.Enabled = false;
+            this.DownloadButtonDisabled.Image = ((System.Drawing.Image)(resources.GetObject("DownloadButtonDisabled.Image")));
+            this.DownloadButtonDisabled.ImageActive = null;
+            this.DownloadButtonDisabled.Location = new System.Drawing.Point(3, 123);
+            this.DownloadButtonDisabled.Name = "DownloadButtonDisabled";
+            this.DownloadButtonDisabled.Size = new System.Drawing.Size(336, 49);
+            this.DownloadButtonDisabled.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DownloadButtonDisabled.TabIndex = 24;
+            this.DownloadButtonDisabled.TabStop = false;
+            this.DownloadButtonDisabled.Zoom = 0;
+            // 
             // HelpPanel
             // 
             this.HelpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
@@ -584,10 +620,10 @@
             this.bunifuSeparator9.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator9.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(191)))), ((int)(((byte)(162)))));
             this.bunifuSeparator9.LineThickness = 1;
-            this.bunifuSeparator9.Location = new System.Drawing.Point(-7, 3);
+            this.bunifuSeparator9.Location = new System.Drawing.Point(-7, 2);
             this.bunifuSeparator9.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.bunifuSeparator9.Name = "bunifuSeparator9";
-            this.bunifuSeparator9.Size = new System.Drawing.Size(12, 349);
+            this.bunifuSeparator9.Size = new System.Drawing.Size(12, 350);
             this.bunifuSeparator9.TabIndex = 15;
             this.bunifuSeparator9.Transparency = 255;
             this.bunifuSeparator9.Vertical = true;
@@ -597,10 +633,10 @@
             this.bunifuSeparator10.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator10.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(191)))), ((int)(((byte)(162)))));
             this.bunifuSeparator10.LineThickness = 1;
-            this.bunifuSeparator10.Location = new System.Drawing.Point(339, 3);
+            this.bunifuSeparator10.Location = new System.Drawing.Point(339, 2);
             this.bunifuSeparator10.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.bunifuSeparator10.Name = "bunifuSeparator10";
-            this.bunifuSeparator10.Size = new System.Drawing.Size(12, 349);
+            this.bunifuSeparator10.Size = new System.Drawing.Size(12, 350);
             this.bunifuSeparator10.TabIndex = 16;
             this.bunifuSeparator10.Transparency = 255;
             this.bunifuSeparator10.Vertical = true;
@@ -613,7 +649,7 @@
             this.bunifuSeparator12.Location = new System.Drawing.Point(0, -5);
             this.bunifuSeparator12.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.bunifuSeparator12.Name = "bunifuSeparator12";
-            this.bunifuSeparator12.Size = new System.Drawing.Size(347, 12);
+            this.bunifuSeparator12.Size = new System.Drawing.Size(346, 12);
             this.bunifuSeparator12.TabIndex = 13;
             this.bunifuSeparator12.Transparency = 255;
             this.bunifuSeparator12.Vertical = false;
@@ -626,7 +662,7 @@
             this.bunifuSeparator11.Location = new System.Drawing.Point(-7, 345);
             this.bunifuSeparator11.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.bunifuSeparator11.Name = "bunifuSeparator11";
-            this.bunifuSeparator11.Size = new System.Drawing.Size(354, 12);
+            this.bunifuSeparator11.Size = new System.Drawing.Size(353, 12);
             this.bunifuSeparator11.TabIndex = 14;
             this.bunifuSeparator11.Transparency = 255;
             this.bunifuSeparator11.Vertical = false;
@@ -661,7 +697,7 @@
             this.FAQ3Link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FAQ3Link.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAQ3Link.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.FAQ3Link.Location = new System.Drawing.Point(50, 56);
+            this.FAQ3Link.Location = new System.Drawing.Point(50, 70);
             this.FAQ3Link.Name = "FAQ3Link";
             this.FAQ3Link.Size = new System.Drawing.Size(27, 14);
             this.FAQ3Link.TabIndex = 36;
@@ -690,7 +726,7 @@
             this.FAQ7Button.IconVisible = true;
             this.FAQ7Button.IconZoom = 0D;
             this.FAQ7Button.IsTab = false;
-            this.FAQ7Button.Location = new System.Drawing.Point(-6, 768);
+            this.FAQ7Button.Location = new System.Drawing.Point(-6, 178);
             this.FAQ7Button.Margin = new System.Windows.Forms.Padding(3, 11, 3, 11);
             this.FAQ7Button.Name = "FAQ7Button";
             this.FAQ7Button.Normalcolor = System.Drawing.Color.Transparent;
@@ -724,9 +760,9 @@
             this.FAQ6Link.ForeColor = System.Drawing.SystemColors.Highlight;
             this.FAQ6Link.Location = new System.Drawing.Point(133, 56);
             this.FAQ6Link.Name = "FAQ6Link";
-            this.FAQ6Link.Size = new System.Drawing.Size(27, 14);
+            this.FAQ6Link.Size = new System.Drawing.Size(30, 14);
             this.FAQ6Link.TabIndex = 33;
-            this.FAQ6Link.Text = "aquí";
+            this.FAQ6Link.Text = "aquí.";
             this.FAQ6Link.Visible = false;
             this.FAQ6Link.Click += new System.EventHandler(this.FAQ6Link_Click);
             // 
@@ -736,7 +772,7 @@
             this.FAQ6Button.BackColor = System.Drawing.Color.Transparent;
             this.FAQ6Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FAQ6Button.BorderRadius = 0;
-            this.FAQ6Button.ButtonText = "¿Dónde puedo ver un tutorial de KCI?";
+            this.FAQ6Button.ButtonText = "¿KCI posee tutorial oficial?";
             this.FAQ6Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FAQ6Button.DisabledColor = System.Drawing.Color.Gray;
             this.FAQ6Button.Iconcolor = System.Drawing.Color.Transparent;
@@ -751,7 +787,7 @@
             this.FAQ6Button.IconVisible = true;
             this.FAQ6Button.IconZoom = 0D;
             this.FAQ6Button.IsTab = false;
-            this.FAQ6Button.Location = new System.Drawing.Point(-6, 699);
+            this.FAQ6Button.Location = new System.Drawing.Point(-6, 124);
             this.FAQ6Button.Margin = new System.Windows.Forms.Padding(3, 9, 3, 9);
             this.FAQ6Button.Name = "FAQ6Button";
             this.FAQ6Button.Normalcolor = System.Drawing.Color.Transparent;
@@ -760,7 +796,7 @@
             this.FAQ6Button.selected = false;
             this.FAQ6Button.Size = new System.Drawing.Size(278, 21);
             this.FAQ6Button.TabIndex = 32;
-            this.FAQ6Button.Text = "¿Dónde puedo ver un tutorial de KCI?";
+            this.FAQ6Button.Text = "¿KCI posee tutorial oficial?";
             this.FAQ6Button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.FAQ6Button.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.FAQ6Button.TextFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -774,8 +810,8 @@
             this.FAQ6Description.Name = "FAQ6Description";
             this.FAQ6Description.Size = new System.Drawing.Size(308, 42);
             this.FAQ6Description.TabIndex = 31;
-            this.FAQ6Description.Text = "Puedes acceder al tutorial oficial de KCI, en el cual se explica el software en p" +
-    "rofundidad y se resuelven las dudas más frecuentes, haciendo clic";
+            this.FAQ6Description.Text = "Puedes acceder al tutorial oficial de KCI, en el cual explico el software en prof" +
+    "undidad y resuelvo las dudas más frecuentes, haciendo clic";
             this.FAQ6Description.Visible = false;
             // 
             // FAQ5Button
@@ -784,7 +820,7 @@
             this.FAQ5Button.BackColor = System.Drawing.Color.Transparent;
             this.FAQ5Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FAQ5Button.BorderRadius = 0;
-            this.FAQ5Button.ButtonText = "La licencia ha expirado, ¿qué hago?";
+            this.FAQ5Button.ButtonText = "¿Qué hago cuando mi licencia expire?";
             this.FAQ5Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FAQ5Button.DisabledColor = System.Drawing.Color.Gray;
             this.FAQ5Button.Iconcolor = System.Drawing.Color.Transparent;
@@ -799,7 +835,7 @@
             this.FAQ5Button.IconVisible = true;
             this.FAQ5Button.IconZoom = 0D;
             this.FAQ5Button.IsTab = false;
-            this.FAQ5Button.Location = new System.Drawing.Point(-6, 630);
+            this.FAQ5Button.Location = new System.Drawing.Point(-6, 100);
             this.FAQ5Button.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
             this.FAQ5Button.Name = "FAQ5Button";
             this.FAQ5Button.Normalcolor = System.Drawing.Color.Transparent;
@@ -808,7 +844,7 @@
             this.FAQ5Button.selected = false;
             this.FAQ5Button.Size = new System.Drawing.Size(273, 21);
             this.FAQ5Button.TabIndex = 30;
-            this.FAQ5Button.Text = "La licencia ha expirado, ¿qué hago?";
+            this.FAQ5Button.Text = "¿Qué hago cuando mi licencia expire?";
             this.FAQ5Button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.FAQ5Button.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.FAQ5Button.TextFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -822,9 +858,8 @@
             this.FAQ5Description.Name = "FAQ5Description";
             this.FAQ5Description.Size = new System.Drawing.Size(308, 42);
             this.FAQ5Description.TabIndex = 29;
-            this.FAQ5Description.Text = "Cuando finalice la licencia de tu antivirus Kaspersky, siempre puedes reutilizar " +
-    "KCI y volver a disfrutar de tu antivirus con todas las funcionalidades y de form" +
-    "a totalmente gratuita.";
+            this.FAQ5Description.Text = "Relajarte tomando un chupito de tequila con vodca y dejar que KCI haga su trabajo" +
+    "...";
             this.FAQ5Description.Visible = false;
             // 
             // FAQ4Button
@@ -833,7 +868,7 @@
             this.FAQ4Button.BackColor = System.Drawing.Color.Transparent;
             this.FAQ4Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FAQ4Button.BorderRadius = 0;
-            this.FAQ4Button.ButtonText = "No hay licencias disponibles, ¿qué hago?";
+            this.FAQ4Button.ButtonText = "¿Qué hago si no hay licencias actualizadas?";
             this.FAQ4Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FAQ4Button.DisabledColor = System.Drawing.Color.Gray;
             this.FAQ4Button.Iconcolor = System.Drawing.Color.Transparent;
@@ -848,16 +883,16 @@
             this.FAQ4Button.IconVisible = true;
             this.FAQ4Button.IconZoom = 0D;
             this.FAQ4Button.IsTab = false;
-            this.FAQ4Button.Location = new System.Drawing.Point(-6, 561);
+            this.FAQ4Button.Location = new System.Drawing.Point(-6, 76);
             this.FAQ4Button.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.FAQ4Button.Name = "FAQ4Button";
             this.FAQ4Button.Normalcolor = System.Drawing.Color.Transparent;
             this.FAQ4Button.OnHovercolor = System.Drawing.Color.Transparent;
             this.FAQ4Button.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(191)))), ((int)(((byte)(162)))));
             this.FAQ4Button.selected = false;
-            this.FAQ4Button.Size = new System.Drawing.Size(306, 21);
+            this.FAQ4Button.Size = new System.Drawing.Size(317, 21);
             this.FAQ4Button.TabIndex = 28;
-            this.FAQ4Button.Text = "No hay licencias disponibles, ¿qué hago?";
+            this.FAQ4Button.Text = "¿Qué hago si no hay licencias actualizadas?";
             this.FAQ4Button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.FAQ4Button.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.FAQ4Button.TextFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -869,11 +904,11 @@
             this.FAQ4Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FAQ4Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ4Description.Name = "FAQ4Description";
-            this.FAQ4Description.Size = new System.Drawing.Size(308, 42);
+            this.FAQ4Description.Size = new System.Drawing.Size(308, 79);
             this.FAQ4Description.TabIndex = 27;
-            this.FAQ4Description.Text = "Independientemente de existir o no licencias disponibles, siempre puedes disfruta" +
-    "r de la licencia gratuita de prueba, con todas las funcionalidades del antivirus" +
-    " disponibles.";
+            this.FAQ4Description.Text = "Independientemente de existir o no licencias actualizadas, siempre puedes reestab" +
+    "lecer la licencia de prueba o trial y obtener todas las funcionalidades que ofre" +
+    "ce KasperskyLab, sin restricciones.";
             this.FAQ4Description.Visible = false;
             // 
             // FAQ3Description
@@ -882,7 +917,7 @@
             this.FAQ3Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FAQ3Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ3Description.Name = "FAQ3Description";
-            this.FAQ3Description.Size = new System.Drawing.Size(308, 140);
+            this.FAQ3Description.Size = new System.Drawing.Size(308, 239);
             this.FAQ3Description.TabIndex = 25;
             this.FAQ3Description.Text = resources.GetString("FAQ3Description.Text");
             this.FAQ3Description.Visible = false;
@@ -908,7 +943,7 @@
             this.FAQ3Button.IconVisible = true;
             this.FAQ3Button.IconZoom = 0D;
             this.FAQ3Button.IsTab = false;
-            this.FAQ3Button.Location = new System.Drawing.Point(-6, 394);
+            this.FAQ3Button.Location = new System.Drawing.Point(-6, 52);
             this.FAQ3Button.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.FAQ3Button.Name = "FAQ3Button";
             this.FAQ3Button.Normalcolor = System.Drawing.Color.Transparent;
@@ -944,7 +979,7 @@
             this.FAQ2Button.IconVisible = true;
             this.FAQ2Button.IconZoom = 0D;
             this.FAQ2Button.IsTab = false;
-            this.FAQ2Button.Location = new System.Drawing.Point(-6, 143);
+            this.FAQ2Button.Location = new System.Drawing.Point(-6, 28);
             this.FAQ2Button.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.FAQ2Button.Name = "FAQ2Button";
             this.FAQ2Button.Normalcolor = System.Drawing.Color.Transparent;
@@ -965,7 +1000,7 @@
             this.FAQ1Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FAQ1Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ1Description.Name = "FAQ1Description";
-            this.FAQ1Description.Size = new System.Drawing.Size(308, 112);
+            this.FAQ1Description.Size = new System.Drawing.Size(308, 239);
             this.FAQ1Description.TabIndex = 18;
             this.FAQ1Description.Text = resources.GetString("FAQ1Description.Text");
             this.FAQ1Description.Visible = false;
@@ -976,7 +1011,7 @@
             this.FAQ2Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FAQ2Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ2Description.Name = "FAQ2Description";
-            this.FAQ2Description.Size = new System.Drawing.Size(304, 252);
+            this.FAQ2Description.Size = new System.Drawing.Size(304, 269);
             this.FAQ2Description.TabIndex = 20;
             this.FAQ2Description.Text = resources.GetString("FAQ2Description.Text");
             this.FAQ2Description.Visible = false;
@@ -1031,7 +1066,7 @@
             this.CustomizeButtonDisabled.Enabled = false;
             this.CustomizeButtonDisabled.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomizeButtonDisabled.ForeColor = System.Drawing.Color.DimGray;
-            this.CustomizeButtonDisabled.Location = new System.Drawing.Point(379, 147);
+            this.CustomizeButtonDisabled.Location = new System.Drawing.Point(377, 147);
             this.CustomizeButtonDisabled.Name = "CustomizeButtonDisabled";
             this.CustomizeButtonDisabled.Size = new System.Drawing.Size(146, 16);
             this.CustomizeButtonDisabled.TabIndex = 27;
@@ -1126,7 +1161,7 @@
             this.CustomizeButton.IdleFillColor = System.Drawing.Color.Transparent;
             this.CustomizeButton.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.CustomizeButton.IdleLineColor = System.Drawing.Color.Transparent;
-            this.CustomizeButton.Location = new System.Drawing.Point(379, 146);
+            this.CustomizeButton.Location = new System.Drawing.Point(377, 146);
             this.CustomizeButton.Margin = new System.Windows.Forms.Padding(4);
             this.CustomizeButton.Name = "CustomizeButton";
             this.CustomizeButton.Size = new System.Drawing.Size(146, 19);
@@ -1256,6 +1291,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.RegistryButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DownloadButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LicenseButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LicenseButtonDisabled)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DownloadButtonDisabled)).EndInit();
             this.HelpPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).EndInit();
             this.HelpScrollPanel.ResumeLayout(false);
@@ -1333,6 +1370,8 @@
         private System.Windows.Forms.Label DescriptionLabel;
         private Bunifu.Framework.UI.BunifuImageButton FAQBackButton;
         private Bunifu.Framework.UI.BunifuFlatButton RestartButton;
+        private Bunifu.Framework.UI.BunifuImageButton LicenseButtonDisabled;
+        private Bunifu.Framework.UI.BunifuImageButton DownloadButtonDisabled;
     }
 }
 

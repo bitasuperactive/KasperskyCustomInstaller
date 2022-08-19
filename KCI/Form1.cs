@@ -34,6 +34,10 @@ namespace KCI
         public KCI()
         {
             InitializeComponent(); Directory.SetCurrentDirectory(TempDir);
+
+            DownloadButton.Visible = false;
+            LicenseButton.Visible = false;
+
             if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
             {
                 DisableMainButtons();
@@ -46,8 +50,8 @@ namespace KCI
             catch
             {
                 StartButton.Visible = false;
-                DownloadButton.Enabled = false;
-                LicenseButton.Enabled = false;
+                DownloadButton.Visible = false;
+                LicenseButton.Visible = false;
                 OutputTextbox.SelectionColor = Color.Red;
                 OutputTextbox.AppendText("*** Conexión a internet requerida.");
                 OutputTextbox.AppendText(Environment.NewLine);
@@ -92,7 +96,7 @@ namespace KCI
         private async void UninstallButton_Click(object sender, EventArgs e)
         {
             await Task.Delay(100);
-            Timer1.Enabled = true;
+            Step = 1; Timer1.Enabled = true;
             while (Timer1.Enabled == true) { await Task.Delay(50); }
             OutputTextbox.Text = null;
             await UNINSTALL();
@@ -105,7 +109,7 @@ namespace KCI
         private async void RegistryButton_Click(object sender, EventArgs e)
         {
             await Task.Delay(100);
-            Timer1.Enabled = true;
+            Step = 2; Timer1.Enabled = true;
             while (Timer1.Enabled == true) { await Task.Delay(50); }
             OutputTextbox.Text = null;
             await REGISTRY();
@@ -334,6 +338,7 @@ namespace KCI
             OutputTextbox.AppendText(" √" + Console.Out.NewLine);
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             await Task.Delay(2000);
+            Step = 0;
             return;
         }
         #endregion
@@ -357,6 +362,7 @@ namespace KCI
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Red;
             OutputTextbox.AppendText(" X");
+            if (Step == 2) { Step = 0;  OutputTextbox.AppendText(Console.Out.NewLine); OutputTextbox.SelectionColor = Color.Red; }
             OutputTextbox.AppendText(Console.Out.NewLine + "*** Acceso Denegado.");
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             await Task.Delay(500);
@@ -414,7 +420,7 @@ namespace KCI
                 Step = 0;
                 return;
             }
-            BlurLabel.Image = Properties.Resources.BlurLabel1;
+            BlurLabel.Image = Properties.Resources.BlurLabel2;
             BlurLabel.Text = "Pulsa ENTER cuando finalices la descarga manual de Kaspersky Antivirus.";
             BlurLabel.BringToFront();
             BlurLabel.Visible = true;
@@ -449,6 +455,7 @@ namespace KCI
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Red;
             OutputTextbox.AppendText(" X");
+            if (Step == 4) { OutputTextbox.AppendText(Console.Out.NewLine); OutputTextbox.SelectionColor = Color.Red; }
             OutputTextbox.AppendText(Console.Out.NewLine + "*** No existen licencias disponibles.");
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             if (Step == 4)
@@ -520,7 +527,7 @@ namespace KCI
                 Step = 0;
                 return;
             }
-            BlurLabel.Image = Properties.Resources.BlurLabel1;
+            BlurLabel.Image = Properties.Resources.BlurLabel2;
             BlurLabel.Text = "Pulsa ENTER cuando finalices la descarga manual de Kaspersky Internet Security.";
             BlurLabel.BringToFront();
             BlurLabel.Visible = true;
@@ -555,6 +562,7 @@ namespace KCI
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Red;
             OutputTextbox.AppendText(" X");
+            if (Step == 4) { OutputTextbox.AppendText(Console.Out.NewLine); OutputTextbox.SelectionColor = Color.Red; }
             OutputTextbox.AppendText(Console.Out.NewLine + "*** Licencia No Generada.");
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             if (Step == 4)
@@ -626,7 +634,7 @@ namespace KCI
                 Step = 0;
                 return;
             }
-            BlurLabel.Image = Properties.Resources.BlurLabel1;
+            BlurLabel.Image = Properties.Resources.BlurLabel2;
             BlurLabel.Text = "Pulsa ENTER cuando finalices la descarga manual de Kaspersky Total Security.";
             BlurLabel.BringToFront();
             BlurLabel.Visible = true;
@@ -661,6 +669,7 @@ namespace KCI
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Red;
             OutputTextbox.AppendText(" X");
+            if (Step == 4) { OutputTextbox.AppendText(Console.Out.NewLine); OutputTextbox.SelectionColor = Color.Red; }
             OutputTextbox.AppendText(Console.Out.NewLine + "*** No existen licencias disponibles.");
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             if (Step == 4)
@@ -699,7 +708,7 @@ namespace KCI
         {
             MessageBoxEx.Show(this, "Kaspersky reset finalizado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             await Task.Delay(100);
-            BlurLabel.Image = Properties.Resources.BlurLabel2;
+            BlurLabel.Image = Properties.Resources.BlurLabel3;
             RestartButton.Location = new Point(228, 151);
             BlurLabel.Text = Environment.NewLine + Environment.NewLine + Environment.NewLine + "Debes reiniciar el sistema para continuar con la instalación";
             BlurLabel.BringToFront(); RestartButton.BringToFront();

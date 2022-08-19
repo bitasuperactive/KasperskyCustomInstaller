@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\BlurLabel3.png" />
     <None Include="Resources\BlurLabel2.png" />
     <None Include="Resources\BlurLabel1.png" />
     <None Include="Resources\ESTE.png" />
