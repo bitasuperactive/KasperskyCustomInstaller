@@ -5,23 +5,8 @@
     <Setting Name="MainThreadDone" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="AutoInstall" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="KavSetupURL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup.exe</Value>
-    </Setting>
-    <Setting Name="KavEditionToInstall" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Kaspersky Internet Security</Value>
-    </Setting>
-    <Setting Name="KavSecureConnection" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="KavLicense" Type="System.String" Scope="User">
+    <Setting Name="KavWebsite" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="KavLicenseURL" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://github.com/bitasuperactive/KCIBasic/releases/download/pre-release/Licencias.txt</Value>
     </Setting>
   </Settings>
 </SettingsFile>
