@@ -31,11 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KCI));
             this.LeftPanel = new System.Windows.Forms.Panel();
-            this.TitleLabel = new System.Windows.Forms.Label();
             this.LogoPicture = new System.Windows.Forms.PictureBox();
             this.Logo2Picture = new System.Windows.Forms.PictureBox();
-            this.DescriptionLabel = new System.Windows.Forms.Label();
-            this.Separator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.KTSButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.KISButton = new Bunifu.Framework.UI.BunifuImageButton();
@@ -82,20 +79,15 @@
             this.FAQ2Description = new System.Windows.Forms.Label();
             this.FAQ1Button = new Bunifu.Framework.UI.BunifuFlatButton();
             this.WaitEnterTextbox = new System.Windows.Forms.TextBox();
-            this.BlurLabel = new System.Windows.Forms.Label();
-            this.OutputPicture = new System.Windows.Forms.PictureBox();
-            this.StartButton = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.CustomizeButton = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.RestartButton = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.BlurPicture = new System.Windows.Forms.PictureBox();
             this.StartPanelDownTimer = new System.Windows.Forms.Timer(this.components);
             this.StartPanelUpTimer = new System.Windows.Forms.Timer(this.components);
             this.CustomizePanelDownTimer = new System.Windows.Forms.Timer(this.components);
             this.CustomizePanelUpTimer = new System.Windows.Forms.Timer(this.components);
-            this.Output1 = new System.Windows.Forms.Label();
-            this.Output2 = new System.Windows.Forms.Label();
-            this.Output3 = new System.Windows.Forms.Label();
-            this.Output4 = new System.Windows.Forms.Label();
+            this.GIF = new System.Windows.Forms.PictureBox();
+            this.ErrorLabel = new System.Windows.Forms.Label();
+            this.StartButton = new System.Windows.Forms.Button();
+            this.CustomizeButton = new System.Windows.Forms.Button();
+            this.ProgressLabel = new System.Windows.Forms.Label();
             this.LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo2Picture)).BeginInit();
@@ -112,18 +104,16 @@
             this.HelpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).BeginInit();
             this.HelpScrollPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OutputPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BlurPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GIF)).BeginInit();
             this.SuspendLayout();
             // 
             // LeftPanel
             // 
             this.LeftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.LeftPanel.Controls.Add(this.TitleLabel);
+            this.LeftPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LeftPanel.BackgroundImage")));
+            this.LeftPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LeftPanel.Controls.Add(this.LogoPicture);
             this.LeftPanel.Controls.Add(this.Logo2Picture);
-            this.LeftPanel.Controls.Add(this.DescriptionLabel);
-            this.LeftPanel.Controls.Add(this.Separator1);
             this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftPanel.Location = new System.Drawing.Point(0, 0);
             this.LeftPanel.Name = "LeftPanel";
@@ -131,32 +121,22 @@
             this.LeftPanel.TabIndex = 0;
             this.LeftPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LeftPanel_MouseClick);
             // 
-            // TitleLabel
-            // 
-            this.TitleLabel.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TitleLabel.Location = new System.Drawing.Point(3, 148);
-            this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(251, 66);
-            this.TitleLabel.TabIndex = 0;
-            this.TitleLabel.Text = "Kaspersky\r\nCustom Installer";
-            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.TitleLabel.Click += new System.EventHandler(this.TitleLabel_Click);
-            // 
             // LogoPicture
             // 
+            this.LogoPicture.BackColor = System.Drawing.Color.Transparent;
             this.LogoPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.LogoPicture.Enabled = false;
-            this.LogoPicture.Image = global::KCI.Properties.Resources.KCILogo;
-            this.LogoPicture.Location = new System.Drawing.Point(3, 14);
+            this.LogoPicture.Image = ((System.Drawing.Image)(resources.GetObject("LogoPicture.Image")));
+            this.LogoPicture.Location = new System.Drawing.Point(3, 17);
             this.LogoPicture.Name = "LogoPicture";
-            this.LogoPicture.Size = new System.Drawing.Size(251, 126);
+            this.LogoPicture.Size = new System.Drawing.Size(251, 146);
             this.LogoPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.LogoPicture.TabIndex = 0;
             this.LogoPicture.TabStop = false;
             // 
             // Logo2Picture
             // 
+            this.Logo2Picture.BackColor = System.Drawing.Color.Transparent;
             this.Logo2Picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Logo2Picture.Enabled = false;
             this.Logo2Picture.Image = global::KCI.Properties.Resources.KasperskyLabLogo;
@@ -166,32 +146,6 @@
             this.Logo2Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Logo2Picture.TabIndex = 2;
             this.Logo2Picture.TabStop = false;
-            // 
-            // DescriptionLabel
-            // 
-            this.DescriptionLabel.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DescriptionLabel.ForeColor = System.Drawing.Color.Gray;
-            this.DescriptionLabel.Location = new System.Drawing.Point(21, 217);
-            this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(214, 106);
-            this.DescriptionLabel.TabIndex = 1;
-            this.DescriptionLabel.Text = resources.GetString("DescriptionLabel.Text");
-            this.DescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.DescriptionLabel.Click += new System.EventHandler(this.DescriptionLabel_Click);
-            // 
-            // Separator1
-            // 
-            this.Separator1.BackColor = System.Drawing.Color.Transparent;
-            this.Separator1.Enabled = false;
-            this.Separator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
-            this.Separator1.LineThickness = 1;
-            this.Separator1.Location = new System.Drawing.Point(0, -7);
-            this.Separator1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Separator1.Name = "Separator1";
-            this.Separator1.Size = new System.Drawing.Size(257, 12);
-            this.Separator1.TabIndex = 1;
-            this.Separator1.Transparency = 255;
-            this.Separator1.Vertical = false;
             // 
             // toolTip1
             // 
@@ -287,19 +241,19 @@
             // 
             this.Separator2.BackColor = System.Drawing.Color.Transparent;
             this.Separator2.Enabled = false;
-            this.Separator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.Separator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Separator2.LineThickness = 1;
-            this.Separator2.Location = new System.Drawing.Point(251, 1);
+            this.Separator2.Location = new System.Drawing.Point(251, 0);
             this.Separator2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Separator2.Name = "Separator2";
-            this.Separator2.Size = new System.Drawing.Size(10, 425);
+            this.Separator2.Size = new System.Drawing.Size(10, 426);
             this.Separator2.TabIndex = 0;
             this.Separator2.Transparency = 255;
             this.Separator2.Vertical = true;
             // 
             // StartPanel
             // 
-            this.StartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.StartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.StartPanel.Controls.Add(this.SelectionLabel);
             this.StartPanel.Controls.Add(this.bunifuSeparator5);
             this.StartPanel.Controls.Add(this.bunifuSeparator3);
@@ -378,7 +332,7 @@
             // 
             // CustomizePanel
             // 
-            this.CustomizePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.CustomizePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.CustomizePanel.Controls.Add(this.SelectionLabel2);
             this.CustomizePanel.Controls.Add(this.UninstallButton);
             this.CustomizePanel.Controls.Add(this.RegistryButton);
@@ -518,7 +472,7 @@
             // 
             // HelpPanel
             // 
-            this.HelpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.HelpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.HelpPanel.Controls.Add(this.FAQBackButton);
             this.HelpPanel.Controls.Add(this.label5);
             this.HelpPanel.Controls.Add(this.bunifuSeparator9);
@@ -951,145 +905,11 @@
             // 
             // WaitEnterTextbox
             // 
-            this.WaitEnterTextbox.Enabled = false;
             this.WaitEnterTextbox.Location = new System.Drawing.Point(528, -25);
             this.WaitEnterTextbox.Name = "WaitEnterTextbox";
             this.WaitEnterTextbox.Size = new System.Drawing.Size(10, 22);
             this.WaitEnterTextbox.TabIndex = 23;
             this.WaitEnterTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WaitEnterTextbox_KeyDown);
-            // 
-            // BlurLabel
-            // 
-            this.BlurLabel.BackColor = System.Drawing.Color.Transparent;
-            this.BlurLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BlurLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BlurLabel.Location = new System.Drawing.Point(0, 374);
-            this.BlurLabel.Name = "BlurLabel";
-            this.BlurLabel.Size = new System.Drawing.Size(644, 52);
-            this.BlurLabel.TabIndex = 18;
-            this.BlurLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BlurLabel.Visible = false;
-            // 
-            // OutputPicture
-            // 
-            this.OutputPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OutputPicture.BackgroundImage")));
-            this.OutputPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.OutputPicture.Enabled = false;
-            this.OutputPicture.Location = new System.Drawing.Point(268, 174);
-            this.OutputPicture.Name = "OutputPicture";
-            this.OutputPicture.Size = new System.Drawing.Size(365, 149);
-            this.OutputPicture.TabIndex = 9;
-            this.OutputPicture.TabStop = false;
-            // 
-            // StartButton
-            // 
-            this.StartButton.Activecolor = System.Drawing.Color.Gold;
-            this.StartButton.BackColor = System.Drawing.Color.Gold;
-            this.StartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.StartButton.BorderRadius = 5;
-            this.StartButton.ButtonText = "I N I C I A R";
-            this.StartButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.StartButton.DisabledColor = System.Drawing.Color.Gray;
-            this.StartButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.StartButton.Iconimage = global::KCI.Properties.Resources.StartButtonShield;
-            this.StartButton.Iconimage_right = null;
-            this.StartButton.Iconimage_right_Selected = null;
-            this.StartButton.Iconimage_Selected = null;
-            this.StartButton.IconMarginLeft = 0;
-            this.StartButton.IconMarginRight = 0;
-            this.StartButton.IconRightVisible = true;
-            this.StartButton.IconRightZoom = 0D;
-            this.StartButton.IconVisible = true;
-            this.StartButton.IconZoom = 50D;
-            this.StartButton.IsTab = false;
-            this.StartButton.Location = new System.Drawing.Point(352, 84);
-            this.StartButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.StartButton.Name = "StartButton";
-            this.StartButton.Normalcolor = System.Drawing.Color.Gold;
-            this.StartButton.OnHovercolor = System.Drawing.Color.Yellow;
-            this.StartButton.OnHoverTextColor = System.Drawing.Color.Black;
-            this.StartButton.selected = false;
-            this.StartButton.Size = new System.Drawing.Size(197, 61);
-            this.StartButton.TabIndex = 3;
-            this.StartButton.Text = "I N I C I A R";
-            this.StartButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.StartButton.Textcolor = System.Drawing.Color.Black;
-            this.StartButton.TextFont = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
-            // 
-            // CustomizeButton
-            // 
-            this.CustomizeButton.ActiveBorderThickness = 1;
-            this.CustomizeButton.ActiveCornerRadius = 20;
-            this.CustomizeButton.ActiveFillColor = System.Drawing.Color.Transparent;
-            this.CustomizeButton.ActiveForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(191)))), ((int)(((byte)(162)))));
-            this.CustomizeButton.ActiveLineColor = System.Drawing.Color.Transparent;
-            this.CustomizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.CustomizeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CustomizeButton.BackgroundImage")));
-            this.CustomizeButton.ButtonText = "Personalizar Instalación";
-            this.CustomizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CustomizeButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomizeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.CustomizeButton.IdleBorderThickness = 1;
-            this.CustomizeButton.IdleCornerRadius = 20;
-            this.CustomizeButton.IdleFillColor = System.Drawing.Color.Transparent;
-            this.CustomizeButton.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
-            this.CustomizeButton.IdleLineColor = System.Drawing.Color.Transparent;
-            this.CustomizeButton.Location = new System.Drawing.Point(377, 146);
-            this.CustomizeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.CustomizeButton.Name = "CustomizeButton";
-            this.CustomizeButton.Size = new System.Drawing.Size(146, 19);
-            this.CustomizeButton.TabIndex = 16;
-            this.CustomizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CustomizeButton.Click += new System.EventHandler(this.CustomizeButton_Click);
-            // 
-            // RestartButton
-            // 
-            this.RestartButton.Activecolor = System.Drawing.Color.Gold;
-            this.RestartButton.BackColor = System.Drawing.Color.Gold;
-            this.RestartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RestartButton.BorderRadius = 5;
-            this.RestartButton.ButtonText = "REINICIAR";
-            this.RestartButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RestartButton.DisabledColor = System.Drawing.Color.Gray;
-            this.RestartButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RestartButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.RestartButton.Iconimage = ((System.Drawing.Image)(resources.GetObject("RestartButton.Iconimage")));
-            this.RestartButton.Iconimage_right = null;
-            this.RestartButton.Iconimage_right_Selected = null;
-            this.RestartButton.Iconimage_Selected = null;
-            this.RestartButton.IconMarginLeft = 0;
-            this.RestartButton.IconMarginRight = 0;
-            this.RestartButton.IconRightVisible = true;
-            this.RestartButton.IconRightZoom = 0D;
-            this.RestartButton.IconVisible = true;
-            this.RestartButton.IconZoom = 50D;
-            this.RestartButton.IsTab = false;
-            this.RestartButton.Location = new System.Drawing.Point(352, 17);
-            this.RestartButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.RestartButton.Name = "RestartButton";
-            this.RestartButton.Normalcolor = System.Drawing.Color.Gold;
-            this.RestartButton.OnHovercolor = System.Drawing.Color.Yellow;
-            this.RestartButton.OnHoverTextColor = System.Drawing.Color.Black;
-            this.RestartButton.selected = false;
-            this.RestartButton.Size = new System.Drawing.Size(197, 61);
-            this.RestartButton.TabIndex = 29;
-            this.RestartButton.Text = "REINICIAR";
-            this.RestartButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RestartButton.Textcolor = System.Drawing.Color.Black;
-            this.RestartButton.TextFont = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RestartButton.Visible = false;
-            this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
-            // 
-            // BlurPicture
-            // 
-            this.BlurPicture.Location = new System.Drawing.Point(0, 0);
-            this.BlurPicture.Name = "BlurPicture";
-            this.BlurPicture.Size = new System.Drawing.Size(644, 426);
-            this.BlurPicture.TabIndex = 30;
-            this.BlurPicture.TabStop = false;
-            this.BlurPicture.Visible = false;
             // 
             // StartPanelDownTimer
             // 
@@ -1103,64 +923,69 @@
             // 
             // CustomizePanelDownTimer
             // 
-            this.CustomizePanelDownTimer.Interval = 15;
+            this.CustomizePanelDownTimer.Interval = 10;
             this.CustomizePanelDownTimer.Tick += new System.EventHandler(this.CustomizePanelDownTimer_Tick);
             // 
             // CustomizePanelUpTimer
             // 
-            this.CustomizePanelUpTimer.Interval = 15;
+            this.CustomizePanelUpTimer.Interval = 10;
             this.CustomizePanelUpTimer.Tick += new System.EventHandler(this.CustomizePanelUpTimer_Tick);
             // 
-            // Output1
+            // GIF
             // 
-            this.Output1.BackColor = System.Drawing.Color.White;
-            this.Output1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Output1.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Output1.Location = new System.Drawing.Point(286, 188);
-            this.Output1.Name = "Output1";
-            this.Output1.Size = new System.Drawing.Size(314, 29);
-            this.Output1.TabIndex = 31;
-            this.Output1.Text = "1. Desinstalar KasperskyLab";
-            this.Output1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GIF.Image = ((System.Drawing.Image)(resources.GetObject("GIF.Image")));
+            this.GIF.Location = new System.Drawing.Point(285, 221);
+            this.GIF.Name = "GIF";
+            this.GIF.Size = new System.Drawing.Size(333, 133);
+            this.GIF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.GIF.TabIndex = 31;
+            this.GIF.TabStop = false;
+            this.GIF.Visible = false;
             // 
-            // Output2
+            // ErrorLabel
             // 
-            this.Output2.BackColor = System.Drawing.Color.White;
-            this.Output2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Output2.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Output2.Location = new System.Drawing.Point(285, 217);
-            this.Output2.Name = "Output2";
-            this.Output2.Size = new System.Drawing.Size(264, 29);
-            this.Output2.TabIndex = 32;
-            this.Output2.Text = "2. Editar Registro de Windows";
-            this.Output2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Output2.Visible = false;
+            this.ErrorLabel.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(285, 183);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(333, 19);
+            this.ErrorLabel.TabIndex = 32;
+            this.ErrorLabel.Text = "Permisos de Administrador requeridos.";
+            this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ErrorLabel.Visible = false;
             // 
-            // Output3
+            // StartButton
             // 
-            this.Output3.BackColor = System.Drawing.Color.White;
-            this.Output3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Output3.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Output3.Location = new System.Drawing.Point(285, 246);
-            this.Output3.Name = "Output3";
-            this.Output3.Size = new System.Drawing.Size(264, 29);
-            this.Output3.TabIndex = 33;
-            this.Output3.Text = "3. Descargar KasperskyLab";
-            this.Output3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Output3.Visible = false;
+            this.StartButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StartButton.Location = new System.Drawing.Point(285, 54);
+            this.StartButton.Name = "StartButton";
+            this.StartButton.Size = new System.Drawing.Size(333, 78);
+            this.StartButton.TabIndex = 33;
+            this.StartButton.Text = "Iniciar Instalación";
+            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click_1);
             // 
-            // Output4
+            // CustomizeButton
             // 
-            this.Output4.BackColor = System.Drawing.Color.White;
-            this.Output4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Output4.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Output4.Location = new System.Drawing.Point(285, 275);
-            this.Output4.Name = "Output4";
-            this.Output4.Size = new System.Drawing.Size(264, 29);
-            this.Output4.TabIndex = 34;
-            this.Output4.Text = "4. Generar Licencias";
-            this.Output4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Output4.Visible = false;
+            this.CustomizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CustomizeButton.Location = new System.Drawing.Point(285, 138);
+            this.CustomizeButton.Name = "CustomizeButton";
+            this.CustomizeButton.Size = new System.Drawing.Size(333, 42);
+            this.CustomizeButton.TabIndex = 34;
+            this.CustomizeButton.Text = "Funciones";
+            this.CustomizeButton.UseVisualStyleBackColor = true;
+            this.CustomizeButton.Click += new System.EventHandler(this.CustomizeButton_Click_1);
+            // 
+            // ProgressLabel
+            // 
+            this.ProgressLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProgressLabel.ForeColor = System.Drawing.Color.Black;
+            this.ProgressLabel.Location = new System.Drawing.Point(285, 355);
+            this.ProgressLabel.Name = "ProgressLabel";
+            this.ProgressLabel.Size = new System.Drawing.Size(333, 36);
+            this.ProgressLabel.TabIndex = 36;
+            this.ProgressLabel.Text = "Progreso de las funciones";
+            this.ProgressLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // KCI
             // 
@@ -1168,24 +993,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(644, 426);
+            this.Controls.Add(this.ProgressLabel);
             this.Controls.Add(this.HelpPanel);
             this.Controls.Add(this.CustomizePanel);
-            this.Controls.Add(this.Output4);
-            this.Controls.Add(this.Output3);
-            this.Controls.Add(this.Output2);
-            this.Controls.Add(this.Output1);
             this.Controls.Add(this.WaitEnterTextbox);
             this.Controls.Add(this.LeftPanel);
             this.Controls.Add(this.Separator2);
             this.Controls.Add(this.Separator01);
             this.Controls.Add(this.StartPanel);
             this.Controls.Add(this.HelpButton);
-            this.Controls.Add(this.OutputPicture);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.CustomizeButton);
-            this.Controls.Add(this.BlurPicture);
-            this.Controls.Add(this.RestartButton);
-            this.Controls.Add(this.BlurLabel);
+            this.Controls.Add(this.GIF);
+            this.Controls.Add(this.ErrorLabel);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1194,7 +1014,7 @@
             this.Name = "KCI";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "KCI";
+            this.Text = "Kaspersky Custom Installer";
             this.Click += new System.EventHandler(this.KCI_Click);
             this.LeftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).EndInit();
@@ -1213,8 +1033,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).EndInit();
             this.HelpScrollPanel.ResumeLayout(false);
             this.HelpScrollPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OutputPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BlurPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GIF)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1226,13 +1045,8 @@
         private System.Windows.Forms.PictureBox Logo2Picture;
         private System.Windows.Forms.PictureBox LogoPicture;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Label TitleLabel;
-        private System.Windows.Forms.Label BlurLabel;
         private Bunifu.Framework.UI.BunifuSeparator Separator01;
         private Bunifu.Framework.UI.BunifuSeparator Separator2;
-        private Bunifu.Framework.UI.BunifuFlatButton StartButton;
-        private System.Windows.Forms.PictureBox OutputPicture;
-        private Bunifu.Framework.UI.BunifuThinButton2 CustomizeButton;
         private Bunifu.Framework.UI.BunifuImageButton HelpButton;
         private System.Windows.Forms.Panel StartPanel;
         private System.Windows.Forms.Label SelectionLabel;
@@ -1243,7 +1057,6 @@
         private Bunifu.Framework.UI.BunifuImageButton KTSButton;
         private Bunifu.Framework.UI.BunifuImageButton KISButton;
         private Bunifu.Framework.UI.BunifuImageButton KAVButton;
-        private Bunifu.Framework.UI.BunifuSeparator Separator1;
         private System.Windows.Forms.Panel CustomizePanel;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator6;
@@ -1276,18 +1089,16 @@
         private System.Windows.Forms.Label FAQ6Description;
         private System.Windows.Forms.Label FAQ6Link;
         private System.Windows.Forms.Label FAQ3Link;
-        private System.Windows.Forms.Label DescriptionLabel;
         private Bunifu.Framework.UI.BunifuImageButton FAQBackButton;
-        private Bunifu.Framework.UI.BunifuFlatButton RestartButton;
-        private System.Windows.Forms.PictureBox BlurPicture;
         private System.Windows.Forms.Timer StartPanelDownTimer;
         private System.Windows.Forms.Timer StartPanelUpTimer;
         private System.Windows.Forms.Timer CustomizePanelDownTimer;
         private System.Windows.Forms.Timer CustomizePanelUpTimer;
-        private System.Windows.Forms.Label Output1;
-        private System.Windows.Forms.Label Output2;
-        private System.Windows.Forms.Label Output3;
-        private System.Windows.Forms.Label Output4;
+        private System.Windows.Forms.PictureBox GIF;
+        private System.Windows.Forms.Label ErrorLabel;
+        private System.Windows.Forms.Button StartButton;
+        private System.Windows.Forms.Button CustomizeButton;
+        private System.Windows.Forms.Label ProgressLabel;
     }
 }
 
