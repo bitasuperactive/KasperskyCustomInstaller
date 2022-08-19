@@ -7,7 +7,9 @@ Kaspersky Custom Installer (KCI en adelante) es una alternativa de código abier
 
 ## Productos domésticos soportados
   ~ Kaspersky Antivirus.
+  
   ~ Kaspersky Internet Security.
+  
   ~ Kaspersky Total Security.
 
 ## Funciones principales
@@ -60,8 +62,11 @@ Kaspersky Custom Installer (KCI en adelante) es una alternativa de código abier
 
 ## Problemas sin resolver
   ~ Falso positivo: *Gen.Variant.MSILPerseus*
+  
   ~ Los enlaces de descarga directos para los asistentes de instalación completos (*Offline Setups*) no son estables.
+  
   ~ La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
+  
   ~ Código spaguetti.
 
 
