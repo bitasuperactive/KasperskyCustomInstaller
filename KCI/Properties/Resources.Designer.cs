@@ -153,6 +153,16 @@ namespace KCI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap KAVLogo {
+            get {
+                object obj = ResourceManager.GetObject("KAVLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KCILogo {
             get {
                 object obj = ResourceManager.GetObject("KCILogo", resourceCulture);
@@ -196,6 +206,16 @@ namespace KCI.Properties {
         internal static System.Drawing.Bitmap LicenseButtonDisabled {
             get {
                 object obj = ResourceManager.GetObject("LicenseButtonDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OutputPicture {
+            get {
+                object obj = ResourceManager.GetObject("OutputPicture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
