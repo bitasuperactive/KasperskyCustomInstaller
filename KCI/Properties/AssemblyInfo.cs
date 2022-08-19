@@ -7,12 +7,12 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("KCI")]
-[assembly: AssemblyDescription("Kaspersky Custom Installer el instalador de Kaspersky que lo hace todo por ti.")]
+[assembly: AssemblyDescription("Kaspersky Custom Installer, la forma más útil de instalar cualquier antivirus de la firma KasperskyLab.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("BITA SuperActive")]
+[assembly: AssemblyCompany("BitaSA")]
 [assembly: AssemblyProduct("KCI")]
-[assembly: AssemblyCopyright("Copyright©2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("©2019-2020")]
+[assembly: AssemblyTrademark("BitaSA")]
 [assembly: AssemblyCulture("")]
 
 // Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles 
@@ -34,6 +34,6 @@ using System.Runtime.InteropServices;
 // mediante el carácter '*', como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.1.1.1")]
 [assembly: NeutralResourcesLanguage("es")]
 

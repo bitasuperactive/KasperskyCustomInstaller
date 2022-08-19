@@ -63,9 +63,9 @@ namespace KCI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BlurLabel1 {
+        internal static System.Drawing.Bitmap BlurPicture1 {
             get {
-                object obj = ResourceManager.GetObject("BlurLabel1", resourceCulture);
+                object obj = ResourceManager.GetObject("BlurPicture1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace KCI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BlurLabel2 {
+        internal static System.Drawing.Bitmap BlurPicture2 {
             get {
-                object obj = ResourceManager.GetObject("BlurLabel2", resourceCulture);
+                object obj = ResourceManager.GetObject("BlurPicture2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace KCI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BlurLabel3 {
+        internal static System.Drawing.Bitmap BlurPicture3 {
             get {
-                object obj = ResourceManager.GetObject("BlurLabel3", resourceCulture);
+                object obj = ResourceManager.GetObject("BlurPicture3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +236,16 @@ namespace KCI.Properties {
         internal static System.Drawing.Bitmap UninstallButton {
             get {
                 object obj = ResourceManager.GetObject("UninstallButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UninstallButtonDisabled {
+            get {
+                object obj = ResourceManager.GetObject("UninstallButtonDisabled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
