@@ -1,9 +1,0 @@
-Form size: 660, 485
-
-Separator01:
-Size<389; 10>
-Location<255; -6>
-
-Separator2:
-Size<10; 425>
-Location<251; 1>

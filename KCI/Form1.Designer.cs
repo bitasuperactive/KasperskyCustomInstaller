@@ -41,10 +41,8 @@
             this.KISButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.KAVButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.HelpButton = new Bunifu.Framework.UI.BunifuImageButton();
-            this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.Separator01 = new Bunifu.Framework.UI.BunifuSeparator();
             this.Separator2 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.OutputTextbox = new System.Windows.Forms.RichTextBox();
             this.StartPanel = new System.Windows.Forms.Panel();
             this.SelectionLabel = new System.Windows.Forms.Label();
             this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -61,14 +59,14 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator7 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.FAQPanel = new System.Windows.Forms.Panel();
+            this.HelpPanel = new System.Windows.Forms.Panel();
             this.FAQBackButton = new Bunifu.Framework.UI.BunifuImageButton();
-            this.FAQLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.bunifuSeparator9 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator12 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator10 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator11 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.FAQSubPanel = new System.Windows.Forms.Panel();
+            this.HelpScrollPanel = new System.Windows.Forms.Panel();
             this.FAQ3Link = new System.Windows.Forms.Label();
             this.FAQ6Link = new System.Windows.Forms.Label();
             this.FAQ6Button = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -85,12 +83,19 @@
             this.FAQ1Button = new Bunifu.Framework.UI.BunifuFlatButton();
             this.WaitEnterTextbox = new System.Windows.Forms.TextBox();
             this.BlurLabel = new System.Windows.Forms.Label();
-            this.DownloadOutputLabel = new System.Windows.Forms.Label();
             this.OutputPicture = new System.Windows.Forms.PictureBox();
             this.StartButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.CustomizeButton = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.BlurPicture = new System.Windows.Forms.PictureBox();
             this.RestartButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.BlurPicture = new System.Windows.Forms.PictureBox();
+            this.StartPanelDownTimer = new System.Windows.Forms.Timer(this.components);
+            this.StartPanelUpTimer = new System.Windows.Forms.Timer(this.components);
+            this.CustomizePanelDownTimer = new System.Windows.Forms.Timer(this.components);
+            this.CustomizePanelUpTimer = new System.Windows.Forms.Timer(this.components);
+            this.Output1 = new System.Windows.Forms.Label();
+            this.Output2 = new System.Windows.Forms.Label();
+            this.Output3 = new System.Windows.Forms.Label();
+            this.Output4 = new System.Windows.Forms.Label();
             this.LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo2Picture)).BeginInit();
@@ -104,9 +109,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.RegistryButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DownloadButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LicenseButton)).BeginInit();
-            this.FAQPanel.SuspendLayout();
+            this.HelpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).BeginInit();
-            this.FAQSubPanel.SuspendLayout();
+            this.HelpScrollPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OutputPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlurPicture)).BeginInit();
             this.SuspendLayout();
@@ -233,7 +238,7 @@
             this.KAVButton.BackColor = System.Drawing.Color.Transparent;
             this.KAVButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KAVButton.ErrorImage = null;
-            this.KAVButton.Image = global::KCI.Properties.Resources.KAVLogo;
+            this.KAVButton.Image = ((System.Drawing.Image)(resources.GetObject("KAVButton.Image")));
             this.KAVButton.ImageActive = null;
             this.KAVButton.Location = new System.Drawing.Point(21, 11);
             this.KAVButton.Name = "KAVButton";
@@ -260,14 +265,9 @@
             this.HelpButton.TabIndex = 6;
             this.HelpButton.TabStop = false;
             this.HelpButton.Tag = "";
-            this.toolTip1.SetToolTip(this.HelpButton, "FAQ");
+            this.toolTip1.SetToolTip(this.HelpButton, "Ayuda");
             this.HelpButton.Zoom = 0;
             this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
-            // 
-            // Timer1
-            // 
-            this.Timer1.Interval = 1;
-            this.Timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Separator01
             // 
@@ -296,22 +296,6 @@
             this.Separator2.TabIndex = 0;
             this.Separator2.Transparency = 255;
             this.Separator2.Vertical = true;
-            // 
-            // OutputTextbox
-            // 
-            this.OutputTextbox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.OutputTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.OutputTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.OutputTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.OutputTextbox.Location = new System.Drawing.Point(292, 189);
-            this.OutputTextbox.Name = "OutputTextbox";
-            this.OutputTextbox.ReadOnly = true;
-            this.OutputTextbox.Size = new System.Drawing.Size(326, 118);
-            this.OutputTextbox.TabIndex = 20;
-            this.OutputTextbox.TabStop = false;
-            this.OutputTextbox.Text = "";
-            this.OutputTextbox.Click += new System.EventHandler(this.OutputTextbox_Click);
-            this.OutputTextbox.Enter += new System.EventHandler(this.OutputTextbox_Enter);
             // 
             // StartPanel
             // 
@@ -532,20 +516,20 @@
             this.bunifuSeparator7.Transparency = 255;
             this.bunifuSeparator7.Vertical = false;
             // 
-            // FAQPanel
+            // HelpPanel
             // 
-            this.FAQPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.FAQPanel.Controls.Add(this.FAQBackButton);
-            this.FAQPanel.Controls.Add(this.FAQLabel);
-            this.FAQPanel.Controls.Add(this.bunifuSeparator9);
-            this.FAQPanel.Controls.Add(this.bunifuSeparator12);
-            this.FAQPanel.Controls.Add(this.bunifuSeparator10);
-            this.FAQPanel.Controls.Add(this.bunifuSeparator11);
-            this.FAQPanel.Controls.Add(this.FAQSubPanel);
-            this.FAQPanel.Location = new System.Drawing.Point(653, 14);
-            this.FAQPanel.Name = "FAQPanel";
-            this.FAQPanel.Size = new System.Drawing.Size(347, 353);
-            this.FAQPanel.TabIndex = 22;
+            this.HelpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.HelpPanel.Controls.Add(this.FAQBackButton);
+            this.HelpPanel.Controls.Add(this.label5);
+            this.HelpPanel.Controls.Add(this.bunifuSeparator9);
+            this.HelpPanel.Controls.Add(this.bunifuSeparator12);
+            this.HelpPanel.Controls.Add(this.bunifuSeparator10);
+            this.HelpPanel.Controls.Add(this.bunifuSeparator11);
+            this.HelpPanel.Controls.Add(this.HelpScrollPanel);
+            this.HelpPanel.Location = new System.Drawing.Point(653, 14);
+            this.HelpPanel.Name = "HelpPanel";
+            this.HelpPanel.Size = new System.Drawing.Size(347, 353);
+            this.HelpPanel.TabIndex = 22;
             // 
             // FAQBackButton
             // 
@@ -566,16 +550,16 @@
             this.FAQBackButton.Zoom = 0;
             this.FAQBackButton.Click += new System.EventHandler(this.FAQBackButton_Click);
             // 
-            // FAQLabel
+            // label5
             // 
-            this.FAQLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.FAQLabel.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FAQLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.FAQLabel.Location = new System.Drawing.Point(2, 3);
-            this.FAQLabel.Name = "FAQLabel";
-            this.FAQLabel.Size = new System.Drawing.Size(343, 38);
-            this.FAQLabel.TabIndex = 22;
-            this.FAQLabel.Text = "FAQ";
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(2, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(343, 38);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "FAQ";
             // 
             // bunifuSeparator9
             // 
@@ -629,27 +613,27 @@
             this.bunifuSeparator11.Transparency = 255;
             this.bunifuSeparator11.Vertical = false;
             // 
-            // FAQSubPanel
+            // HelpScrollPanel
             // 
-            this.FAQSubPanel.AutoScroll = true;
-            this.FAQSubPanel.Controls.Add(this.FAQ3Link);
-            this.FAQSubPanel.Controls.Add(this.FAQ6Link);
-            this.FAQSubPanel.Controls.Add(this.FAQ6Button);
-            this.FAQSubPanel.Controls.Add(this.FAQ6Description);
-            this.FAQSubPanel.Controls.Add(this.FAQ5Button);
-            this.FAQSubPanel.Controls.Add(this.FAQ5Description);
-            this.FAQSubPanel.Controls.Add(this.FAQ4Button);
-            this.FAQSubPanel.Controls.Add(this.FAQ4Description);
-            this.FAQSubPanel.Controls.Add(this.FAQ3Description);
-            this.FAQSubPanel.Controls.Add(this.FAQ3Button);
-            this.FAQSubPanel.Controls.Add(this.FAQ2Button);
-            this.FAQSubPanel.Controls.Add(this.FAQ1Description);
-            this.FAQSubPanel.Controls.Add(this.FAQ2Description);
-            this.FAQSubPanel.Controls.Add(this.FAQ1Button);
-            this.FAQSubPanel.Location = new System.Drawing.Point(3, 42);
-            this.FAQSubPanel.Name = "FAQSubPanel";
-            this.FAQSubPanel.Size = new System.Drawing.Size(336, 384);
-            this.FAQSubPanel.TabIndex = 25;
+            this.HelpScrollPanel.AutoScroll = true;
+            this.HelpScrollPanel.Controls.Add(this.FAQ3Link);
+            this.HelpScrollPanel.Controls.Add(this.FAQ6Link);
+            this.HelpScrollPanel.Controls.Add(this.FAQ6Button);
+            this.HelpScrollPanel.Controls.Add(this.FAQ6Description);
+            this.HelpScrollPanel.Controls.Add(this.FAQ5Button);
+            this.HelpScrollPanel.Controls.Add(this.FAQ5Description);
+            this.HelpScrollPanel.Controls.Add(this.FAQ4Button);
+            this.HelpScrollPanel.Controls.Add(this.FAQ4Description);
+            this.HelpScrollPanel.Controls.Add(this.FAQ3Description);
+            this.HelpScrollPanel.Controls.Add(this.FAQ3Button);
+            this.HelpScrollPanel.Controls.Add(this.FAQ2Button);
+            this.HelpScrollPanel.Controls.Add(this.FAQ1Description);
+            this.HelpScrollPanel.Controls.Add(this.FAQ2Description);
+            this.HelpScrollPanel.Controls.Add(this.FAQ1Button);
+            this.HelpScrollPanel.Location = new System.Drawing.Point(3, 42);
+            this.HelpScrollPanel.Name = "HelpScrollPanel";
+            this.HelpScrollPanel.Size = new System.Drawing.Size(336, 384);
+            this.HelpScrollPanel.TabIndex = 25;
             // 
             // FAQ3Link
             // 
@@ -968,7 +952,7 @@
             // WaitEnterTextbox
             // 
             this.WaitEnterTextbox.Enabled = false;
-            this.WaitEnterTextbox.Location = new System.Drawing.Point(539, -25);
+            this.WaitEnterTextbox.Location = new System.Drawing.Point(528, -25);
             this.WaitEnterTextbox.Name = "WaitEnterTextbox";
             this.WaitEnterTextbox.Size = new System.Drawing.Size(10, 22);
             this.WaitEnterTextbox.TabIndex = 23;
@@ -986,27 +970,14 @@
             this.BlurLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.BlurLabel.Visible = false;
             // 
-            // DownloadOutputLabel
-            // 
-            this.DownloadOutputLabel.AutoSize = true;
-            this.DownloadOutputLabel.BackColor = System.Drawing.Color.White;
-            this.DownloadOutputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.DownloadOutputLabel.Location = new System.Drawing.Point(492, 291);
-            this.DownloadOutputLabel.Name = "DownloadOutputLabel";
-            this.DownloadOutputLabel.Size = new System.Drawing.Size(119, 16);
-            this.DownloadOutputLabel.TabIndex = 31;
-            this.DownloadOutputLabel.Text = "Descargando... 0%";
-            this.DownloadOutputLabel.Visible = false;
-            // 
             // OutputPicture
             // 
+            this.OutputPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OutputPicture.BackgroundImage")));
             this.OutputPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.OutputPicture.Enabled = false;
-            this.OutputPicture.Image = global::KCI.Properties.Resources.OutputPicture;
             this.OutputPicture.Location = new System.Drawing.Point(268, 174);
             this.OutputPicture.Name = "OutputPicture";
             this.OutputPicture.Size = new System.Drawing.Size(365, 149);
-            this.OutputPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.OutputPicture.TabIndex = 9;
             this.OutputPicture.TabStop = false;
             // 
@@ -1066,21 +1037,12 @@
             this.CustomizeButton.IdleForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(142)))));
             this.CustomizeButton.IdleLineColor = System.Drawing.Color.Transparent;
             this.CustomizeButton.Location = new System.Drawing.Point(377, 146);
-            this.CustomizeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.CustomizeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CustomizeButton.Name = "CustomizeButton";
             this.CustomizeButton.Size = new System.Drawing.Size(146, 19);
             this.CustomizeButton.TabIndex = 16;
             this.CustomizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.CustomizeButton.Click += new System.EventHandler(this.CustomizeButton_Click);
-            // 
-            // BlurPicture
-            // 
-            this.BlurPicture.Location = new System.Drawing.Point(0, 0);
-            this.BlurPicture.Name = "BlurPicture";
-            this.BlurPicture.Size = new System.Drawing.Size(644, 426);
-            this.BlurPicture.TabIndex = 30;
-            this.BlurPicture.TabStop = false;
-            this.BlurPicture.Visible = false;
             // 
             // RestartButton
             // 
@@ -1088,7 +1050,7 @@
             this.RestartButton.BackColor = System.Drawing.Color.Gold;
             this.RestartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RestartButton.BorderRadius = 5;
-            this.RestartButton.ButtonText = "R E I N I C I A R";
+            this.RestartButton.ButtonText = "REINICIAR";
             this.RestartButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RestartButton.DisabledColor = System.Drawing.Color.Gray;
             this.RestartButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1104,21 +1066,101 @@
             this.RestartButton.IconVisible = true;
             this.RestartButton.IconZoom = 50D;
             this.RestartButton.IsTab = false;
-            this.RestartButton.Location = new System.Drawing.Point(311, 23);
+            this.RestartButton.Location = new System.Drawing.Point(352, 17);
             this.RestartButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RestartButton.Name = "RestartButton";
             this.RestartButton.Normalcolor = System.Drawing.Color.Gold;
             this.RestartButton.OnHovercolor = System.Drawing.Color.Yellow;
             this.RestartButton.OnHoverTextColor = System.Drawing.Color.Black;
             this.RestartButton.selected = false;
-            this.RestartButton.Size = new System.Drawing.Size(281, 86);
+            this.RestartButton.Size = new System.Drawing.Size(197, 61);
             this.RestartButton.TabIndex = 29;
-            this.RestartButton.Text = "R E I N I C I A R";
+            this.RestartButton.Text = "REINICIAR";
             this.RestartButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RestartButton.Textcolor = System.Drawing.Color.Black;
             this.RestartButton.TextFont = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestartButton.Visible = false;
             this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
+            // 
+            // BlurPicture
+            // 
+            this.BlurPicture.Location = new System.Drawing.Point(0, 0);
+            this.BlurPicture.Name = "BlurPicture";
+            this.BlurPicture.Size = new System.Drawing.Size(644, 426);
+            this.BlurPicture.TabIndex = 30;
+            this.BlurPicture.TabStop = false;
+            this.BlurPicture.Visible = false;
+            // 
+            // StartPanelDownTimer
+            // 
+            this.StartPanelDownTimer.Interval = 15;
+            this.StartPanelDownTimer.Tick += new System.EventHandler(this.StartPanelDownTimer_Tick);
+            // 
+            // StartPanelUpTimer
+            // 
+            this.StartPanelUpTimer.Interval = 15;
+            this.StartPanelUpTimer.Tick += new System.EventHandler(this.StartPanelUpTimer_Tick);
+            // 
+            // CustomizePanelDownTimer
+            // 
+            this.CustomizePanelDownTimer.Interval = 15;
+            this.CustomizePanelDownTimer.Tick += new System.EventHandler(this.CustomizePanelDownTimer_Tick);
+            // 
+            // CustomizePanelUpTimer
+            // 
+            this.CustomizePanelUpTimer.Interval = 15;
+            this.CustomizePanelUpTimer.Tick += new System.EventHandler(this.CustomizePanelUpTimer_Tick);
+            // 
+            // Output1
+            // 
+            this.Output1.BackColor = System.Drawing.Color.White;
+            this.Output1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Output1.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Output1.Location = new System.Drawing.Point(286, 188);
+            this.Output1.Name = "Output1";
+            this.Output1.Size = new System.Drawing.Size(314, 29);
+            this.Output1.TabIndex = 31;
+            this.Output1.Text = "1. Desinstalar KasperskyLab";
+            this.Output1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Output2
+            // 
+            this.Output2.BackColor = System.Drawing.Color.White;
+            this.Output2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Output2.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Output2.Location = new System.Drawing.Point(285, 217);
+            this.Output2.Name = "Output2";
+            this.Output2.Size = new System.Drawing.Size(264, 29);
+            this.Output2.TabIndex = 32;
+            this.Output2.Text = "2. Editar Registro de Windows";
+            this.Output2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Output2.Visible = false;
+            // 
+            // Output3
+            // 
+            this.Output3.BackColor = System.Drawing.Color.White;
+            this.Output3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Output3.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Output3.Location = new System.Drawing.Point(285, 246);
+            this.Output3.Name = "Output3";
+            this.Output3.Size = new System.Drawing.Size(264, 29);
+            this.Output3.TabIndex = 33;
+            this.Output3.Text = "3. Descargar KasperskyLab";
+            this.Output3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Output3.Visible = false;
+            // 
+            // Output4
+            // 
+            this.Output4.BackColor = System.Drawing.Color.White;
+            this.Output4.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Output4.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Output4.Location = new System.Drawing.Point(285, 275);
+            this.Output4.Name = "Output4";
+            this.Output4.Size = new System.Drawing.Size(264, 29);
+            this.Output4.TabIndex = 34;
+            this.Output4.Text = "4. Generar Licencias";
+            this.Output4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Output4.Visible = false;
             // 
             // KCI
             // 
@@ -1126,22 +1168,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(644, 426);
-            this.Controls.Add(this.DownloadOutputLabel);
-            this.Controls.Add(this.WaitEnterTextbox);
-            this.Controls.Add(this.FAQPanel);
+            this.Controls.Add(this.HelpPanel);
             this.Controls.Add(this.CustomizePanel);
+            this.Controls.Add(this.Output4);
+            this.Controls.Add(this.Output3);
+            this.Controls.Add(this.Output2);
+            this.Controls.Add(this.Output1);
+            this.Controls.Add(this.WaitEnterTextbox);
             this.Controls.Add(this.LeftPanel);
             this.Controls.Add(this.Separator2);
             this.Controls.Add(this.Separator01);
             this.Controls.Add(this.StartPanel);
-            this.Controls.Add(this.OutputTextbox);
             this.Controls.Add(this.HelpButton);
             this.Controls.Add(this.OutputPicture);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.CustomizeButton);
             this.Controls.Add(this.BlurPicture);
-            this.Controls.Add(this.BlurLabel);
             this.Controls.Add(this.RestartButton);
+            this.Controls.Add(this.BlurLabel);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1165,10 +1209,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.RegistryButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DownloadButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LicenseButton)).EndInit();
-            this.FAQPanel.ResumeLayout(false);
+            this.HelpPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).EndInit();
-            this.FAQSubPanel.ResumeLayout(false);
-            this.FAQSubPanel.PerformLayout();
+            this.HelpScrollPanel.ResumeLayout(false);
+            this.HelpScrollPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OutputPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlurPicture)).EndInit();
             this.ResumeLayout(false);
@@ -1182,7 +1226,6 @@
         private System.Windows.Forms.PictureBox Logo2Picture;
         private System.Windows.Forms.PictureBox LogoPicture;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Timer Timer1;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label BlurLabel;
         private Bunifu.Framework.UI.BunifuSeparator Separator01;
@@ -1190,7 +1233,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton StartButton;
         private System.Windows.Forms.PictureBox OutputPicture;
         private Bunifu.Framework.UI.BunifuThinButton2 CustomizeButton;
-        private System.Windows.Forms.RichTextBox OutputTextbox;
         private Bunifu.Framework.UI.BunifuImageButton HelpButton;
         private System.Windows.Forms.Panel StartPanel;
         private System.Windows.Forms.Label SelectionLabel;
@@ -1212,15 +1254,15 @@
         private Bunifu.Framework.UI.BunifuImageButton LicenseButton;
         private Bunifu.Framework.UI.BunifuImageButton DownloadButton;
         private System.Windows.Forms.Label SelectionLabel2;
-        private System.Windows.Forms.Panel FAQPanel;
+        private System.Windows.Forms.Panel HelpPanel;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator9;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator10;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator11;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator12;
         private System.Windows.Forms.Label FAQ1Description;
         private System.Windows.Forms.Label FAQ2Description;
-        private System.Windows.Forms.Label FAQLabel;
-        private System.Windows.Forms.Panel FAQSubPanel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel HelpScrollPanel;
         private System.Windows.Forms.TextBox WaitEnterTextbox;
         private Bunifu.Framework.UI.BunifuFlatButton FAQ2Button;
         private Bunifu.Framework.UI.BunifuFlatButton FAQ1Button;
@@ -1238,7 +1280,14 @@
         private Bunifu.Framework.UI.BunifuImageButton FAQBackButton;
         private Bunifu.Framework.UI.BunifuFlatButton RestartButton;
         private System.Windows.Forms.PictureBox BlurPicture;
-        private System.Windows.Forms.Label DownloadOutputLabel;
+        private System.Windows.Forms.Timer StartPanelDownTimer;
+        private System.Windows.Forms.Timer StartPanelUpTimer;
+        private System.Windows.Forms.Timer CustomizePanelDownTimer;
+        private System.Windows.Forms.Timer CustomizePanelUpTimer;
+        private System.Windows.Forms.Label Output1;
+        private System.Windows.Forms.Label Output2;
+        private System.Windows.Forms.Label Output3;
+        private System.Windows.Forms.Label Output4;
     }
 }
 

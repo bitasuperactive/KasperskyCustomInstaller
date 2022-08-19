@@ -175,10 +175,4 @@
   <data name="BlurPicture3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\blurpicture3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="KAVLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\kavlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OutputPicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\outputpicture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
