@@ -12,7 +12,7 @@ namespace KCIBasic.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.2.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -49,7 +49,8 @@ namespace KCIBasic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup" +
+            ".exe")]
         public string KavSetupURL {
             get {
                 return ((string)(this["KavSetupURL"]));
@@ -61,25 +62,13 @@ namespace KCIBasic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Kaspersky Internet Security")]
         public string KavEditionToInstall {
             get {
                 return ((string)(this["KavEditionToInstall"]));
             }
             set {
                 this["KavEditionToInstall"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string KavLicenseUrl {
-            get {
-                return ((string)(this["KavLicenseUrl"]));
-            }
-            set {
-                this["KavLicenseUrl"] = value;
             }
         }
         
@@ -92,6 +81,31 @@ namespace KCIBasic.Properties {
             }
             set {
                 this["KavSecureConnection"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string KavLicense {
+            get {
+                return ((string)(this["KavLicense"]));
+            }
+            set {
+                this["KavLicense"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/bitasuperactive/KCIBasic/releases/download/pre-release/Licenci" +
+            "as.txt")]
+        public string KavLicenseURL {
+            get {
+                return ((string)(this["KavLicenseURL"]));
+            }
+            set {
+                this["KavLicenseURL"] = value;
             }
         }
     }
