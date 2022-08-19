@@ -1,81 +1,74 @@
 # Overview
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/icon.ico" width="192"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/kcibasicimage.png" width="436"/>
+<img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/icon.ico" width="192"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/kcibasicimage.png" width="436"/>
 
-Kaspersky Custom Installer ("KCI" en adelante) es la alternativa más segura al software conocido como "KRT".
+Kaspersky Custom Installer (KCI en adelante) es una alternativa de código abierto al software conocido como Kaspersky Reset Trial o KRT.
 
 [Utilidades](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#principales-utilidades) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KCIBasic/releases) | [Ejecución](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#ejecución) | [Problemas sin resolver](https://github.com/bitasuperactive/KCIBasic/blob/master/README.md#problemas-sin-resolver)
-
 
 ## Estado
 :stop_sign: Versión no estable.
 
-
 ## Productos domésticos soportados
-* :turtle: Kaspersky Antivirus.
-* :dragon_face: Kaspersky Internet Security.
-* :dragon: Kaspersky Total Security.
-
+* Kaspersky Antivirus.
+* Kaspersky Internet Security.
+* Kaspersky Total Security.
 
 ## Principales utilidades
-<img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/uninstallimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/cleanimage.jpg" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/master/doc/downloadimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/keyimage.jpg" width="150"/>
+<img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/uninstallimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/cleanimage.jpg" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/downloadimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/keyimage.jpg" width="150"/>
 
-### Desinstalación de Kaspersky
-Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación rápida*), facilita la desintalación del producto si estuviera previamente instalado en el sistema operativo del usuario, función imprescindible para modificar los Registros de Windows referentes al Antivirus en cuestión sin perjudicar la seguridad del equipo.
+### 1. Desinstalación de Kaspersky
+Ya sea de forma manual (*Instalación habitual*) o automática (*Instalación rápida*), facilita la desintalación del producto correspondiente, en caso de estar instalado en el sistema operativo del usuario. Función imprescindible para modificar los registros de Windows referentes al producto.
 
-:information_source: En caso de disponer de otros productos Anti-Malware o en su defecto, KCI omite esta función y el propio asistente de instalación del producto informará al usuario de cualquier incompatibilidad o acciones manuales necesarias.
+:information_source: En caso de disponer de otros productos Anti-Malware, el propio asistente de instalación del producto informará al usuario de cualquier incompatibilidad y acciones adicionales requeridas.
 
-### Limpieza del Registro de Windows
-De forma automática, purga las siguientes claves del Registro de Windows permitiéndo renovar licencias de evaluación caducadas:
+### 2. Limpieza del registro de Windows
+Purga las siguientes claves de registro permitiéndo renovar licencias de evaluación caducadas:
 > HKEY_LOCAL_MACHINE\SOFTWARE\KasperskyLab            
 > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG
 > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates
 
-:information_source: Estas claves de registro se encuentran directamente relacionadas con el producto, modificarlas no afectará de forma alguna al sistema operativo del usuario.
+:information_source: Estas claves de registro son originarias de los productos de Kaspersky y modificarlas no afectará de forma alguna al sistema operativo del usuario.
 
-### Asistente de instalación "Online" o "Full-Package"
-Mediante el check box *Offline setup* descarga de forma automática, directamente desde de los servidores oficiales del producto, la versión completa del asistente de instalación, función de gran utilidad si la versión habitual presenta problemas de descarga.
+### 3. Asistente de instalación Online/Full-Package
+Al ticar la opción *Offline setup*, KCI descarga, desde de los servidores oficiales del producto, la versión completa del asistente de instalación. Función de gran utilidad si la versión *online* presenta problemas de descarga.
 
-:warning: Se requiere la versión completa del asistente de instalación del producto (*Offline Setup*) para poder realizar una *Instalación Rápida*.
+:information_source: Al realizar una *Instalación Rápida*, KCI descargará la versión completa del asistente de instalación del producto para llevar a cabo una instalación silenciosa.
 
-### Licencias de evaluación funcionales
-Facilita lo antes posible licencias de evaluación funcionales.
-
+### <s>4. Licencias de evaluación ampliada</s>
+<s>Facilita, si las hubiera, licencias de evaluación ampliadas.</s>
 
 ## Otras utilidades
-### Desinstalación automática de Kaspersky Secure connection
-Desinstala automáticamente el producto *Kaspersky Secure connection*.
+### Desinstalación automática de productos no deseados
+Desinstala automáticamente el producto *Kaspersky Secure connection*, software de instalación automática, habitualmente no deseado.
 
-:information_source: El usuario puede habilitar el check box *Kaspersky Secure connection* para mantener este producto.
+:information_source: El usuario puede ticar la opción *Kaspersky Secure connection* para mantener este producto.
 
-### Activación directa
-Mediante el botón *Activar Producto*, sin necesidad de volver a realizar una instalación habitual o rápida, intentará activar el producto instalado con las licencias de evaluación activas en el momento.
+### <s>Activación directa del producto</s>
+<s>Mediante el botón *Activar Producto*, sin necesidad de volver a realizar una instalación habitual o rápida, intentará activar el producto instalado con las licencias de evaluación activas en el momento.</s>
 
-:warning: Es necesario actualizar KCI para obtener las últimas licencias disponibles.
+:warning: <s>Es necesario actualizar KCI para obtener las últimas licencias disponibles.</s>
 
 ### Extraer configuración
-Extrae la configuración  aplicativa del producto mediante un archivo *.cfg* el cual podrá ser reimportado manualmente evitando molestias reconfigurando nuevamente la aplicación.
+Realiza una copia de seguridad de la configuración de usuario del producto, en formato *.cfg*.
 
+## Requisitos
+- Permisos de Administrador.  
+- Conexión a internet.
 
-## Ejecución
-### Requisitos
-:one: Permisos de Administrador.  
-:two: Conexión a internet.
-
-### Problemas sin resolver
-* Falso positivo como virus troyano *Gen.Variant.MSILPerseus*.
+## Problemas sin resolver
+* Falso positivo: *Gen.Variant.MSILPerseus*
 * Los enlaces de descarga directos para los asistentes de instalación completos (*Offline Setups*) no son estables.
 * La aplicación no se actualiza automáticamente ni avisa al usuario de haber una actualizanción disponible.
 * Código spaguetti.
 
-### Falsos positivos
+## Falsos positivos
 <img src="https://github.com/bitasuperactive/KCIBasic/blob/basicUI/doc/virustotalimage.png" width="300"/>
 
-[Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) deteca a KCI como un troyano *Gen.Variant.MSILPerseus* debido a las funciones automáticas que lleva a cabo sin intervención del usuario, como, por ejemplo, la descarga y ejecución automática del asistente de instalación para el producto. Esto es un *falso positivo*. Revisando el código fuente podréis comprobar que KCI no lleva a cabo ninguna función maliciosa ni mucho menos propia de un troyano.
+Las detecciones proporcionadas por [Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) se deben a las funciones automáticas que KCI realiza sin intervención del usuario, como la descarga y ejecución automática del asistente de instalación de Kaspersky.
 
-:warning: Por el momento, es posible que sea necesario añadir KCI al listado de "exclusiones" en Windows Defender y/u otros aplicativos Anti-Malware.
+:warning: Por el momento, es posible que sea necesario añadir KCI al listado de exclusiones en Windows Defender y/u otros programas Anti-Malware.
 
 
-## Disclaimer
-*No me hago responsable del uso que se le de a Kaspersky Custom Installer (KCI).  
-**Al usar esta aplicación asumes toda responsabilidad subyacente de la violación del EULA aceptada al instalar los productos Kaspersky Lab.**   
-KCI es simplemente mi primer proyecto personal experimentándo con el lenguaje C# en visual studio.*
+## Disclaimer  
+**Al usar esta aplicación asumes toda responsabilidad subyacente de la violación del EULA aceptada al instalar los productos Kaspersky Lab, entre otras normativas.**   
+*KCI es simplemente mi primer proyecto personal experimentándo con el lenguaje C#.*
