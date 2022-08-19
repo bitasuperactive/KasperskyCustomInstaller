@@ -15,7 +15,7 @@ namespace KCIBasic
         public static RegistryKey LocalMachine32View { get; set; } = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
         public static RegistryKey LocalMachine64View { get; set; } = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
         public static string AVPversion { get; set; }
-        public static string KavEditionInstalled { get; set; } = "Kaspersky";
+        public static string KavEditionInstalled { get; set; } = "Kaspersky Lab";
         public static string AVProot { get; set; }
         public static string KavGuid { get; set; }
 
@@ -60,7 +60,6 @@ namespace KCIBasic
 
         public void OutputForm_FormClosed(object sender, FormClosedEventArgs close)
         {
-            //outputForm = null;
             Application.Exit();
         }
         #endregion
@@ -113,6 +112,10 @@ namespace KCIBasic
                     }
                 }
 
+                //StartingLabel.Text = "Actualizando bases de datos de Kaspersky Lab";
+                //await outputForm.HiddenProcess($@"{AVProot}\avp.com", "UPDATE");
+                //StartingLabel.Text = "Iniciando Kaspersky Custom Installer";
+
                 if (LocalMachine32View.OpenSubKey(@"SOFTWARE\KasperskyLab\WmiHlp").GetValueNames().Contains("IsReportedExpired"))
                 {
                     if (KavEditionInstalled == "Kaspersky Anti-Virus")
@@ -136,12 +139,6 @@ namespace KCIBasic
                 {
                     ActivateButton.Text = "Producto Activado";
                 }
-
-                //if (LocalMachine32View.OpenSubKey($@"SOFTWARE\KasperskyLab\{AVProot}\Data\PatchRollbackDetector") == null)
-                //{
-                //    StartingLabel.Text = "Actualizando bases de datos de Kaspersky Lab";
-                //    await outputForm.HiddenProcess($@"{AVProot}\avp.com", "UPDATE");
-                //}
             }
             else
             {
@@ -217,9 +214,9 @@ namespace KCIBasic
 
         private void OfflineSetupCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            //if (OfflineSetupCheckBox.Checked) StartAutoButton.Enabled = true;
+            if (OfflineSetupCheckBox.Checked) StartAutoButton.Enabled = true;
 
-            //else StartAutoButton.Enabled = false;
+            else StartAutoButton.Enabled = false;
         }
 
         private void SecureConnectionCheckBoxMethod()
@@ -234,9 +231,9 @@ namespace KCIBasic
         {
             MainPanel.Visible = false; TopMost = true;
 
-            StartingLabel.Text = "Actualizando producto"; GIF.Visible = true;
+            StartingLabel.Text = "Actualizando bases de datos del producto"; GIF.Visible = true;
             //await Task.Delay(2000);
-            await outputForm.HiddenProcess($@"{AVProot}\avp.com", "UPDATE"); GIF.Visible = false; // Needed to update "IsReportedExpired" value.
+            await outputForm.HiddenProcess($@"{AVProot}\avp.com", "UPDATE"); GIF.Visible = false;
 
             await outputForm.License(StartingLabel);
 
@@ -280,9 +277,9 @@ namespace KCIBasic
             await outputForm.HiddenProcess($@"{AVProot}\avp.com", $"EXPORT \"{Directory.GetCurrentDirectory()}\\{KavEditionInstalled} Configuration.cfg\""); GIF.Visible = false;
 
             if (File.Exists($@"{Directory.GetCurrentDirectory()}\{KavEditionInstalled} Configuration.cfg"))
-                MessageBox.Show(this, $"Configuración de {KavEditionInstalled} exportada con éxito.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, $"Configuración del producto exportada con éxito.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show(this, $"No ha sido posible exportar la configuración de {KavEditionInstalled}. Debes exportarla manualmente desde el apartado [Exportar Configuración] dentro de ajustes de la aplicación.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, $"No ha sido posible exportar la configuración del producto. Puedes exportarla manualmente desde el apartado [Exportar Configuración] dentro de ajustes de la aplicación.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             MainPanel.Visible = true; TopMost = false;
         }
