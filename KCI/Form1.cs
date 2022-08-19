@@ -34,21 +34,23 @@ namespace KCI
         public KCI()
         {
             InitializeComponent(); Directory.SetCurrentDirectory(TempDir);
-            try { using (var client = new WebClient()) client.OpenRead("https://www.google.com/"); }
-            catch
-            {
-                DisableMainButtons();
-                OutputTextbox.SelectionColor = Color.Red;
-                OutputTextbox.AppendText("*** Conexión a internet requerida.");
-                OutputTextbox.AppendText(Environment.NewLine);
-                InitializeError = 1;
-            }
-            if (new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator)) { if (InitializeError == 1) { return; } }
-            else
+            if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
             {
                 DisableMainButtons();
                 OutputTextbox.SelectionColor = Color.Red;
                 OutputTextbox.AppendText("*** Permisos de administrador requeridos.");
+                InitializeError = 2;
+                return;
+            }
+            try { using (var client = new WebClient()) client.OpenRead("https://www.google.com/"); }
+            catch
+            {
+                StartButton.Visible = false;
+                DownloadButton.Enabled = false;
+                LicenseButton.Enabled = false;
+                OutputTextbox.SelectionColor = Color.Red;
+                OutputTextbox.AppendText("*** Conexión a internet requerida.");
+                OutputTextbox.AppendText(Environment.NewLine);
                 InitializeError = 1;
                 return;
             }
@@ -66,6 +68,7 @@ namespace KCI
             if (StartPanelMove == 2) { StartPanel.Top -= 18; if (StartPanel.Location.Y == -159) { Timer1.Enabled = false; StartPanelMove = 0; return; } }
             if (CustomizePanelMove == 1) { CustomizePanel.Top += 9; if (CustomizePanel.Location.Y == 3) { Timer1.Enabled = false; CustomizePanelMove = 2; return; } }
             if (CustomizePanelMove == 2) { CustomizePanel.Top -= 18; if (CustomizePanel.Location.Y == -285) { Timer1.Enabled = false; CustomizePanelMove = 0; return; } }
+            return;
         }
         #endregion
 
@@ -91,9 +94,9 @@ namespace KCI
             await Task.Delay(100);
             Timer1.Enabled = true;
             while (Timer1.Enabled == true) { await Task.Delay(50); }
-            OutputTextbox.Text = "";
+            OutputTextbox.Text = null;
             await UNINSTALL();
-            OutputTextbox.Text = "";
+            OutputTextbox.Text = null;
             EnableMainButtons(); EnableSecondaryButtons();
             return;
         }
@@ -104,9 +107,9 @@ namespace KCI
             await Task.Delay(100);
             Timer1.Enabled = true;
             while (Timer1.Enabled == true) { await Task.Delay(50); }
-            OutputTextbox.Text = "";
+            OutputTextbox.Text = null;
             await REGISTRY();
-            OutputTextbox.Text = "";
+            OutputTextbox.Text = null;
             EnableMainButtons(); EnableSecondaryButtons();
             return;
         }
@@ -173,7 +176,6 @@ namespace KCI
         private void FAQ1Button_Click(object sender, EventArgs e)
         {
             if (FAQ1Description.Visible == true) { HelpPanel_Reset(); return; }
-            HelpPanel_Reset();
             FAQ2Button.Visible = false;
             FAQ3Button.Visible = false;
             FAQ4Button.Visible = false;
@@ -189,7 +191,6 @@ namespace KCI
         private void FAQ2Button_Click(object sender, EventArgs e)
         {
             if (FAQ2Description.Visible == true) { HelpPanel_Reset(); return; }
-            HelpPanel_Reset();
             FAQ1Button.Visible = false;
             FAQ3Button.Visible = false;
             FAQ4Button.Visible = false;
@@ -205,7 +206,6 @@ namespace KCI
         private void FAQ3Button_Click(object sender, EventArgs e)
         {
             if (FAQ3Description.Visible == true) { HelpPanel_Reset(); return; }
-            HelpPanel_Reset();
             FAQ1Button.Visible = false;
             FAQ2Button.Visible = false;
             FAQ4Button.Visible = false;
@@ -221,7 +221,6 @@ namespace KCI
         private void FAQ4Button_Click(object sender, EventArgs e)
         {
             if (FAQ4Description.Visible == true) { HelpPanel_Reset(); return; }
-            HelpPanel_Reset();
             FAQ1Button.Visible = false;
             FAQ2Button.Visible = false;
             FAQ3Button.Visible = false;
@@ -237,7 +236,6 @@ namespace KCI
         private void FAQ5Button_Click(object sender, EventArgs e)
         {
             if (FAQ5Description.Visible == true) { HelpPanel_Reset(); return; }
-            HelpPanel_Reset();
             FAQ1Button.Visible = false;
             FAQ2Button.Visible = false;
             FAQ3Button.Visible = false;
@@ -253,7 +251,6 @@ namespace KCI
         private void FAQ6Button_Click(object sender, EventArgs e)
         {
             if (FAQ6Description.Visible == true) { HelpPanel_Reset(); return; }
-            HelpPanel_Reset();
             FAQ1Button.Visible = false;
             FAQ2Button.Visible = false;
             FAQ3Button.Visible = false;
@@ -269,7 +266,6 @@ namespace KCI
         private void FAQ7Button_Click(object sender, EventArgs e)
         {
             if (FAQ7Description.Visible == true) { HelpPanel_Reset(); return; }
-            HelpPanel_Reset();
             FAQ1Button.Visible = false;
             FAQ2Button.Visible = false;
             FAQ3Button.Visible = false;
@@ -284,34 +280,29 @@ namespace KCI
 
         private async void FAQ3Link_Click(object sender, EventArgs e)
         {
-            FAQ3Link.Enabled = false;
-            try { Process.Start("www.google.es"); } catch { }
-            await Task.Delay(1000);
-            FAQ3Link.Enabled = true;
+            try { Process.Start("www.google.es"); } catch { } return;
         }
 
         private async void FAQ6Link_Click(object sender, EventArgs e)
         {
-            FAQ6Link.Enabled = false;
-            try { Process.Start("www.google.es"); } catch { }
-            await Task.Delay(1000);
-            FAQ6Link.Enabled = true;
+            try { Process.Start("www.google.es"); } catch { } return;
         }
 
         private void FAQBackButton_Click(object sender, EventArgs e)
         {
             HelpPanel_Reset();
             FAQBackButton.Visible = false;
+            return;
         }
         #endregion
 
         #region INITIATION
         private async Task INITIATION()
         {
-            OutputTextbox.Text = "";
+            OutputTextbox.Text = null;
             OutputTextbox.AppendText("Kaspersky Custom Installer (C)2019");
             await Task.Delay(4000);
-            OutputTextbox.Text = "";
+            OutputTextbox.Text = null;
             await Task.Delay(500);
             return;
         }
@@ -332,7 +323,7 @@ namespace KCI
                 if (MessageBoxEx.Show(this, "Antivirus KasperskyLab detectado." + Environment.NewLine +  "¿Deseas utilizar KavRemover para realizar la desinstalación?" + Environment.NewLine + Environment.NewLine + "Más Información:" + Environment.NewLine + "Kavremover, software desarrollado oficialmente por la firma KasperskyLab, es la forma más rápida, limpia y segura de eliminar todo registro de Kaspersky almacenado en el sistema.", "Información", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     if (!File.Exists(TempDir + "\\kavremover.exe")) { try { using (var client = new WebClient()) { client.DownloadFile("http://media.kaspersky.com/utilities/ConsumerUtilities/kavremvr.exe", TempDir + "\\kavremover.exe"); } } catch { } }
-                    try { Process.Start(TempDir + "\\kavremover.exe"); } catch { }
+                    try { Process.Start(TempDir + "\\kavremover.exe"); } catch { MessageBoxEx.Show(this, "No ha sido posible iniciar Kavremover.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
             WaitEnterTextbox.Focus();
@@ -366,12 +357,12 @@ namespace KCI
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Red;
             OutputTextbox.AppendText(" X");
-            OutputTextbox.AppendText(Console.Out.NewLine + Console.Out.NewLine + "*** Acceso Denegado.");
+            OutputTextbox.AppendText(Console.Out.NewLine + "*** Acceso Denegado.");
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
             await Task.Delay(500);
-            MessageBoxEx.Show(this, "[Errores]" + Environment.NewLine + "1. El acceso al registro de windows ha sido denegado." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Desinstala manualmente tu antivirus y reinicia el sistema.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. El acceso al registro de windows ha sido denegado." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Desinstala manualmente tu antivirus y reinicia el sistema.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             await Task.Delay(100);
-            OutputTextbox.Text = "";
+            OutputTextbox.Text = null;
             EnableMainButtons(); EnableSecondaryButtons();
             Error = 1;
             return;
@@ -391,41 +382,50 @@ namespace KCI
             await Task.Delay(100);
             Timer1.Enabled = true;
             while (Timer1.Enabled == true) { await Task.Delay(50); }
-            if (Step == 3) { OutputTextbox.Text = ""; goto DOWNLOAD; }
-            if (Step == 4) { OutputTextbox.Text = ""; goto LICENSE; }
+            if (Step == 3) { OutputTextbox.Text = null; goto DOWNLOAD; }
+            if (Step == 4) { OutputTextbox.Text = null; goto LICENSE; }
 
             await INITIATION();
             await UNINSTALL();
-            await REGISTRY(); if (Error != 0) { Error = 0; return; }
+            await REGISTRY(); if (Error == 1) { Error = 0; return; }
 
         DOWNLOAD:
             OutputTextbox.AppendText("{Paso 3} Descargar Kaspersky Antivirus");
             if (File.Exists(KCIDir + "\\{KAV}{ES}.exe")) { goto DONE; }
             await Task.Delay(3000);
-            try { using (var client = new WebClient()) { client.DownloadFile("https://products.s.kaspersky-labs.com/spanish/homeuser/kav2018/for_reg_es/startup.exe", KCIDir + "\\{KAV}{ES}.exe"); } } catch { }
-            if (!File.Exists(KCIDir + "\\{KAV}{ES}.exe")) { goto ERROR; }
+            try { using (var client = new WebClient()) { client.DownloadFile("https://products.s.kaspersky-labs.com/spanish/homeuser/kav2018/for_reg_es/startup.exe", KCIDir + "\\{KAV}{ES}.exe"); } } catch { goto ERROR; }
             if (Step == 0) { try { Registry.SetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce", "Installer", KCIDir + "{KAV}{ES}.exe", RegistryValueKind.String); } catch { } }
             goto DONE;
         ERROR:
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Red;
             OutputTextbox.AppendText(" X");
+            if (Step == 3) { OutputTextbox.AppendText(Console.Out.NewLine); OutputTextbox.SelectionColor = Color.Red; }
             OutputTextbox.AppendText(Console.Out.NewLine + "*** Descarga Fallida." + Console.Out.NewLine);
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
+            await Task.Delay(500);
+            MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Descarga fallida." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Descarga Kaspersky Antivirus manualmente desde su web oficial." + Environment.NewLine + "Serás dirigido a ella al cerrar este dialogo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try { Process.Start("https://www.kaspersky.com/downloads/thank-you/antivirus"); } catch { MessageBoxEx.Show(this, "No ha sido posible acceder a la web.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            await Task.Delay(100);
             if (Step == 3)
             {
-                await Task.Delay(500);
-                MessageBoxEx.Show(this, "[Errores]" + Environment.NewLine + "1. Descarga fallida debido a que no ha sido posible acceder al directorio donde está almacenado KCI, o debido a un error en el servidor de Kaspersky." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Descarga Kaspersky Antivirus manualmente desde su web oficial a la cual serás dirigido al cerrar este dialogo.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                try { Process.Start("https://www.kaspersky.com/downloads/thank-you/antivirus"); } catch { }
                 EnableMainButtons(); EnableSecondaryButtons();
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 Step = 0;
                 return;
             }
-            await Task.Delay(3000);
-            Error += 1; goto LICENSE;
+            BlurLabel.Image = Properties.Resources.BlurLabel1;
+            BlurLabel.Text = "Pulsa ENTER cuando finalices la descarga manual de Kaspersky Antivirus.";
+            BlurLabel.BringToFront();
+            BlurLabel.Visible = true;
+            WaitEnterTextbox.Focus();
+            while (BlurLabel.Visible == true) { await Task.Delay(50); }
+            this.Focus();
+            await Task.Delay(500);
+            Error += 1;
+            goto LICENSE;
         DONE:
-            if (Step == 0) { try { Registry.SetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce", "Installer", KCIDir + "{KAV}{ES}.exe", RegistryValueKind.String); } catch { } }
+            if (Step == 0 && Error == 0) { try { Registry.SetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce", "Installer", KCIDir + "{KAV}{ES}.exe", RegistryValueKind.String); } catch { } }
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Green;
             OutputTextbox.AppendText(" √" + Console.Out.NewLine);
@@ -433,7 +433,7 @@ namespace KCI
             await Task.Delay(2000);
             if (Step == 3)
             {
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 EnableMainButtons(); EnableSecondaryButtons();
                 Step = 0;
                 return;
@@ -443,8 +443,7 @@ namespace KCI
             OutputTextbox.AppendText("{Paso 4} Generar Licencia de Registro");
             if (File.Exists(KCIDir + "\\{KAV} {Licencia}.txt")) { goto D0NE; }
             await Task.Delay(3000);
-            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/kcidatabasekavlicense", KCIDir + "\\{KAV} {Licencia}.txt"); } } catch { }
-            if (!File.Exists(KCIDir + "\\{KAV} {Licencia}.txt")) { goto ERR0R; }
+            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/kcidatabasekavlicense", KCIDir + "\\{KAV} {Licencia}.txt"); } } catch { goto ERR0R; }
             goto D0NE;
         ERR0R:
             await Task.Delay(500);
@@ -455,15 +454,14 @@ namespace KCI
             if (Step == 4)
             {
                 await Task.Delay(500);
-                MessageBoxEx.Show(this, "[Errores]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles. En cuanto existan licencias reutilizables válidas, estarán disponibles para los usuarios.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                try { Process.Start("https://www.google.es/"); } catch { }
+                MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles por el momento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                await Task.Delay(100);
                 EnableMainButtons(); EnableSecondaryButtons();
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 Step = 0;
                 return;
             }
             await Task.Delay(3000);
-            Error += 0;
             END();
             return;
         D0NE:
@@ -474,7 +472,7 @@ namespace KCI
             await Task.Delay(2000);
             if (Step == 4)
             {
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 EnableMainButtons(); EnableSecondaryButtons();
                 Step = 0;
                 return;
@@ -490,8 +488,8 @@ namespace KCI
             await Task.Delay(100);
             Timer1.Enabled = true;
             while (Timer1.Enabled == true) { await Task.Delay(50); }
-            if (Step == 3) { OutputTextbox.Text = ""; goto DOWNLOAD; }
-            if (Step == 4) { OutputTextbox.Text = ""; goto LICENSE; }
+            if (Step == 3) { OutputTextbox.Text = null; goto DOWNLOAD; }
+            if (Step == 4) { OutputTextbox.Text = null; goto LICENSE; }
 
             await INITIATION();
             await UNINSTALL();
@@ -501,30 +499,39 @@ namespace KCI
             OutputTextbox.AppendText("{Paso 3} Descargar Kaspersky Internet Security");
             if (File.Exists(KCIDir + "\\{KIS}{ES}.exe")) { goto DONE; }
             await Task.Delay(3000);
-            try { using (var client = new WebClient()) { client.DownloadFile("https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup.exe", KCIDir + "\\{KIS}{ES}.exe"); } } catch { }
-            if (!File.Exists(KCIDir + "\\{KIS}{ES}.exe")) { goto ERROR; }
+            try { using (var client = new WebClient()) { client.DownloadFile("https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup.exe", KCIDir + "\\{KIS}{ES}.exe"); } } catch { goto ERROR; }
             if (Step == 0) { try { Registry.SetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce", "Installer", KCIDir + "{KIS}{ES}.exe", RegistryValueKind.String); } catch { } }
             goto DONE;
         ERROR:
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Red;
             OutputTextbox.AppendText(" X");
+            if (Step == 3) { OutputTextbox.AppendText(Console.Out.NewLine); OutputTextbox.SelectionColor = Color.Red; }
             OutputTextbox.AppendText(Console.Out.NewLine + "*** Descarga Fallida." + Console.Out.NewLine);
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
+            await Task.Delay(500);
+            MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Descarga fallida." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Descarga Kaspersky Internet Security manualmente desde su web oficial." + Environment.NewLine + "Serás dirigido a ella al cerrar este dialogo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try { Process.Start("https://www.kaspersky.com/downloads/thank-you/internet-security"); } catch { MessageBoxEx.Show(this, "No ha sido posible acceder a la web.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            await Task.Delay(100);
             if (Step == 3)
             {
-                await Task.Delay(500);
-                MessageBoxEx.Show(this, "[Errores]" + Environment.NewLine + "1. Descarga fallida." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Descargar Kaspersky Internet Security manualmente desde su web oficial a la cual serás dirigido al cerrar este dialogo.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                try { Process.Start("https://www.kaspersky.com/downloads/thank-you/antivirus"); } catch { }
                 EnableMainButtons(); EnableSecondaryButtons();
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 Step = 0;
                 return;
             }
-            await Task.Delay(3000);
-            Error += 1; goto LICENSE;
+            BlurLabel.Image = Properties.Resources.BlurLabel1;
+            BlurLabel.Text = "Pulsa ENTER cuando finalices la descarga manual de Kaspersky Internet Security.";
+            BlurLabel.BringToFront();
+            BlurLabel.Visible = true;
+            WaitEnterTextbox.Focus();
+            while (BlurLabel.Visible == true) { await Task.Delay(50); }
+            this.Focus();
+            await Task.Delay(500);
+            Error += 1;
+            goto LICENSE;
         DONE:
-            if (Step == 0) { try { Registry.SetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce", "Installer", KCIDir + "{KIS}{ES}.exe", RegistryValueKind.String); } catch { } }
+            if (Step == 0 && Error == 0) { try { Registry.SetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce", "Installer", KCIDir + "{KIS}{ES}.exe", RegistryValueKind.String); } catch { } }
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Green;
             OutputTextbox.AppendText(" √" + Console.Out.NewLine);
@@ -532,7 +539,7 @@ namespace KCI
             await Task.Delay(2000);
             if (Step == 3)
             {
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 EnableMainButtons(); EnableSecondaryButtons();
                 Step = 0;
                 return;
@@ -542,8 +549,7 @@ namespace KCI
             OutputTextbox.AppendText("{Paso 4} Generar Licencia de Registro");
             if (File.Exists(KCIDir + "\\{KIS} {Licencia}.txt")) { goto D0NE; }
             await Task.Delay(3000);
-            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/kcidatabasekislicense", KCIDir + "\\{KIS} {Licencia}.txt"); } } catch { }
-            if (!File.Exists(KCIDir + "\\{KIS} {Licencia}.txt")) { goto ERR0R; }
+            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/kcidatabasekislicense", KCIDir + "\\{KIS} {Licencia}.txt"); } } catch { goto ERR0R; }
             goto D0NE;
         ERR0R:
             await Task.Delay(500);
@@ -554,15 +560,14 @@ namespace KCI
             if (Step == 4)
             {
                 await Task.Delay(500);
-                MessageBoxEx.Show(this, "[Errores]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles. En cuanto existan licencias reutilizables válidas, estarán disponibles para los usuarios.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                try { Process.Start("https://www.google.es/"); } catch { }
+                MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles por el momento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                await Task.Delay(100);
                 EnableMainButtons(); EnableSecondaryButtons();
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 Step = 0;
                 return;
             }
             await Task.Delay(3000);
-            Error += 2;
             END();
             return;
         D0NE:
@@ -573,7 +578,7 @@ namespace KCI
             await Task.Delay(2000);
             if (Step == 4)
             {
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 EnableMainButtons(); EnableSecondaryButtons();
                 Step = 0;
                 return;
@@ -589,8 +594,8 @@ namespace KCI
             await Task.Delay(100);
             Timer1.Enabled = true;
             while (Timer1.Enabled == true) { await Task.Delay(50); }
-            if (Step == 3) { OutputTextbox.Text = ""; goto DOWNLOAD; }
-            if (Step == 4) { OutputTextbox.Text = ""; goto LICENSE; }
+            if (Step == 3) { OutputTextbox.Text = null; goto DOWNLOAD; }
+            if (Step == 4) { OutputTextbox.Text = null; goto LICENSE; }
 
             await INITIATION();
             await UNINSTALL();
@@ -600,30 +605,39 @@ namespace KCI
             OutputTextbox.AppendText("{Paso 3} Descargar Kaspersky Total Security");
             if (File.Exists(KCIDir + "\\{KTS}{ES}.exe")) { goto DONE; }
             await Task.Delay(3000);
-            try { using (var client = new WebClient()) { client.DownloadFile("https://products.s.kaspersky-labs.com/spanish/homeuser/kts2018/for_reg_es/startup.exe", KCIDir + "\\{KTS}{ES}.exe"); } } catch { }
-            if (!File.Exists(KCIDir + "\\{KTS}{ES}.exe")) { goto ERROR; }
+            try { using (var client = new WebClient()) { client.DownloadFile("https://products.s.kaspersky-labs.com/spanish/homeuser/kts2018/for_reg_es/startup.exe", KCIDir + "\\{KTS}{ES}.exe"); } } catch { goto ERROR; }
             if (Step == 0) { try { Registry.SetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce", "Installer", KCIDir + "{KTS}{ES}.exe", RegistryValueKind.String); } catch { } }
             goto DONE;
         ERROR:
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Red;
             OutputTextbox.AppendText(" X");
+            if (Step == 3) { OutputTextbox.AppendText(Console.Out.NewLine); OutputTextbox.SelectionColor = Color.Red; }
             OutputTextbox.AppendText(Console.Out.NewLine + "*** Descarga Fallida." + Console.Out.NewLine);
             OutputTextbox.SelectionColor = Color.FromArgb(64, 64, 64);
+            await Task.Delay(500);
+            MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Descarga fallida." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Descarga Kaspersky Total Security manualmente desde su web oficial." + Environment.NewLine + "Serás dirigido a ella al cerrar este dialogo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try { Process.Start("https://www.kaspersky.com/downloads/thank-you/total-security"); } catch { MessageBoxEx.Show(this, "No ha sido posible acceder a la web.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            await Task.Delay(100);
             if (Step == 3)
             {
-                await Task.Delay(500);
-                MessageBoxEx.Show(this, "[Errores]" + Environment.NewLine + "1. Descarga fallida." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Descargar Kaspersky Total Security manualmente desde su web oficial a la cual serás dirigido al cerrar este dialogo.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                try { Process.Start("https://www.kaspersky.com/downloads/thank-you/antivirus"); } catch { }
                 EnableMainButtons(); EnableSecondaryButtons();
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 Step = 0;
                 return;
             }
-            await Task.Delay(3000);
-            Error += 1; goto LICENSE;
+            BlurLabel.Image = Properties.Resources.BlurLabel1;
+            BlurLabel.Text = "Pulsa ENTER cuando finalices la descarga manual de Kaspersky Total Security.";
+            BlurLabel.BringToFront();
+            BlurLabel.Visible = true;
+            WaitEnterTextbox.Focus();
+            while (BlurLabel.Visible == true) { await Task.Delay(50); }
+            this.Focus();
+            await Task.Delay(500);
+            Error += 1;
+            goto LICENSE;
         DONE:
-            if (Step == 0) { try { Registry.SetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce", "Installer", KCIDir + "{KTS}{ES}.exe", RegistryValueKind.String); } catch { } }
+            if (Step == 0 && Error == 0) { try { Registry.SetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce", "Installer", KCIDir + "{KTS}{ES}.exe", RegistryValueKind.String); } catch { } }
             await Task.Delay(500);
             OutputTextbox.SelectionColor = Color.Green;
             OutputTextbox.AppendText(" √" + Console.Out.NewLine);
@@ -631,7 +645,7 @@ namespace KCI
             await Task.Delay(2000);
             if (Step == 3)
             {
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 EnableMainButtons(); EnableSecondaryButtons();
                 Step = 0;
                 return;
@@ -641,8 +655,7 @@ namespace KCI
             OutputTextbox.AppendText("{Paso 4} Generar Licencia de Registro");
             if (File.Exists(KCIDir + "\\{KTS} {Licencia}.txt")) { goto D0NE; }
             await Task.Delay(3000);
-            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/kcidatabasektslicense", KCIDir + "\\{KTS} {Licencia}.txt"); } } catch { }
-            if (!File.Exists(KCIDir + "\\{KTS} {Licencia}.txt")) { goto ERR0R; }
+            try { using (var client = new WebClient()) { client.DownloadFile("https://www.tiny.cc/kcidatabasektslicense", KCIDir + "\\{KTS} {Licencia}.txt"); } } catch { goto ERR0R; }
             goto D0NE;
         ERR0R:
             await Task.Delay(500);
@@ -653,15 +666,15 @@ namespace KCI
             if (Step == 4)
             {
                 await Task.Delay(500);
-                MessageBoxEx.Show(this, "[Errores]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles. En cuanto existan licencias reutilizables válidas, estarán disponibles para los usuarios.", "Instalación interrumpida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                try { Process.Start("https://www.google.es/"); } catch { }
+                MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles por el momento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                await Task.Delay(100);
                 EnableMainButtons(); EnableSecondaryButtons();
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 Step = 0;
                 return;
             }
             await Task.Delay(3000);
-            Error += 0; END();
+            END();
             return;
         D0NE:
             await Task.Delay(500);
@@ -671,7 +684,7 @@ namespace KCI
             await Task.Delay(2000);
             if (Step == 4)
             {
-                OutputTextbox.Text = "";
+                OutputTextbox.Text = null;
                 EnableMainButtons(); EnableSecondaryButtons();
                 Step = 0;
                 return;
@@ -684,32 +697,30 @@ namespace KCI
         #region END
         private async Task END()
         {
-            if (Error == 1) { MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Descarga fallida." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Descargar la versión deseada de Kaspersky manualmente desde su web oficial a la cual serás dirigido al cerrar este dialogo." + Environment.NewLine + Environment.NewLine + "Debes reiniciar el sistema manualmente para finalizar la instalación.", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); try { Process.Start("https://www.kaspersky.com/downloads/thank-you/antivirus"); } catch { } this.Close(); return; }
-            if (Error == 2) { MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Más información: No existen licencias disponibles. En cuanto existan licencias reutilizables válidas, estarán disponibles para los usuarios." + Environment.NewLine + Environment.NewLine + "Debes reiniciar el sistema manualmente para finalizar la instalación.", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); try { Process.Start("https://www.google.es/"); } catch { } this.Close(); return; }
-            if (Error == 3) { MessageBoxEx.Show(this, "[Informe]" + Environment.NewLine + "1. Descarga fallida." + Environment.NewLine + "2. Licencia no generada." + Environment.NewLine + Environment.NewLine + "Posibles soluciones: Descargar la versión deseada de Kaspersky manualmente desde su web oficia a la cual seras dirigido al cerrar este dialogo." + Environment.NewLine + "No existen licencias disponibles. En cuanto existan licencias reutilizables válidas, estarán disponibles para los usuarios." + Environment.NewLine + Environment.NewLine + "Debes reiniciar el sistema manualmente para finalizar la instalación.", "Proceso Completado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); try { Process.Start("https://www.kaspersky.com/downloads/thank-you/antivirus"); Process.Start("https://www.google.es/"); } catch { } this.Close(); return; }
             MessageBoxEx.Show(this, "Kaspersky reset finalizado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            await Task.Delay(100);
             BlurLabel.Image = Properties.Resources.BlurLabel2;
             RestartButton.Location = new Point(228, 151);
-            BlurLabel.Text = Environment.NewLine + Environment.NewLine + Environment.NewLine + "Debes reiniciar el sistema para continuar la instalación";
+            BlurLabel.Text = Environment.NewLine + Environment.NewLine + Environment.NewLine + "Debes reiniciar el sistema para continuar con la instalación";
             BlurLabel.BringToFront(); RestartButton.BringToFront();
             RestartButton.Visible = true; BlurLabel.Visible = true;
+            RestartButton.Focus();
             return;
         }
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
-            Process Restart = new Process();
-            Restart.StartInfo.FileName = "ShutDown";
-            Restart.StartInfo.Arguments = "/r /f /t 00";
-            Restart.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            Restart.Start();
+            Process.Start("shutdown.exe", "-r -t 00");
+            this.Close();
+            return;
         }
         #endregion
 
         #region EnableButtons
         private void EnableMainButtons()
         {
-            if (InitializeError == 1) { return; }
+            if (InitializeError == 2) { return; }
+            if (InitializeError == 1) { CustomizeButton.Visible = true; return; }
             StartButton.Visible = true;
             CustomizeButton.Visible = true;
             return;

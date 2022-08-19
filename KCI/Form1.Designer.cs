@@ -41,7 +41,6 @@
             this.KISButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.KAVButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.HelpButton = new Bunifu.Framework.UI.BunifuImageButton();
-            this.FAQBackButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.Separator01 = new Bunifu.Framework.UI.BunifuSeparator();
             this.Separator2 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -63,6 +62,7 @@
             this.bunifuSeparator6 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator7 = new Bunifu.Framework.UI.BunifuSeparator();
             this.HelpPanel = new System.Windows.Forms.Panel();
+            this.FAQBackButton = new Bunifu.Framework.UI.BunifuImageButton();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuSeparator9 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator10 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -87,12 +87,12 @@
             this.FAQ1Button = new Bunifu.Framework.UI.BunifuFlatButton();
             this.WaitEnterTextbox = new System.Windows.Forms.TextBox();
             this.CustomizeButtonDisabled = new System.Windows.Forms.Label();
+            this.BlurLabel = new System.Windows.Forms.Label();
             this.OutputPicture = new System.Windows.Forms.PictureBox();
             this.StartButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.HelpButtonDisabled = new System.Windows.Forms.PictureBox();
             this.CustomizeButton = new Bunifu.Framework.UI.BunifuThinButton2();
             this.StartButtonDisabled = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.BlurLabel = new System.Windows.Forms.Label();
             this.RestartButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
@@ -101,7 +101,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.KISButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KAVButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HelpButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).BeginInit();
             this.StartPanel.SuspendLayout();
             this.CustomizePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UninstallButton)).BeginInit();
@@ -109,6 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DownloadButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LicenseButton)).BeginInit();
             this.HelpPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).BeginInit();
             this.HelpScrollPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OutputPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HelpButtonDisabled)).BeginInit();
@@ -265,25 +265,6 @@
             this.toolTip1.SetToolTip(this.HelpButton, "Ayuda");
             this.HelpButton.Zoom = 0;
             this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
-            // 
-            // FAQBackButton
-            // 
-            this.FAQBackButton.AccessibleDescription = "";
-            this.FAQBackButton.AccessibleName = "";
-            this.FAQBackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.FAQBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FAQBackButton.Image = ((System.Drawing.Image)(resources.GetObject("FAQBackButton.Image")));
-            this.FAQBackButton.ImageActive = ((System.Drawing.Image)(resources.GetObject("FAQBackButton.ImageActive")));
-            this.FAQBackButton.Location = new System.Drawing.Point(310, 9);
-            this.FAQBackButton.Name = "FAQBackButton";
-            this.FAQBackButton.Size = new System.Drawing.Size(26, 27);
-            this.FAQBackButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FAQBackButton.TabIndex = 26;
-            this.FAQBackButton.TabStop = false;
-            this.FAQBackButton.Tag = "";
-            this.FAQBackButton.Visible = false;
-            this.FAQBackButton.Zoom = 0;
-            this.FAQBackButton.Click += new System.EventHandler(this.FAQBackButton_Click);
             // 
             // Timer1
             // 
@@ -567,6 +548,25 @@
             this.HelpPanel.Name = "HelpPanel";
             this.HelpPanel.Size = new System.Drawing.Size(347, 353);
             this.HelpPanel.TabIndex = 22;
+            // 
+            // FAQBackButton
+            // 
+            this.FAQBackButton.AccessibleDescription = "";
+            this.FAQBackButton.AccessibleName = "";
+            this.FAQBackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.FAQBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FAQBackButton.Image = ((System.Drawing.Image)(resources.GetObject("FAQBackButton.Image")));
+            this.FAQBackButton.ImageActive = ((System.Drawing.Image)(resources.GetObject("FAQBackButton.ImageActive")));
+            this.FAQBackButton.Location = new System.Drawing.Point(310, 9);
+            this.FAQBackButton.Name = "FAQBackButton";
+            this.FAQBackButton.Size = new System.Drawing.Size(26, 27);
+            this.FAQBackButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FAQBackButton.TabIndex = 26;
+            this.FAQBackButton.TabStop = false;
+            this.FAQBackButton.Tag = "";
+            this.FAQBackButton.Visible = false;
+            this.FAQBackButton.Zoom = 0;
+            this.FAQBackButton.Click += new System.EventHandler(this.FAQBackButton_Click);
             // 
             // label5
             // 
@@ -976,7 +976,7 @@
             this.FAQ2Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FAQ2Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ2Description.Name = "FAQ2Description";
-            this.FAQ2Description.Size = new System.Drawing.Size(304, 224);
+            this.FAQ2Description.Size = new System.Drawing.Size(304, 252);
             this.FAQ2Description.TabIndex = 20;
             this.FAQ2Description.Text = resources.GetString("FAQ2Description.Text");
             this.FAQ2Description.Visible = false;
@@ -1036,6 +1036,18 @@
             this.CustomizeButtonDisabled.Size = new System.Drawing.Size(146, 16);
             this.CustomizeButtonDisabled.TabIndex = 27;
             this.CustomizeButtonDisabled.Text = "Personalizar Instalación";
+            // 
+            // BlurLabel
+            // 
+            this.BlurLabel.BackColor = System.Drawing.Color.Transparent;
+            this.BlurLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BlurLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BlurLabel.Location = new System.Drawing.Point(0, 0);
+            this.BlurLabel.Name = "BlurLabel";
+            this.BlurLabel.Size = new System.Drawing.Size(642, 446);
+            this.BlurLabel.TabIndex = 18;
+            this.BlurLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BlurLabel.Visible = false;
             // 
             // OutputPicture
             // 
@@ -1160,18 +1172,6 @@
             this.StartButtonDisabled.TextFont = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartButtonDisabled.Click += new System.EventHandler(this.StartButtonDisabled_Click);
             // 
-            // BlurLabel
-            // 
-            this.BlurLabel.BackColor = System.Drawing.Color.Transparent;
-            this.BlurLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BlurLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BlurLabel.Location = new System.Drawing.Point(0, 0);
-            this.BlurLabel.Name = "BlurLabel";
-            this.BlurLabel.Size = new System.Drawing.Size(642, 446);
-            this.BlurLabel.TabIndex = 18;
-            this.BlurLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BlurLabel.Visible = false;
-            // 
             // RestartButton
             // 
             this.RestartButton.Activecolor = System.Drawing.Color.Gold;
@@ -1208,6 +1208,7 @@
             this.RestartButton.Textcolor = System.Drawing.Color.Black;
             this.RestartButton.TextFont = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RestartButton.Visible = false;
+            this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
             // 
             // KCI
             // 
@@ -1239,6 +1240,7 @@
             this.MaximizeBox = false;
             this.Name = "KCI";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KCI";
             this.Click += new System.EventHandler(this.KCI_Click);
             this.LeftPanel.ResumeLayout(false);
@@ -1248,7 +1250,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.KISButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KAVButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HelpButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).EndInit();
             this.StartPanel.ResumeLayout(false);
             this.CustomizePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UninstallButton)).EndInit();
@@ -1256,6 +1257,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DownloadButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LicenseButton)).EndInit();
             this.HelpPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.FAQBackButton)).EndInit();
             this.HelpScrollPanel.ResumeLayout(false);
             this.HelpScrollPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OutputPicture)).EndInit();

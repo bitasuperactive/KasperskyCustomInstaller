@@ -1533,58 +1533,6 @@
         RruE+A/LKgk2VBQecgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="FAQBackButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="FAQBackButton.ImageActive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAABFlJREFUaEPt
-        mmmoVVUYhm9ZaVKSZpoZKCSEE4hCfwRLkpAySJGwtHI2S9FEQcIwEEuIjKKiqB8JESURYQM5/XCISBHE
-        HyYUlqaWFWmZNg/Ps2DB5XjOPnufu4dD+MLDvWudffa3xm9/69un44L+x7oOZsKrsANOwC/wL/wDP8Ih
-        2ARPwK3QHdpCfWEpfAo2OCtn4HW4HS6G0jUAnoOzEBv1A7wJC+AWGARXgLKRfWAE3AmPw274C+L3D8ID
-        UEqHLoJ5cApiAzbDFLgMsmogPApfQ7zfLhgKhakffAjRoP+PhjzkIDhA7ivvfQ4eAgcuV7kkjoNG/DsJ
-        itCV8AzoHLT1BrQy03XlqLv+vfFWcGaKlgMVl+826Ald0ig4Dd7wJegGZcl9cgy07TK+BFqSrvUriFOc
-        +3pNIZe0zx/b8JQVWaULjBt7J1T54BoLv4H75i4rsmgh2ImT4BO7ai0G2/M9XG1FGvWHuNEyj0CB2gK2
-        6ZVQSqH14BfeCaX20Y3wOxgN+H+i3OAGeq7HYVa0oKugZQ/TRHpOB/m1UErQI+CFRqityBjrZ3g7lPLX
-        YPgT3Py9rWik/WBHjEazyk7EsN0wvSi9D9p4MJTqyGjVC/QMWZfGHeAo+f11VhSoGaCdD0KpjuaCF/jw
-        y6IyO6F0v3+DR4i6zzfdmo0x6kyrsjsRdQC0OSaUauRBxw9vDqXmqqoTylWjXZfZeYphuoedZqqyE2oN
-        aPuxUKpR9Dg9QqmxpoMPJq/Vnzu9eeKxoZmzWQLafzqUOsnI1oegPjpJnrvjoadInockzQavezmUavQH
-        2Mikw78j9Q14E4+j7isPW3kzFZJkgqNhh2Pc73EzSZeDxrzWpMEQKFsrQPtPhlKNPgM/TBNjVd2ZZ0Hb
-        7pXz9C744eRQaq4qO/MRaHdiKNUourQscVIVnXEPx2TI9VbUagL44SehlF5ld8aEiLa+CKU6MuWiJ/Lg
-        kvV4a2rUs70GvgTD7aJkulU7nk0a6i3wouWhlE2dO2MatQj5vPsctDHeikYy9PCiw3CpFRllZ16A+0Mp
-        f5kAt31HIDHZ7Ydmxb14lhVtJGdjD9i2um63VvHgYkK5lxVtImfZdhlZpEqhOisfg19qFvOUpWvgW7BN
-        91mRViPBMN3YK+0Dsig5sPEBaEI7c+r2YfDLP4HhdVWKeTZnxDdlLWkDeJPvYLgVJWsVaN/VMc6KVqUL
-        jqlKsytlzYzLx8hWuy7ve6DLMlOxEeLI6Poyr9MMuha2g/Z+hVzzz87Mi+DNxUxk3jGVg3MvxJc7Lufb
-        oBDpwXzVEGfHeOcG6Ir0St53L8SB0ku1vLHTypyrYYjne42aLNPwNPBMn1Y6j9VgOBQ7cBTuhlLl0jKL
-        EtNCYuS8D8w7rYVlMB/M064Ef2TwHsTX0BFf8S2CSn/S4QzNARvoTzI6NzAJzxPOrG41MQCsQr4TvwnM
-        fXlu8GFmysa9ZCLPGfLVc5HnlQtqA3V0/Aevmmpm3h63GgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>114, 17</value>
   </metadata>
@@ -2180,6 +2128,58 @@
         KEKJVaFQKBSKKEKJVaFQKBSKqGEn/T87iTRWiQV02AAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="FAQBackButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="FAQBackButton.ImageActive" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAABFlJREFUaEPt
+        mmmoVVUYhm9ZaVKSZpoZKCSEE4hCfwRLkpAySJGwtHI2S9FEQcIwEEuIjKKiqB8JESURYQM5/XCISBHE
+        HyYUlqaWFWmZNg/Ps2DB5XjOPnufu4dD+MLDvWudffa3xm9/69un44L+x7oOZsKrsANOwC/wL/wDP8Ih
+        2ARPwK3QHdpCfWEpfAo2OCtn4HW4HS6G0jUAnoOzEBv1A7wJC+AWGARXgLKRfWAE3AmPw274C+L3D8ID
+        UEqHLoJ5cApiAzbDFLgMsmogPApfQ7zfLhgKhakffAjRoP+PhjzkIDhA7ivvfQ4eAgcuV7kkjoNG/DsJ
+        itCV8AzoHLT1BrQy03XlqLv+vfFWcGaKlgMVl+826Ald0ig4Dd7wJegGZcl9cgy07TK+BFqSrvUriFOc
+        +3pNIZe0zx/b8JQVWaULjBt7J1T54BoLv4H75i4rsmgh2ImT4BO7ai0G2/M9XG1FGvWHuNEyj0CB2gK2
+        6ZVQSqH14BfeCaX20Y3wOxgN+H+i3OAGeq7HYVa0oKugZQ/TRHpOB/m1UErQI+CFRqityBjrZ3g7lPLX
+        YPgT3Py9rWik/WBHjEazyk7EsN0wvSi9D9p4MJTqyGjVC/QMWZfGHeAo+f11VhSoGaCdD0KpjuaCF/jw
+        y6IyO6F0v3+DR4i6zzfdmo0x6kyrsjsRdQC0OSaUauRBxw9vDqXmqqoTylWjXZfZeYphuoedZqqyE2oN
+        aPuxUKpR9Dg9QqmxpoMPJq/Vnzu9eeKxoZmzWQLafzqUOsnI1oegPjpJnrvjoadInockzQavezmUavQH
+        2Mikw78j9Q14E4+j7isPW3kzFZJkgqNhh2Pc73EzSZeDxrzWpMEQKFsrQPtPhlKNPgM/TBNjVd2ZZ0Hb
+        7pXz9C744eRQaq4qO/MRaHdiKNUourQscVIVnXEPx2TI9VbUagL44SehlF5ld8aEiLa+CKU6MuWiJ/Lg
+        kvV4a2rUs70GvgTD7aJkulU7nk0a6i3wouWhlE2dO2MatQj5vPsctDHeikYy9PCiw3CpFRllZ16A+0Mp
+        f5kAt31HIDHZ7Ydmxb14lhVtJGdjD9i2um63VvHgYkK5lxVtImfZdhlZpEqhOisfg19qFvOUpWvgW7BN
+        91mRViPBMN3YK+0Dsig5sPEBaEI7c+r2YfDLP4HhdVWKeTZnxDdlLWkDeJPvYLgVJWsVaN/VMc6KVqUL
+        jqlKsytlzYzLx8hWuy7ve6DLMlOxEeLI6Poyr9MMuha2g/Z+hVzzz87Mi+DNxUxk3jGVg3MvxJc7Lufb
+        oBDpwXzVEGfHeOcG6Ir0St53L8SB0ku1vLHTypyrYYjne42aLNPwNPBMn1Y6j9VgOBQ7cBTuhlLl0jKL
+        EtNCYuS8D8w7rYVlMB/M064Ef2TwHsTX0BFf8S2CSn/S4QzNARvoTzI6NzAJzxPOrG41MQCsQr4TvwnM
+        fXlu8GFmysa9ZCLPGfLVc5HnlQtqA3V0/Aevmmpm3h63GgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="FAQ7Description.Text" xml:space="preserve">
     <value>Gracias por interesarte en contribuir con mi trabajo, simplemente rellenando un cuestionario sobre la utilidad del programa me ayudas muchísimo a enfocar en la dirección correcta mis futuros proyectos.</value>
   </data>
@@ -2190,16 +2190,16 @@ Haz clic          para dirigirte al análisis.
 El único proceso delicado que lleva a cabo el programa consiste en editar el registro de Windows, donde se eliminan las claves KasperskyLab, RNG y Certificates, las cuales almacenan información general de Kaspersky y cuya manipulación, por ende, no supone ningún riesgo para el sistema operativo o el resto de licencias ajenas al antivirus.</value>
   </data>
   <data name="FAQ1Description.Text" xml:space="preserve">
-    <value>Kaspersky Custom Installer es un software independiente creado por Bita SuperActive, el cual permite realizar una instalación limpia de cualquier versión del programa Kaspersky, uno de los mejores antivirus a nivel mundial, reestableciéndo toda licencia de registro utilizada previamente, siempre que ésta sea reutilizable, incluyendo la licencia de prueba, simulando una autorización ilimitada totalmente gratuita.</value>
+    <value>Kaspersky Custom Installer es un software independiente de codigo fuente abierto, creado por Bita S.A., el cual permite realizar una instalación limpia, rápida y segura de cualquier versión de los antivirus comercializados por la firma KasperskyLab, gigante del sector de protección informática, reestableciéndo toda licencia de registro reutilizable usada previamente en el sistema operativo, además de generar claves de registro actualizadas.</value>
   </data>
   <data name="FAQ2Description.Text" xml:space="preserve">
-    <value>KCI lleva a cabo un proceso que se divide en 5 sencillos pasos:
+    <value>KCI lleva a cabo un proceso que se divide en 5 sencillos subprocesos:
 
-1. Solicitar al usuario la desinstalación manual de su antivirus, proceso en el cual KCI no interviene por seguridad.
-2. Eliminar las claves de Kaspersky (KasperskyLab, RNG y Certificates) almacenadas en el registro de Windows, proceso que requiere privilegios de administrador, con el objetivo de liberar las licencias previamente utilizadas y permitir así su reutilización.
-3. Descargar la versión de Kaspersky seleccionada por el usuario desde su web oficial.
-4. Generar todas las licencias válidas disponibles para la versión de Kaspersky seleccionada por el usuario.
-5. Reiniciar el sistema para llevar a cabo la re/instalación de Kaspersky.</value>
+1. Solicitar al usuario la desinstalación manual del antivirus, si lo hubiere, proceso en el cual KCI no interviene por conflictos con la seguridad informática.
+2. Eliminar las claves almacenadas en el registro de Windows perteneciente a la firma KasperskyLab (KasperskyLab, RNG y Certificates), proceso que requiere privilegios de administrador, con el objetivo eliminar todo rastro del software en el sistema, y permitir así la reutilización de las licencias de registro.
+3. Descargar la versión del antivirus KasperskyLab, seleccionada por el usuario, desde su web oficial.
+4. Generar licencias válidas reutilizables para la versión de antivirus KasperskyLab seleccionada por el usuario.
+5. Solicitar al usuario reiniciar el sistema para llevar a cabo la re/instalación del antivirus KasperskyLab.</value>
   </data>
   <data name="OutputPicture.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
