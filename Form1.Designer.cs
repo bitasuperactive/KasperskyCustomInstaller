@@ -32,6 +32,8 @@
             this.OutputLabel = new System.Windows.Forms.Label();
             this.GIF = new System.Windows.Forms.PictureBox();
             this.StartPanel = new System.Windows.Forms.Panel();
+            this.BackupCheckBox = new System.Windows.Forms.CheckBox();
+            this.StartAutoButton = new System.Windows.Forms.Button();
             this.StartButton = new System.Windows.Forms.Button();
             this.KTSCheckBox = new System.Windows.Forms.CheckBox();
             this.KISCheckBox = new System.Windows.Forms.CheckBox();
@@ -48,7 +50,7 @@
             this.OutputLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OutputLabel.Location = new System.Drawing.Point(0, 0);
             this.OutputLabel.Name = "OutputLabel";
-            this.OutputLabel.Size = new System.Drawing.Size(386, 76);
+            this.OutputLabel.Size = new System.Drawing.Size(426, 116);
             this.OutputLabel.TabIndex = 0;
             this.OutputLabel.Text = "Iniciando Kaspersky Custom Installer";
             this.OutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -61,7 +63,7 @@
             this.GIF.ErrorImage = null;
             this.GIF.Image = ((System.Drawing.Image)(resources.GetObject("GIF.Image")));
             this.GIF.InitialImage = null;
-            this.GIF.Location = new System.Drawing.Point(65, 57);
+            this.GIF.Location = new System.Drawing.Point(83, 93);
             this.GIF.Name = "GIF";
             this.GIF.Size = new System.Drawing.Size(256, 10);
             this.GIF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -72,6 +74,9 @@
             // StartPanel
             // 
             this.StartPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.StartPanel.Controls.Add(this.GIF);
+            this.StartPanel.Controls.Add(this.BackupCheckBox);
+            this.StartPanel.Controls.Add(this.StartAutoButton);
             this.StartPanel.Controls.Add(this.StartButton);
             this.StartPanel.Controls.Add(this.KTSCheckBox);
             this.StartPanel.Controls.Add(this.KISCheckBox);
@@ -79,22 +84,47 @@
             this.StartPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StartPanel.Location = new System.Drawing.Point(0, 0);
             this.StartPanel.Name = "StartPanel";
-            this.StartPanel.Size = new System.Drawing.Size(386, 76);
+            this.StartPanel.Size = new System.Drawing.Size(426, 116);
             this.StartPanel.TabIndex = 2;
             this.StartPanel.Visible = false;
+            // 
+            // BackupCheckBox
+            // 
+            this.BackupCheckBox.AutoSize = true;
+            this.BackupCheckBox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackupCheckBox.Location = new System.Drawing.Point(83, 89);
+            this.BackupCheckBox.Name = "BackupCheckBox";
+            this.BackupCheckBox.Size = new System.Drawing.Size(207, 22);
+            this.BackupCheckBox.TabIndex = 5;
+            this.BackupCheckBox.Text = "Exportar Configuración actual";
+            this.BackupCheckBox.UseVisualStyleBackColor = true;
+            this.BackupCheckBox.CheckedChanged += new System.EventHandler(this.BackupCheckBox_CheckedChanged);
+            // 
+            // StartAutoButton
+            // 
+            this.StartAutoButton.BackColor = System.Drawing.SystemColors.Control;
+            this.StartAutoButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StartAutoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartAutoButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartAutoButton.Location = new System.Drawing.Point(224, 46);
+            this.StartAutoButton.Name = "StartAutoButton";
+            this.StartAutoButton.Size = new System.Drawing.Size(169, 37);
+            this.StartAutoButton.TabIndex = 4;
+            this.StartAutoButton.Text = "Instalación Automática";
+            this.StartAutoButton.UseVisualStyleBackColor = false;
+            this.StartAutoButton.Click += new System.EventHandler(this.StartAutoButton_Click);
             // 
             // StartButton
             // 
             this.StartButton.BackColor = System.Drawing.SystemColors.Control;
             this.StartButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.StartButton.Enabled = false;
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartButton.Location = new System.Drawing.Point(226, 11);
+            this.StartButton.Location = new System.Drawing.Point(224, 11);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(147, 52);
+            this.StartButton.Size = new System.Drawing.Size(169, 37);
             this.StartButton.TabIndex = 3;
-            this.StartButton.Text = "Iniciar instalación";
+            this.StartButton.Text = "Instalación Habitual";
             this.StartButton.UseVisualStyleBackColor = false;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
@@ -102,7 +132,7 @@
             // 
             this.KTSCheckBox.AutoSize = true;
             this.KTSCheckBox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KTSCheckBox.Location = new System.Drawing.Point(11, 47);
+            this.KTSCheckBox.Location = new System.Drawing.Point(11, 61);
             this.KTSCheckBox.Name = "KTSCheckBox";
             this.KTSCheckBox.Size = new System.Drawing.Size(175, 22);
             this.KTSCheckBox.TabIndex = 2;
@@ -113,8 +143,10 @@
             // KISCheckBox
             // 
             this.KISCheckBox.AutoSize = true;
-            this.KISCheckBox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KISCheckBox.Location = new System.Drawing.Point(11, 26);
+            this.KISCheckBox.Checked = true;
+            this.KISCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.KISCheckBox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KISCheckBox.Location = new System.Drawing.Point(11, 36);
             this.KISCheckBox.Name = "KISCheckBox";
             this.KISCheckBox.Size = new System.Drawing.Size(196, 22);
             this.KISCheckBox.TabIndex = 1;
@@ -126,7 +158,7 @@
             // 
             this.KAVCheckBox.AutoSize = true;
             this.KAVCheckBox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KAVCheckBox.Location = new System.Drawing.Point(11, 5);
+            this.KAVCheckBox.Location = new System.Drawing.Point(11, 11);
             this.KAVCheckBox.Name = "KAVCheckBox";
             this.KAVCheckBox.Size = new System.Drawing.Size(147, 22);
             this.KAVCheckBox.TabIndex = 0;
@@ -139,9 +171,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(386, 76);
+            this.ClientSize = new System.Drawing.Size(426, 116);
             this.Controls.Add(this.StartPanel);
-            this.Controls.Add(this.GIF);
             this.Controls.Add(this.OutputLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -170,6 +201,8 @@
         private System.Windows.Forms.CheckBox KTSCheckBox;
         private System.Windows.Forms.CheckBox KISCheckBox;
         private System.Windows.Forms.CheckBox KAVCheckBox;
+        private System.Windows.Forms.Button StartAutoButton;
+        private System.Windows.Forms.CheckBox BackupCheckBox;
     }
 }
 

@@ -37,13 +37,49 @@ namespace KCIBasic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string KavWebsite {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoInstall {
             get {
-                return ((string)(this["KavWebsite"]));
+                return ((bool)(this["AutoInstall"]));
             }
             set {
-                this["KavWebsite"] = value;
+                this["AutoInstall"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string KavSetupURL {
+            get {
+                return ((string)(this["KavSetupURL"]));
+            }
+            set {
+                this["KavSetupURL"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string KavEditionToInstall {
+            get {
+                return ((string)(this["KavEditionToInstall"]));
+            }
+            set {
+                this["KavEditionToInstall"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string kavLicenseUrl {
+            get {
+                return ((string)(this["kavLicenseUrl"]));
+            }
+            set {
+                this["kavLicenseUrl"] = value;
             }
         }
     }

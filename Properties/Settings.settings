@@ -5,7 +5,16 @@
     <Setting Name="MainThreadDone" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="KavWebsite" Type="System.String" Scope="User">
+    <Setting Name="AutoInstall" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="KavSetupURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="KavEditionToInstall" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="kavLicenseUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
