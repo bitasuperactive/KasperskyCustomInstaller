@@ -22,44 +22,33 @@ namespace KCI
     public partial class KCI : Form
     {
         public KCI()
-        //Try async task so that main thread does not block.
-        //Kaspersky Installed: SOFTWARE\KasperskyLab\WmiHlp\IsInstalled
-        //Kaspersky Edition: SOFTWARE\KasperskyLab\AVP20.0\environment\ProductName
-        //Uninstall string: SOFTWARE\KasperskyLab\AVP20.0\environment\Ins_UninstallString
-        //Get GUID: SOFTWARE\KasperskyLab\AVP20.0\environment\ProductCode
         {
             if (Process.GetProcesses().Count(process => process.ProcessName == Process.GetCurrentProcess().ProcessName) > 1) { MessageBox.Show("Kaspersky Custom Installer no responde.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); Environment.Exit(0); }
-            InitializeComponent();
-            if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
-            {
-                StartButtonDisable();
-                UninstallButton.Enabled = false; UninstallButton.Image = Properties.Resources.UninstallButtonDisabled;
-                RegistryButton.Enabled = false; RegistryButton.Image = Properties.Resources.RegistryButtonDisabled;
-                ErrorLabel.Visible = true;
-            }
+            InitializeComponent(); Directory.SetCurrentDirectory(TempDir);
+            //if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+            //{
+            //    StartButtonDisable();
+            //    UninstallButton.Enabled = false; UninstallButton.Image = Properties.Resources.UninstallButtonDisabled;
+            //    RegistryButton.Enabled = false; RegistryButton.Image = Properties.Resources.RegistryButtonDisabled;
+            //    ErrorLabel.Visible = true;
+            //}
         }
         #endregion
 
         #region MainButtons
         private void StartButtonMethod()
         {
-            //if (!StartButton.Enabled) return;
             StartButtonDisable(); CustomizeButtonDisable(); HelpButtonDisable();
             StartPanelDownTimer.Enabled = true;
         }
 
         private void CustomizeButtonMethod()
         {
+            customizeDownload = customizeLicense = false;
             StartButtonDisable(); CustomizeButtonDisable(); HelpButtonDisable();
             CustomizePanelDownTimer.Enabled = true;
         }
-
-        private void HelpButtonMethod()
-        {
-            StartButtonDisable(); CustomizeButtonDisable(); HelpButtonDisable();
-            HelpPanelReset();
-            HelpPanel.Left = 277;
-        }
+        private void HelpButtonMethod() => Process.Start("https://www.tiny.cc/KCI-YoutubeChannel");
         #endregion
 
         #region CustomizeButtons
@@ -68,8 +57,8 @@ namespace KCI
             CustomizePanelUpTimer.Enabled = true;
             GIF.Visible = true;
             try { await Uninstall(); } catch { }
-            ProgressLabel.Text = "Progreso de las funciones";
             GIF.Visible = false;
+            ProgressLabel.Text = "Progreso de las funciones";
             StartButtonEnable(); CustomizeButtonEnable(); HelpButtonEnable();
         }
 
@@ -79,8 +68,8 @@ namespace KCI
             CustomizePanelUpTimer.Enabled = true;
             GIF.Visible = true;
             try { await Registry(); } catch { }
-            ProgressLabel.Text = "Progreso de las funciones";
             GIF.Visible = false;
+            ProgressLabel.Text = "Progreso de las funciones";
             StartButtonEnable(); CustomizeButtonEnable(); HelpButtonEnable();
         }
 
@@ -103,125 +92,11 @@ namespace KCI
         }
         #endregion
 
-        #region HelpPanel
-        private void HelpPanelReset()
-        {
-            //  Ocultar descripciones
-            FAQ1Description.Visible = false;
-            FAQ2Description.Visible = false;
-            FAQ3Description.Visible = false; FAQ3Link.Visible = false;
-            FAQ4Description.Visible = false;
-            FAQ5Description.Visible = false;
-            FAQ6Description.Visible = false; FAQ6Link.Visible = false;
-            //  Ordenar títulos FAQ
-            FAQ1Button.Top = 4;
-            FAQ2Button.Top = 28;
-            FAQ3Button.Top = 52;
-            FAQ4Button.Top = 76;
-            FAQ5Button.Top = 100;
-            FAQ6Button.Top = 124;
-            //  Mostrar títulos FAQ
-            FAQ1Button.Visible = true;
-            FAQ2Button.Visible = true;
-            FAQ3Button.Visible = true;
-            FAQ4Button.Visible = true;
-            FAQ5Button.Visible = true;
-            FAQ6Button.Visible = true;
-            //  Ocultar FAQBackButton
-            FAQBackButton.Visible = false;
-            return;
-        }
-
-        private void FAQ1ButtonMethod()
-        {
-            if (FAQ1Description.Visible) { HelpPanelReset(); return; }
-            FAQ2Button.Visible = false;
-            FAQ3Button.Visible = false;
-            FAQ4Button.Visible = false;
-            FAQ5Button.Visible = false;
-            FAQ6Button.Visible = false;
-            FAQ1Button.Top = 4;
-            FAQ1Description.Visible = true;
-            FAQBackButton.Visible = true;
-            return;
-        }
-
-        private void FAQ2ButtonMethod()
-        {
-            if (FAQ2Description.Visible) { HelpPanelReset(); return; }
-            FAQ1Button.Visible = false;
-            FAQ3Button.Visible = false;
-            FAQ4Button.Visible = false;
-            FAQ5Button.Visible = false;
-            FAQ6Button.Visible = false;
-            FAQ2Button.Top = 4;
-            FAQ2Description.Visible = true;
-            FAQBackButton.Visible = true;
-            return;
-        }
-
-        private void FAQ3ButtonMethod()
-        {
-            if (FAQ3Description.Visible) { HelpPanelReset(); return; }
-            FAQ1Button.Visible = false;
-            FAQ2Button.Visible = false;
-            FAQ4Button.Visible = false;
-            FAQ5Button.Visible = false;
-            FAQ6Button.Visible = false;
-            FAQ3Button.Top = 4;
-            FAQ3Description.Visible = true; FAQ3Link.Visible = true;
-            FAQBackButton.Visible = true;
-            return;
-        }
-
-        private void FAQ4ButtonMethod()
-        {
-            if (FAQ4Description.Visible) { HelpPanelReset(); return; }
-            FAQ1Button.Visible = false;
-            FAQ2Button.Visible = false;
-            FAQ3Button.Visible = false;
-            FAQ5Button.Visible = false;
-            FAQ6Button.Visible = false;
-            FAQ4Button.Top = 4;
-            FAQ4Description.Visible = true;
-            FAQBackButton.Visible = true;
-            return;
-        }
-
-        private void FAQ5ButtonMethod()
-        {
-            if (FAQ5Description.Visible) { HelpPanelReset(); return; }
-            FAQ1Button.Visible = false;
-            FAQ2Button.Visible = false;
-            FAQ3Button.Visible = false;
-            FAQ4Button.Visible = false;
-            FAQ6Button.Visible = false;
-            FAQ5Button.Top = 4;
-            FAQ5Description.Visible = true;
-            FAQBackButton.Visible = true;
-            return;
-        }
-
-        private void FAQ6ButtonMethod()
-        {
-            if (FAQ6Description.Visible) { HelpPanelReset(); return; }
-            FAQ1Button.Visible = false;
-            FAQ2Button.Visible = false;
-            FAQ3Button.Visible = false;
-            FAQ4Button.Visible = false;
-            FAQ5Button.Visible = false;
-            FAQ6Button.Top = 4;
-            FAQ6Description.Visible = true; FAQ6Link.Visible = true;
-            FAQBackButton.Visible = true;
-            return;
-        }
-        #endregion
-
         #region KAV
         private void KAV()
         {
             kasperskyEdition = "Kaspersky Antivirus";
-            kasperskySetupFile = "KAV(ES).exe";
+            kasperskySetupFile = "KAV Setup.exe";
             kasperskyLicenseFile = "KAV Licencia.txt";
             kasperskyDownloadUrl = "https://products.s.kaspersky-labs.com/spanish/homeuser/kav2018/for_reg_es/startup.exe";
             kasperskyLicenseUrl = "https://www.tiny.cc/KCI-KAV-License";
@@ -234,7 +109,7 @@ namespace KCI
         private void KIS()
         {
             kasperskyEdition = "Kaspersky Internet Security";
-            kasperskySetupFile = "KIS(ES).exe";
+            kasperskySetupFile = "KIS Setup.exe";
             kasperskyLicenseFile = "KIS Licencia.txt";
             kasperskyDownloadUrl = "https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup.exe";
             kasperskyLicenseUrl = "https://www.tiny.cc/KCI-KIS-License";
@@ -247,7 +122,7 @@ namespace KCI
         private void KTS()
         {
             kasperskyEdition = "Kaspersky Total Security";
-            kasperskySetupFile = "KTS(ES).exe";
+            kasperskySetupFile = "KTS Setup.exe";
             kasperskyLicenseFile = "KTS Licencia.txt";
             kasperskyDownloadUrl = "https://products.s.kaspersky-labs.com/spanish/homeuser/kts2018/for_reg_es/startup.exe";
             kasperskyLicenseUrl = "https://www.tiny.cc/KCI-KTS-License";
@@ -261,14 +136,12 @@ namespace KCI
         {
             StartPanelUpTimer.Enabled = true;
             GIF.Visible = true;
-            await Task.Delay(1000);
             if (customizeDownload)
             {
                 await DownloadKav();
                 StartButtonEnable(); CustomizeButtonEnable(); HelpButtonEnable();
                 ProgressLabel.Text = "Progreso de las funciones";
                 GIF.Visible = false;
-                customizeDownload = false;
                 return;
             }
             if (customizeLicense)
@@ -277,7 +150,6 @@ namespace KCI
                 StartButtonEnable(); CustomizeButtonEnable(); HelpButtonEnable();
                 ProgressLabel.Text = "Progreso de las funciones";
                 GIF.Visible = false;
-                customizeLicense = false;
                 return;
             }
             try
@@ -306,41 +178,14 @@ namespace KCI
         #region Uninstall
         private async Task Uninstall()
         {
-            if (RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(@"SOFTWARE\KasperskyLab") != null)
+            if (LocalMachine64View.OpenSubKey(@"SOFTWARE\KasperskyLab") != null)
             {
-                //RegistryKey uninstallkey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
-                //foreach (var subkey in uninstallkey.GetSubKeyNames())
-                //{
-                //    RegistryKey uninstallsubkey = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey($@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{subkey}");
-                //    foreach (string value in uninstallsubkey.GetValueNames())
-                //    {
-                //        if (uninstallsubkey.GetValue(value).ToString().Contains("Kaspersky") == true)
-                //        {
-                //            if (value == "DisplayName")
-                //            {
-                //                kasperskyInstalledEdition = uninstallsubkey.GetValue(value).ToString();
-                //                break;
-                //            }
-                //        }
-                //    }
-                //    foreach (string value in uninstallsubkey.GetValueNames())
-                //    {
-                //        if (uninstallsubkey.GetValue(value).ToString().Contains("Kaspersky") == true)
-                //        {
-                //            kasperskyGUID = "{" + subkey.Substring(subkey.IndexOf("{") + "{".Length, subkey.IndexOf("}") - Math.Abs(subkey.IndexOf("{") + "{".Length)) + "}";
-                //            Clipboard.SetText(kasperskyGUID);
-                //            break;
-                //        }
-                //    }
-                //}
-
-
-                foreach (string AVPkey in RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(@"SOFTWARE\KasperskyLab").GetSubKeyNames())
+                foreach (string AVPkey in LocalMachine32View.OpenSubKey(@"SOFTWARE\KasperskyLab").GetSubKeyNames())
                 {
                     if (AVPkey.Contains("AVP"))
                     {
-                        kasperskyInstalledEdition = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey($@"SOFTWARE\KasperskyLab\{AVPkey}\environment").GetValue("ProductName").ToString();
-                        kasperskyGUID = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey($@"SOFTWARE\KasperskyLab\{AVPkey}\environment").GetValue("ProductCode").ToString();
+                        kasperskyInstalledEdition = LocalMachine32View.OpenSubKey($@"SOFTWARE\KasperskyLab\{AVPkey}\environment").GetValue("ProductName").ToString();
+                        kasperskyGUID = LocalMachine32View.OpenSubKey($@"SOFTWARE\KasperskyLab\{AVPkey}\environment").GetValue("ProductCode").ToString();
                         break;
                     }
                 }
@@ -354,11 +199,19 @@ namespace KCI
                 {
                     ProgressLabel.Text = $"Esperando cierre de {kasperskyInstalledEdition}...";
 
-                    while (Process.GetProcessesByName("avp").Length > 0) await Task.Delay(500);
+                    if (Process.GetProcessesByName("avp").Length > 0)
+                    {
+                        MessageBoxEx.Show(this, $"Debes cerrar manualmente {kasperskyInstalledEdition} para continuar.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        while (Process.GetProcessesByName("avp").Length > 0) await Task.Delay(500);
+                    }
 
                     ProgressLabel.Text = $"Desinstalando {kasperskyInstalledEdition}...";
 
-                    if (kasperskyGUID == null) { MessageBox.Show("No ha sido posible realizar la desinstalación automáticamente. Prueba otro método de desinstalación."); throw new Exception(); }
+                    if (kasperskyGUID == null)
+                    {
+                        MessageBox.Show("No ha sido posible realizar la desinstalación automáticamente. Prueba con otro método.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        throw new Exception();
+                    }
 
                     Process.Start("msiexec", $"/x {kasperskyGUID} /quiet");
                 }
@@ -367,11 +220,10 @@ namespace KCI
                 {
                     try
                     {
-                        await Download("http://media.kaspersky.com/utilities/ConsumerUtilities/kavremvr.exe", TempDir, "kavremvr.exe");
-                        Directory.SetCurrentDirectory(TempDir);
-                        Process.Start(TempDir + "kavremvr.exe");
+                        await Download("http://media.kaspersky.com/utilities/ConsumerUtilities/kavremvr.exe", TempDir, "KavRemover.exe");
+                        Process.Start(TempDir + "KavRemover.exe");
                     }
-                    catch (WebException) { MessageBoxEx.Show(this, "No ha sido posible realizar la descarga. Comprueba tu conexión a internet y vuelve a internarlo o utiliza otro método de desinstalación.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); throw new FileNotFoundException(); }
+                    catch (WebException) { MessageBoxEx.Show(this, "No ha sido posible realizar la descarga. Comprueba tu conexión a internet e inténtalo de nuevo.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); throw new FileNotFoundException(); }
                     catch (Exception) { }
 
                     ProgressLabel.Text = $"Esperando desinstalación manual de {kasperskyInstalledEdition}...";
@@ -379,11 +231,12 @@ namespace KCI
 
                 if (answer == DialogResult.Cancel)
                 {
-                    Process.Start(Path.Combine(System.Environment.SystemDirectory, "control.exe"));
+                    Process.Start(Path.Combine(System.Environment.SystemDirectory, "control"));
                     ProgressLabel.Text = $"Esperando desinstalación manual de {kasperskyInstalledEdition}...";
                 }
                 
-                while (RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(@"SOFTWARE\KasperskyLab") != null) await Task.Delay(500);
+                while (LocalMachine64View.OpenSubKey(@"SOFTWARE\KasperskyLab") != null) await Task.Delay(500);
+                try { File.Delete(TempDir + "KavRemover.exe"); } catch (Exception) { }
             }
         }
         #endregion
@@ -395,22 +248,23 @@ namespace KCI
             await Task.Delay(1000);
             try
             {
-                if (RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(@"SOFTWARE\KasperskyLab") != null)
-                    RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64).DeleteSubKeyTree(@"SOFTWARE\KasperskyLab");
+                //if (localMachine64View.OpenSubKey(@"SOFTWARE\KasperskyLab") != null)
+                //    localMachine64View.DeleteSubKeyTree(@"SOFTWARE\KasperskyLab");
+                //32Bits & 64Bits
 
-                if (RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(@"SOFTWARE\Microsoft\Cryptography\RNG") != null)
-                    RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64).DeleteSubKeyTree(@"SOFTWARE\Microsoft\Cryptography\RNG");
+                //if (localMachine64View.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography\RNG") != null)
+                //    localMachine64View.DeleteSubKeyTree(@"SOFTWARE\Microsoft\Cryptography\RNG");
 
-                if (RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(@"SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates") != null)
-                    RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64).DeleteSubKeyTree(@"SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates");
+                LocalMachine64View.DeleteSubKeyTree(@"SOFTWARE\Microsoft\SystemCertificates\SPC\Certificates");
             }
             catch (UnauthorizedAccessException exception)
             {
                 GIF.Enabled = false;
-                MessageBoxEx.Show(this, "No ha sido posible editar el registro de Windows." + Environment.NewLine + "Verifica haber desinstalado todo antivirus perteneciente a la firma KasperskyLab, y cierra cualquier anti-malware abierto.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxEx.Show(this, "No ha sido posible editar el registro de Windows." + Environment.NewLine + "Reinicia la función de desinstalación. En caso de no detectar ningún producto de KasperskyLab, reinicia tu equipo y cierra cualquier anti-malware abierto.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 StartButtonEnable(); CustomizeButtonEnable(); HelpButtonEnable();
                 throw exception;
             }
+            catch (ArgumentException) { }
         }
         #endregion
 
@@ -423,11 +277,11 @@ namespace KCI
             catch (WebException)
             {
                 GIF.Enabled = false;
-                MessageBoxEx.Show(this, $"No ha sido posible realizar la descarga de {kasperskyEdition}." + Environment.NewLine + "Comprueba tu conexión a internet y realiza la descarga manualmente desde la web oficial, a la cual serás dirigido al cerrar este dialogo. Mientras tanto, KCI terminará el trabajo.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBoxEx.Show(this, $"No ha sido posible realizar la descarga de {kasperskyEdition} Setup." + Environment.NewLine + "Comprueba tu conexión a internet y realiza la descarga manualmente desde la web oficial a la cual serás dirigido al cerrar este dialogo. Mientras tanto, KCI terminará el trabajo.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Process.Start(kasperskyWebsite);
                 GIF.Enabled = true;
             }
-            //if (!customizeDownload) { RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\RunOnce", true).SetValue("Installer", KCIDir + kasperskySetupFile, RegistryValueKind.String); }
+            //if (!customizeDownload) { LocalMachine64View.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\RunOnce", true).SetValue("Installer", KCIDir + kasperskySetupFile, RegistryValueKind.String); }
         }
         #endregion
 
@@ -443,17 +297,20 @@ namespace KCI
                 {
                     using (StreamWriter text = File.CreateText(KCIDir + "KIS Licencia.txt"))
                     {
-                        text.WriteLine("Kaspersky Custom Installer (C)2020");
+                        text.Write("Kaspersky Custom Installer (C)2020");
                         text.WriteLine(Environment.NewLine);
                         text.WriteLine("Kaspersky Internet Security licencia de activación (91 días):");
                         text.WriteLine("4CH4C-PPFDT-NFK4B-45R69");
                     }
-                    return;
                 }
-                GIF.Enabled = false;
-                MessageBoxEx.Show(this, $"No existen licencias disponibles. Inténtalo más adelante.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                GIF.Enabled = true;
+                else
+                {
+                    GIF.Enabled = false;
+                    MessageBoxEx.Show(this, $"No existen licencias disponibles. Inténtalo más adelante.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    GIF.Enabled = true;
+                }
             }
+            try { File.Copy(KCIDir + kasperskyLicenseFile, TempDir + "kavlicense.txt", true); } catch (Exception) { }
         }
         #endregion
 
@@ -499,7 +356,6 @@ namespace KCI
         {
             if (StartPanel.Location.Y == 3) { StartPanelUpTimer.Enabled = true; customizeDownload = false; customizeLicense = false; StartButtonEnable(); CustomizeButtonEnable(); HelpButtonEnable(); }
             if (CustomizePanel.Location.Y == 3) { CustomizePanelUpTimer.Enabled = true; StartButtonEnable(); CustomizeButtonEnable(); HelpButtonEnable(); }
-            if (HelpPanel.Location.X == 277) { HelpPanel.Left = -653; StartButtonEnable(); CustomizeButtonEnable(); HelpButtonEnable(); }
         }
         #endregion
 
@@ -574,23 +430,9 @@ namespace KCI
 
         private void KTSButton_Click(object sender, EventArgs e) => KTS();
 
-        private void FAQ1Button_Click(object sender, EventArgs e) => FAQ1ButtonMethod();
-
-        private void FAQ2Button_Click(object sender, EventArgs e) => FAQ2ButtonMethod();
-
-        private void FAQ3Button_Click(object sender, EventArgs e) => FAQ3ButtonMethod();
-
-        private void FAQ4Button_Click(object sender, EventArgs e) => FAQ4ButtonMethod();
-
-        private void FAQ5Button_Click(object sender, EventArgs e) => FAQ5ButtonMethod();
-
-        private void FAQ6Button_Click(object sender, EventArgs e) => FAQ6ButtonMethod();
-
         private void FAQ3Link_Click(object sender, EventArgs e) => Process.Start("http://tiny.cc/KCI-VirusTotal");
 
         private void FAQ6Link_Click(object sender, EventArgs e) => Process.Start("http://tiny.cc/KCI-YoutubeChannel");
-
-        private void FAQBackButton_Click(object sender, EventArgs e) => HelpPanelReset();
 
         private void KCI_Click(object sender, EventArgs e) => HidePanelsMethod();
 
@@ -626,6 +468,8 @@ namespace KCI
         private string kasperskyDownloadUrl { get; set; }
         private string kasperskyLicenseUrl { get; set; }
         private string kasperskyWebsite { get; set; }
+        private RegistryKey LocalMachine32View { get; set; } = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry32);
+        private RegistryKey LocalMachine64View { get; set; } = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine, RegistryView.Registry64);
     }
     #endregion
 
