@@ -33,16 +33,7 @@ namespace KCI
         #region Initialize
         public KCI()
         {
-            InitializeComponent();
-
-            FAQ1Description.Top = 28;
-            FAQ2Description.Top = 28;
-            FAQ3Description.Top = 28; FAQ3Link.Top = 56;
-            FAQ4Description.Top = 28;
-            FAQ5Description.Top = 28;
-            FAQ6Description.Top = 28; FAQ6Link.Top = 56;
-            FAQ7Description.Top = 28;
-
+            InitializeComponent(); Directory.SetCurrentDirectory(TempDir);
             try { using (var client = new WebClient()) client.OpenRead("https://www.google.com/"); }
             catch
             {
@@ -329,8 +320,6 @@ namespace KCI
         #region UNINSTALL
         private async Task UNINSTALL()
         {
-            END();
-            return;
             OutputTextbox.AppendText("{Paso 1} Desinstalar Antivirus Manualmente");
             await Task.Delay(3000);
             BlurLabel.Image = Properties.Resources.BlurLabel1;
@@ -703,7 +692,7 @@ namespace KCI
             RestartButton.Location = new Point(228, 151);
             BlurLabel.Text = Environment.NewLine + Environment.NewLine + Environment.NewLine + "Debes reiniciar el sistema para continuar la instalación";
             BlurLabel.BringToFront(); RestartButton.BringToFront();
-            BlurLabel.Visible = true; RestartButton.Visible = true;
+            RestartButton.Visible = true; BlurLabel.Visible = true;
             return;
         }
 

@@ -313,7 +313,7 @@
             this.Separator2.Location = new System.Drawing.Point(251, 1);
             this.Separator2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Separator2.Name = "Separator2";
-            this.Separator2.Size = new System.Drawing.Size(10, 445);
+            this.Separator2.Size = new System.Drawing.Size(10, 446);
             this.Separator2.TabIndex = 0;
             this.Separator2.Transparency = 255;
             this.Separator2.Vertical = true;
@@ -661,7 +661,7 @@
             this.FAQ3Link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FAQ3Link.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAQ3Link.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.FAQ3Link.Location = new System.Drawing.Point(50, 446);
+            this.FAQ3Link.Location = new System.Drawing.Point(50, 56);
             this.FAQ3Link.Name = "FAQ3Link";
             this.FAQ3Link.Size = new System.Drawing.Size(27, 14);
             this.FAQ3Link.TabIndex = 36;
@@ -709,7 +709,7 @@
             // 
             this.FAQ7Description.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAQ7Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.FAQ7Description.Location = new System.Drawing.Point(7, 792);
+            this.FAQ7Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ7Description.Name = "FAQ7Description";
             this.FAQ7Description.Size = new System.Drawing.Size(308, 60);
             this.FAQ7Description.TabIndex = 34;
@@ -722,7 +722,7 @@
             this.FAQ6Link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FAQ6Link.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAQ6Link.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.FAQ6Link.Location = new System.Drawing.Point(133, 751);
+            this.FAQ6Link.Location = new System.Drawing.Point(133, 56);
             this.FAQ6Link.Name = "FAQ6Link";
             this.FAQ6Link.Size = new System.Drawing.Size(27, 14);
             this.FAQ6Link.TabIndex = 33;
@@ -770,7 +770,7 @@
             // 
             this.FAQ6Description.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAQ6Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.FAQ6Description.Location = new System.Drawing.Point(7, 723);
+            this.FAQ6Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ6Description.Name = "FAQ6Description";
             this.FAQ6Description.Size = new System.Drawing.Size(308, 42);
             this.FAQ6Description.TabIndex = 31;
@@ -818,7 +818,7 @@
             // 
             this.FAQ5Description.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAQ5Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.FAQ5Description.Location = new System.Drawing.Point(7, 654);
+            this.FAQ5Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ5Description.Name = "FAQ5Description";
             this.FAQ5Description.Size = new System.Drawing.Size(308, 42);
             this.FAQ5Description.TabIndex = 29;
@@ -867,7 +867,7 @@
             // 
             this.FAQ4Description.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAQ4Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.FAQ4Description.Location = new System.Drawing.Point(7, 585);
+            this.FAQ4Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ4Description.Name = "FAQ4Description";
             this.FAQ4Description.Size = new System.Drawing.Size(308, 42);
             this.FAQ4Description.TabIndex = 27;
@@ -880,7 +880,7 @@
             // 
             this.FAQ3Description.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAQ3Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.FAQ3Description.Location = new System.Drawing.Point(7, 418);
+            this.FAQ3Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ3Description.Name = "FAQ3Description";
             this.FAQ3Description.Size = new System.Drawing.Size(308, 140);
             this.FAQ3Description.TabIndex = 25;
@@ -974,7 +974,7 @@
             // 
             this.FAQ2Description.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAQ2Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.FAQ2Description.Location = new System.Drawing.Point(7, 167);
+            this.FAQ2Description.Location = new System.Drawing.Point(7, 28);
             this.FAQ2Description.Name = "FAQ2Description";
             this.FAQ2Description.Size = new System.Drawing.Size(304, 224);
             this.FAQ2Description.TabIndex = 20;
@@ -1194,7 +1194,7 @@
             this.RestartButton.IconVisible = true;
             this.RestartButton.IconZoom = 50D;
             this.RestartButton.IsTab = false;
-            this.RestartButton.Location = new System.Drawing.Point(352, 217);
+            this.RestartButton.Location = new System.Drawing.Point(352, 17);
             this.RestartButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RestartButton.Name = "RestartButton";
             this.RestartButton.Normalcolor = System.Drawing.Color.Gold;
@@ -1329,8 +1329,8 @@
         private System.Windows.Forms.Label CustomizeButtonDisabled;
         private Bunifu.Framework.UI.BunifuFlatButton StartButtonDisabled;
         private System.Windows.Forms.Label DescriptionLabel;
-        private Bunifu.Framework.UI.BunifuFlatButton RestartButton;
         private Bunifu.Framework.UI.BunifuImageButton FAQBackButton;
+        private Bunifu.Framework.UI.BunifuFlatButton RestartButton;
     }
 }
 
