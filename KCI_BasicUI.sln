@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KCIBasic", "KCIBasic.csproj", "{60E292D4-5989-4B4D-8E6D-BC35E104DDF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KCI_BasicUI", "KCI_BasicUI.csproj", "{60E292D4-5989-4B4D-8E6D-BC35E104DDF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

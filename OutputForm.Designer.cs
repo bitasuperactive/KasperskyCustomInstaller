@@ -1,4 +1,4 @@
-﻿namespace KCIBasic
+﻿namespace KCI_BasicUI
 {
     partial class OutputForm
     {

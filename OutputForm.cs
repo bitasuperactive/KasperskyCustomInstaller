@@ -9,7 +9,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KCIBasic
+namespace KCI_BasicUI
 {
     public partial class OutputForm : Form
     {
@@ -75,7 +75,7 @@ namespace KCIBasic
             }
             catch (Exception exception)
             {
-                MessageBox.Show(this, $"Error: {exception.Message}", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, $"Error: {exception.Message}", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 Hide();
 
@@ -96,7 +96,7 @@ namespace KCIBasic
             {
                 OutputLabel.Text = "Esperando reinicio del equipo";
 
-                MessageBox.Show(this, "Debes reiniciar el equipo para continuar la instalación.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "Debes reiniciar el equipo para continuar la instalación.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 TopMost = false;
             }
@@ -178,7 +178,7 @@ namespace KCIBasic
             }
             catch (WebException)
             {
-                if (MessageBox.Show(this, $"No ha sido posible descargar el asistente de instalación. Comprueba tu conexión a internet e inténtalo de nuevo.", "KCI", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation) == DialogResult.Retry)
+                if (MessageBox.Show(this, $"No ha sido posible descargar el asistente de instalación. Comprueba tu conexión a internet e inténtalo de nuevo.", "KCI BasicUI", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation) == DialogResult.Retry)
                 {
                     await DownloadSetup();
                 }
@@ -266,14 +266,14 @@ namespace KCIBasic
             }
             catch (Win32Exception) // ???
             {
-                if (MessageBox.Show(this, $"No ha sido posible iniciar el asistente de instalación. ¿Quieres volver a intentarlo?", "KCI", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation) == DialogResult.Retry)
+                if (MessageBox.Show(this, $"No ha sido posible iniciar el asistente de instalación. ¿Quieres volver a intentarlo?", "KCI BasicUI", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation) == DialogResult.Retry)
                 {
                     SecondThread();
                     return;
                 }
                 else
                 {
-                    MessageBox.Show(this, $"No es posible continuar la instalación sin el asistente de instalación para {Properties.Settings.Default.KavEditionToInstall}. Vuelve a intentarlo.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, $"No es posible continuar la instalación sin el asistente de instalación para {Properties.Settings.Default.KavEditionToInstall}. Vuelve a intentarlo.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     Properties.Settings.Default.Reset();
 
@@ -304,7 +304,7 @@ namespace KCIBasic
             }
             else if (Properties.Settings.Default.AutoInstall.Equals(false))
             {
-                DialogResult messageBox = MessageBox.Show(this, $"El asistente de instalación no ha finalizado correctamente. ¿Deseas reintentar la instalación?", "KCI", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
+                DialogResult messageBox = MessageBox.Show(this, $"El asistente de instalación no ha finalizado correctamente. ¿Deseas reintentar la instalación?", "KCI BasicUI", MessageBoxButtons.RetryCancel, MessageBoxIcon.Exclamation);
                 if (messageBox == DialogResult.Retry)
                 {
                     SecondThread();
@@ -345,7 +345,7 @@ namespace KCIBasic
 
             if (MainForm.LocalMachine32View.OpenSubKey(@"SOFTWARE\KasperskyLab\WmiHlp").GetValueNames().Contains("IsReportedExpired"))
             {
-                MessageBox.Show(this, $"No ha sido posible realizar la activación de {Properties.Settings.Default.KavEditionToInstall}. Intenta [Activar la versión de evaluación de la aplicación] desde el apartado [Introducir código de activación].", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, $"No ha sido posible realizar la activación de {Properties.Settings.Default.KavEditionToInstall}. Intenta [Activar la versión de evaluación de la aplicación] desde el apartado [Introducir código de activación].", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
@@ -364,7 +364,7 @@ namespace KCIBasic
                 else
                 {
                     GIF.Enabled = false;
-                    MessageBox.Show(this, $"No ha sido posible realizar la desinstalación de Kaspersky Secure Connection. Deberás gestionarlo manualmente.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, $"No ha sido posible realizar la desinstalación de Kaspersky Secure Connection. Deberás gestionarlo manualmente.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                     
             }
@@ -386,7 +386,7 @@ namespace KCIBasic
 
             OutputLabel.Text = "¡Todo listo!"; GIF.Visible = false;
 
-            MessageBox.Show(this, "¡Todo listo! Gracias por utilizar Kaspersky Custom Installer.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(this, "¡Todo listo! Gracias por utilizar Kaspersky Custom Installer.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             Properties.Settings.Default.Reset();
 
@@ -413,7 +413,7 @@ namespace KCIBasic
             }
             else if (close.CloseReason.Equals(CloseReason.UserClosing))
             {
-                if (MessageBox.Show(this, "La instalación no ha finalizado." + Environment.NewLine + "¿Deseas cerrar la aplicación de todas formas?", "KCI", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show(this, "La instalación no ha finalizado." + Environment.NewLine + "¿Deseas cerrar la aplicación de todas formas?", "KCI BasicUI", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     Properties.Settings.Default.Reset();
 

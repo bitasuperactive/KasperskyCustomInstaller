@@ -8,7 +8,7 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KCIBasic
+namespace KCI_BasicUI
 {
     public partial class MainForm : Form
     {
@@ -72,13 +72,13 @@ namespace KCIBasic
 
             if (Process.GetProcesses().Count(process => process.ProcessName == Process.GetCurrentProcess().ProcessName) > 1)
             {
-                MessageBox.Show("Kaspersky Custom Installer no responde.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Kaspersky Custom Installer no responde.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Environment.Exit(0);
             }
 
             if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
             {
-                MessageBox.Show("Permisos de Administrador requeridos.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Permisos de Administrador requeridos.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Environment.Exit(0);
             }
         }
@@ -195,7 +195,7 @@ namespace KCIBasic
             {
                 if (LocalMachine32View.OpenSubKey($@"SOFTWARE\KasperskyLab\{AVPversion}\Data\FlushedMsiCriticalSettings").GetValue("EnablePswrdProtect").ToString() == "1")
                 {
-                    MessageBox.Show(this, $"Debes desactivar Kaspersky Password Protect (protección por contraseña del Antivirus) y cerrar {KavEditionInstalled} manualmente para continuar.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(this, $"Debes desactivar Kaspersky Password Protect (protección por contraseña del Antivirus) y cerrar {KavEditionInstalled} manualmente para continuar.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -203,7 +203,7 @@ namespace KCIBasic
 
             if (Process.GetProcessesByName("avp").Length > 0)
             {
-                MessageBox.Show(this, $"Debes cerrar {KavEditionInstalled} manualmente para continuar.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, $"Debes cerrar {KavEditionInstalled} manualmente para continuar.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -249,7 +249,7 @@ namespace KCIBasic
 
             if (MainForm.LocalMachine32View.OpenSubKey(@"SOFTWARE\KasperskyLab\WmiHlp").GetValueNames().Contains("IsReportedExpired"))
             {
-                MessageBox.Show(this, $"No ha sido posible realizar la activación de {KavEditionInstalled}. Intenta [Activar la versión de evaluación de la aplicación] desde el apartado [Introducir código de activación].", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, $"No ha sido posible realizar la activación de {KavEditionInstalled}. Intenta [Activar la versión de evaluación de la aplicación] desde el apartado [Introducir código de activación].", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -257,7 +257,7 @@ namespace KCIBasic
 
                 Process.Start($@"{AVProot}\avpui.exe");
 
-                MessageBox.Show(this, $"{KavEditionInstalled} ha sido activado con éxito.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, $"{KavEditionInstalled} ha sido activado con éxito.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 ActivateButton.Enabled = false; ActivateButton.Text = "Producto Activado";
                 
@@ -277,9 +277,9 @@ namespace KCIBasic
             await outputForm.HiddenProcess($@"{AVProot}\avp.com", $"EXPORT \"{Directory.GetCurrentDirectory()}\\{KavEditionInstalled} Configuration.cfg\""); GIF.Visible = false;
 
             if (File.Exists($@"{Directory.GetCurrentDirectory()}\{KavEditionInstalled} Configuration.cfg"))
-                MessageBox.Show(this, $"Configuración del producto exportada con éxito.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, $"Configuración del producto exportada con éxito.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show(this, $"No ha sido posible exportar la configuración del producto. Puedes exportarla manualmente desde el apartado [Exportar Configuración] dentro de ajustes de la aplicación.", "KCI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, $"No ha sido posible exportar la configuración del producto. Puedes exportarla manualmente desde el apartado [Exportar Configuración] dentro de ajustes de la aplicación.", "KCI BasicUI", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             MainPanel.Visible = true; TopMost = false;
         }
