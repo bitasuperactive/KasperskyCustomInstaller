@@ -1,14 +1,14 @@
 # Overview
-<img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/doc/icon.ico" width="192"/> <img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/doc/GUI_showcase.png" width="436"/>
+<img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/icon.ico" width="192"/> <img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/GUI_showcase.png" width="436"/>
 
 **Kaspersky Custom Installer** (**KCI** en adelante) es una alternativa de código abierto al software conocido como Kaspersky Reset Trial o KRT.
 
 KCI soporta los siguientes productos domésticos de Kaspersky Lab: Kaspersky Antivirus / Kaspersky Internet Security / Kaspersky Total Security.
 
-[Utilidades](https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/README.md#principales-utilidades) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KasperskyCustomInstaller/releases) | [Ejecución](https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/README.md#ejecución) | [Problemas sin resolver](https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/README.md#problemas-sin-resolver)
+[Utilidades](https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/README.md#principales-utilidades) | [Descargas y Notas de lanzamiento](https://github.com/bitasuperactive/KasperskyCustomInstaller/releases) | [Ejecución](https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/README.md#ejecución) | [Problemas sin resolver](https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/README.md#problemas-sin-resolver)
 
 ## Funciones principales
-<img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/doc/uninstallimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/doc/cleanimage.jpg" width="150"/> <img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/doc/downloadimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/doc/keyimage.jpg" width="150"/>
+<img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/uninstallimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/cleanimage.jpg" width="150"/> <img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/downloadimage.png" width="150"/> <img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/keyimage.jpg" width="150"/>
 
 - **Desinstalación de Kaspersky manual/automática:**
 
@@ -66,7 +66,7 @@ KCI soporta los siguientes productos domésticos de Kaspersky Lab: Kaspersky Ant
 
 
 ## Falsos positivos
-<img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/console/doc/virustotalimage.png" width="300"/>
+<img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/virustotalimage.png" width="300"/>
 
 Las detecciones proporcionadas por [Virus total](https://www.virustotal.com/gui/file/24f97e787c5fbb600f6643bcb957f68ab099f12a7e37fc6473feb582d19c40e3/detection) se deben a las funciones automáticas que KCI realiza sin intervención del usuario, como la descarga y ejecución automática del asistente de instalación de Kaspersky.
 
