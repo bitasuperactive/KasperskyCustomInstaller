@@ -1,5 +1,5 @@
 # Overview
-<img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/icon.ico" width="192"/> <img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/GUI_showcase.png" width="436"/>
+<img src="https://github.com/bitasuperactive/KasperskyCustomInstaller/blob/modernUI/doc/GUI_showcase.png" width="436"/>
 
 **Kaspersky Custom Installer** (**KCI** en adelante) es una alternativa de código abierto al software conocido como Kaspersky Reset Trial o KRT.
 
